@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: bonne-assise-preview
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    renderSubdomainPolicy: enabled
+    envVars:
+      - key: BA_ENV
+        value: production
+      - key: BA_DB_PATH
+        value: /tmp/bonne-assise/data/bonne_assise.db
+      - key: BA_UPLOAD_DIR
+        value: /tmp/bonne-assise/uploads
+      - key: BA_FRONTEND_DIR
+        value: /app/frontend-dist
+      - key: BA_ADMIN_EMAIL
+        sync: false
+      - key: BA_ADMIN_PASSWORD
+        sync: false
+      - key: BA_SESSION_SECRET
+        generateValue: true
