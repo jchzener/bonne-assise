@@ -1,20 +1,74 @@
 import React from "react";
 import { Shell } from "../layout/Shell.jsx";
 import { PageHero } from "../ui/PageHero.jsx";
+import { SectionHead } from "../ui/SectionHead.jsx";
 import { Button, Arrow } from "../ui/Button.jsx";
 import { POSTCARD_OFFERS } from "../postcard/PostcardStudio.jsx";
-import { IMG } from "../../data/content.js";
+import { IMG, experiences } from "../../data/content.js";
+
+const INTEREST_MAIL =
+  "mailto:experiences@bonne-assise.bj?subject=Intérêt%20coffret%20BONNE%20ASSISE";
 
 export function BoutiquePage() {
   return (
     <Shell>
       <PageHero
         kicker="BOUTIQUE"
-        title="Objets éditoriaux"
-        text="Cartes postales digitales et physiques — sélection BONNE ASSISE et créateurs."
-        img={IMG.hero}
+        title="Objets et coffrets"
+        text="Cartes postales, puis expériences à réserver avant le départ — hospitalité éditoriale, pas catalogue d’activités."
+        img={IMG.plan || IMG.hero}
       />
+
+      <section className="section">
+        <SectionHead
+          eyebrow="COFFRETS SIGNATURES"
+          title="S’asseoir autrement"
+        />
+        <p className="experiences-lead">
+          Cinq formats choisis pour le voyageur qui prépare son séjour. Phase
+          d’ouverture : manifestez votre intérêt — nous confirmons les dates
+          et les hôtes.
+        </p>
+        <div className="experiences-grid experiences-grid--boutique">
+          {experiences.map((x) => (
+            <article className="experience-card experience-card--full" key={x.id}>
+              <div className="experience-card-media">
+                <img src={x.img} alt="" />
+              </div>
+              <div className="experience-card-body">
+                <small>{x.eyebrow}</small>
+                <h3>{x.name}</h3>
+                <p className="experience-tagline">{x.tagline}</p>
+                <p>{x.desc}</p>
+                <ul className="experience-includes">
+                  {x.includes.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+                <div className="experience-meta">
+                  <span>{x.duration} · {x.group}</span>
+                  <span className="experience-price">
+                    dès {x.priceFrom}
+                    <small> {x.priceNote}</small>
+                  </span>
+                </div>
+                <Button
+                  as="a"
+                  href={`${INTEREST_MAIL}&body=${encodeURIComponent(
+                    `Bonjour,\n\nJe suis intéressé·e par le coffret « ${x.name} ».\nDates envisagées : \nNombre de personnes : \n\n`
+                  )}`}
+                  variant="primary"
+                >
+                  Manifestez votre intérêt <Arrow />
+                </Button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="section boutique-grid">
+        <SectionHead eyebrow="CARTES POSTALES" title="Objets éditoriaux" />
         <article className="boutique-card">
           <img src={IMG.hero2} alt="" />
           <div>
@@ -50,8 +104,7 @@ export function BoutiquePage() {
             <p>
               Uploadez votre photo dans le studio. Si elle se vend :{" "}
               <strong>70&nbsp;% créateur / 30&nbsp;% plateforme</strong> sur le
-              digital. Sur le physique, partage sur la marge après coûts
-              d’impression et d’envoi.
+              digital.
             </p>
             <Button as="a" href="#/postcard" variant="ghost">
               Devenir créateur <Arrow />
@@ -59,10 +112,12 @@ export function BoutiquePage() {
           </div>
         </article>
       </section>
+
       <section className="section">
         <p className="boutique-note">
-          Paiement : intégration FedaPay / Mobile Money / carte à brancher. La
-          démo simule le checkout digital.
+          Réservation en ligne et paiement (FedaPay / Mobile Money / carte) :
+          phase 2 backend. Aujourd’hui : manifeste d’intérêt par e-mail pour
+          caler hôtes et dates.
         </p>
       </section>
     </Shell>

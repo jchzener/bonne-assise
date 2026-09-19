@@ -1,7 +1,10 @@
 import { IMG } from "../../data/content.js";
+import { pickLang } from "../../data/content.js";
 import { Arrow } from "./Button.jsx";
+import { useLang } from "../context/LangContext.jsx";
 
 export function Card({ item, kind = "place", large = false }) {
+  const { lang, t } = useLang();
   const href =
     kind === "dish"
       ? `#/food/${item.slug}`
@@ -10,6 +13,9 @@ export function Card({ item, kind = "place", large = false }) {
         : `#/places/${item.slug}`;
   const fallback = IMG.hero2 || IMG.hero;
   const src = item.img || fallback;
+  const eyebrow = pickLang(item, "eyebrow", lang);
+  const name = pickLang(item, "name", lang) || pickLang(item, "title", lang);
+  const desc = pickLang(item, "desc", lang);
 
   return (
     <a className={`card ${large ? "large" : ""}`} href={href}>
@@ -24,11 +30,11 @@ export function Card({ item, kind = "place", large = false }) {
         />
       </div>
       <div className="card-body">
-        {item.eyebrow && <small>{item.eyebrow}</small>}
-        <h3>{item.name || item.title}</h3>
-        {item.desc && <p>{item.desc}</p>}
+        {eyebrow && <small>{eyebrow}</small>}
+        <h3>{name}</h3>
+        {desc && <p>{desc}</p>}
         <span className="card-cta">
-          Découvrir <Arrow />
+          {lang === "EN" ? "Discover" : "Découvrir"} <Arrow />
         </span>
       </div>
     </a>

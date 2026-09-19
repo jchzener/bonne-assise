@@ -1,22 +1,67 @@
 export const IMG = {
-  /* Reliable editorial media — Cloudinary brand + verified wide shots */
-  hero: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_85,w_2400,h_1350,c_fill,g_auto/amazone_42500f11c',
-  hero2: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_85,w_2400,h_1350,c_fill,g_auto/mur-1',
-  hero3: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_85,w_2400,h_1350,c_fill,g_center/amazone_42500f11c',
-  cotonou: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1800,h_1200,c_fill/mur-1',
-  ganvie: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,h_1200,c_fill,g_auto/amazone_42500f11c',
-  ouidah: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,h_1200,c_fill/mur-1',
-  porto: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,h_1200,c_fill,g_auto/amazone_42500f11c',
-  grandPopo: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,h_1200,c_fill/mur-1',
-  akassa: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/mur-1',
-  aloco: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/amazone_42500f11c',
-  yam: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/mur-1',
-  streetfood: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/amazone_42500f11c',
-  welcome1: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1400,c_fill/amazone_42500f11c',
-  welcome2: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1400,c_fill/mur-1',
-  welcome3: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1400,c_fill,g_auto/amazone_42500f11c',
-  abomey: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/mur-1',
-  pendjari: 'https://res.cloudinary.com/benin/image/upload/f_auto,q_80,w_1600,c_fill/amazone_42500f11c'
+  /* ============================================================
+     ARCHITECTURE MÉDIA BONNE ASSISE — rôles distincts
+     Sources: Wikimedia Commons (CC) + Unsplash (libre)
+     Direction: documentaire, sensoriel, à hauteur d’homme
+     ============================================================ */
+
+  /* —— HERO —— */
+  hero: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_Venise_de_l%27Afrique.jpg?width=2400',
+  hero2: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_porte_du_non_retour_%C3%A0_Ouidah.jpg?width=2400',
+  hero3: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2400&q=80',
+
+  /* —— WELCOME —— */
+  welcome1: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pirogue_taxi_a_Ganvi%C3%A9_la_cit%C3%A9_lacustre_du_sud_du_B%C3%A9nin.jpg?width=1400',
+  welcome2: 'https://images.unsplash.com/photo-1596040033229-a0b3b83bdea8?auto=format&fit=crop&w=1400&q=80',
+  welcome3: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1400&q=80',
+
+  /* —— RÉGIONS —— */
+  regionSud: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ganvi%C3%A9-Chaume_et_t%C3%B4le.jpg?width=1600',
+  regionCentre: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abomey-K%C3%B6nigspalast2.jpg?width=1600',
+  regionNord: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1600&q=80',
+
+  /* —— À TABLE (texture, grill, partage) —— */
+  foodHero: 'https://images.unsplash.com/photo-1596040033229-a0b3b83bdea8?auto=format&fit=crop&w=1600&q=80',
+  food1: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1600&q=80',
+  food2: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1600&q=80',
+  food3: 'https://images.unsplash.com/photo-1519708227418-c74fd666b07f?auto=format&fit=crop&w=1600&q=80',
+
+  /* —— AGENDA —— */
+  event1: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_porte_du_non_retour_%C3%A0_Ouidah.jpg?width=1600',
+  event2: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1600&q=80',
+  event3: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80',
+  event4: 'https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?auto=format&fit=crop&w=1600&q=80',
+  event5: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+
+  /* —— LIEUX (un rôle = une image juste) —— */
+  cotonou: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1800&q=80',
+  ganvie: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_Venise_de_l%27Afrique.jpg?width=1600',
+  ouidah: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_porte_du_non_retour_%C3%A0_Ouidah.jpg?width=1600',
+  porto: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abomey-K%C3%B6nigspalast2.jpg?width=1600',
+  grandPopo: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+  abomey: 'https://commons.wikimedia.org/wiki/Special:FilePath/Abomey-K%C3%B6nigspalast2.jpg?width=1600',
+  pendjari: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80',
+
+  /* plats */
+  akassa: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1600&q=80',
+  aloco: 'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1600&q=80',
+  yam: 'https://images.unsplash.com/photo-1512058566638-91d83a38fc55?auto=format&fit=crop&w=1600&q=80',
+  streetfood: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=80',
+
+  /* histoires */
+  story1: 'https://commons.wikimedia.org/wiki/Special:FilePath/La_porte_du_non_retour_%C3%A0_Ouidah.jpg?width=1600',
+  story2: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pirogue_taxi_a_Ganvi%C3%A9_la_cit%C3%A9_lacustre_du_sud_du_B%C3%A9nin.jpg?width=1600',
+  story3: 'https://images.unsplash.com/photo-1596040033229-a0b3b83bdea8?auto=format&fit=crop&w=1600&q=80',
+  story4: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80',
+
+  plan: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80',
+
+  /* —— COFFRETS (images dédiées, pas de redondance) —— */
+  expCinq: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80',
+  expMarche: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1600&q=80',
+  expSodabi: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1600&q=80',
+  expGari: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1600&q=80',
+  expLac: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pirogue_taxi_a_Ganvi%C3%A9_la_cit%C3%A9_lacustre_du_sud_du_B%C3%A9nin.jpg?width=1600'
 };
 
 const meta = (overrides = {}) => ({
@@ -36,9 +81,13 @@ export const places = [
     id: 'p1',
     slug: 'cotonou',
     name: 'Cotonou',
+    nameEn: 'Cotonou',
     eyebrow: 'Ville & côte',
+    eyebrowEn: 'City & coast',
     title: 'Le cœur vivant du Bénin.',
+    titleEn: 'The living heart of Benin.',
     desc: 'Marchés, art, tables, plage et vie nocturne. Se découvre par quartiers et par moments.',
+    descEn: 'Markets, art, tables, beach and nightlife. Best discovered by neighbourhood and by moment.',
     img: IMG.cotonou,
     gallery: [IMG.cotonou, IMG.hero2, IMG.streetfood],
     tags: ['ville', 'food', 'littoral'],
@@ -68,9 +117,13 @@ export const places = [
     id: 'p2',
     slug: 'ouidah',
     name: 'Ouidah',
+    nameEn: 'Ouidah',
     eyebrow: 'Histoire & mémoire',
+    eyebrowEn: 'History & memory',
     title: 'Une ville qui se raconte à pied.',
+    titleEn: 'A city told on foot.',
     desc: 'Route des esclaves, Porte du Non-Retour, temples vodoun et Atlantique.',
+    descEn: 'Slave Route, Door of No Return, Vodun temples and the Atlantic.',
     img: IMG.ouidah,
     gallery: [IMG.ouidah, IMG.hero, IMG.porto],
     tags: ['histoire', 'culture', 'mémoire'],
@@ -154,9 +207,12 @@ export const dishes = [
     id: 'd1',
     slug: 'akassa',
     name: 'Akassa',
+    nameEn: 'Akassa',
     eyebrow: 'Plat fondateur',
+    eyebrowEn: 'Foundational dish',
     desc: 'Pâte de maïs fermentée, légèrement acidulée — le quotidien de beaucoup de tables.',
-    img: IMG.akassa,
+    descEn: 'Fermented maize paste, lightly tangy — everyday fare at many tables.',
+    img: IMG.foodHero,
     gallery: [IMG.akassa, IMG.streetfood],
     tags: ['base', 'quotidien'],
     whereToTry: 'Tables de quartier à Cotonou, Ouidah, Porto-Novo.',
@@ -172,9 +228,12 @@ export const dishes = [
     id: 'd2',
     slug: 'aloco',
     name: 'Aloco',
+    nameEn: 'Aloco',
     eyebrow: 'À partager',
+    eyebrowEn: 'To share',
     desc: 'Banane plantain mûre frite — simple, direct, souvent avec grillades.',
-    img: IMG.aloco,
+    descEn: 'Ripe plantain, fried — simple, direct, often with grilled meat or fish.',
+    img: IMG.food1,
     gallery: [IMG.aloco, IMG.streetfood],
     tags: ['street', 'soir'],
     whereToTry: 'Bords de mer, bars de la Marina, soirées.',
@@ -188,9 +247,12 @@ export const dishes = [
     id: 'd3',
     slug: 'amiwo',
     name: 'Amiwo',
+    nameEn: 'Amiwo',
     eyebrow: 'Couleur & fête',
+    eyebrowEn: 'Colour & celebration',
     desc: 'Riz rouge (tomate ou huile de palme), souvent servi lors des moments collectifs.',
-    img: IMG.yam,
+    descEn: 'Red rice (tomato or palm oil), often served at gatherings.',
+    img: IMG.food2,
     gallery: [IMG.yam, IMG.akassa],
     tags: ['fête', 'riz'],
     whereToTry: 'Tables familiales, cérémonies, restaurants locaux.',
@@ -203,9 +265,12 @@ export const dishes = [
     id: 'd4',
     slug: 'poisson-braise',
     name: 'Poisson braisé',
+    nameEn: 'Grilled fish',
     eyebrow: 'Côte',
+    eyebrowEn: 'Coast',
     desc: 'Poisson grillé près de l’océan — le geste le plus simple et le plus juste.',
-    img: IMG.streetfood,
+    descEn: 'Fish grilled by the ocean — the simplest and truest gesture.',
+    img: IMG.food3,
     gallery: [IMG.streetfood, IMG.grandPopo],
     tags: ['côte', 'soir'],
     whereToTry: 'Fidjrossè, Grand-Popo, abords de plage.',
@@ -225,7 +290,7 @@ export const events = [
     title: 'Vodun Days 2027',
     place: 'Ouidah',
     meta: '2–9 janvier · arts, culture & spiritualité',
-    img: IMG.ouidah,
+    img: IMG.event1,
     dateStart: '2027-01-02',
     ...meta({ sources: ['vodundays.bj', 'benin.bj'] })
   },
@@ -236,7 +301,7 @@ export const events = [
     title: 'WeLovEya 2026',
     place: 'Cotonou',
     meta: '26–27 décembre · musique & talents',
-    img: IMG.cotonou,
+    img: IMG.event2,
     dateStart: '2026-12-26',
     ...meta({ sources: ['weloveyafestival.com', 'benin.bj'] })
   },
@@ -247,7 +312,7 @@ export const events = [
     title: 'Festival des Masques 2027',
     place: 'Porto-Novo',
     meta: '7–8 août · masques, traditions & arts',
-    img: IMG.porto,
+    img: IMG.event3,
     dateStart: '2027-08-07',
     ...meta({ sources: ['festivaldesmasques.bj', 'benin.bj'] })
   },
@@ -258,7 +323,7 @@ export const events = [
     title: 'JISTNA 2027',
     place: 'Ouidah',
     meta: '22–23 août · mémoire de la traite',
-    img: IMG.ouidah,
+    img: IMG.event4,
     dateStart: '2027-08-22',
     ...meta({ sources: ['jistna.bj', 'benin.bj'] })
   },
@@ -269,7 +334,7 @@ export const events = [
     title: 'Gaani 2027',
     place: 'Nikki',
     meta: 'Fête royale Bariba · date à confirmer',
-    img: IMG.pendjari,
+    img: IMG.event5,
     dateStart: '2027-01-01',
     ...meta({ sources: ['gaani.bj', 'benin.bj'] })
   }
@@ -281,7 +346,7 @@ export const stories = [
     slug: 'ouidah-en-une-journee',
     title: 'Ouidah ne se raconte pas en une journée.',
     desc: 'Repères pour comprendre la ville avant de la parcourir.',
-    img: IMG.ouidah,
+    img: IMG.story1,
     season: 'Toute l’année',
     body: [
       'La Route des esclaves, la Porte du Non-Retour, les temples : chaque étape gagne à être préparée.',
@@ -294,7 +359,7 @@ export const stories = [
     slug: 'ganvie-au-rythme-du-lac',
     title: 'Ganvié, au rythme du lac.',
     desc: 'Le quotidien avant le cliché, depuis une pirogue.',
-    img: IMG.ganvie,
+    img: IMG.story2,
     season: 'Saison sèche',
     body: [
       'Filets, enfants, marchés, maisons : les gestes d’abord.',
@@ -307,7 +372,7 @@ export const stories = [
     slug: 'commencer-a-manger-a-cotonou',
     title: 'Ce que l’on commande vraiment à Cotonou.',
     desc: 'Quelques plats pour entrer dans la cuisine locale.',
-    img: IMG.streetfood,
+    img: IMG.story3,
     season: 'Toute l’année',
     body: [
       'Alloco et grillades le soir. Akassa avec une sauce. Poisson braisé près de la mer.',
@@ -320,7 +385,7 @@ export const stories = [
     slug: 'renouer-avec-les-racines',
     title: 'Renouer avec les racines au Bénin.',
     desc: 'Terre d’accueil pour les Afro-descendants — mémoire et reconnexion.',
-    img: IMG.hero,
+    img: IMG.story4,
     season: 'Toute l’année',
     body: [
       'Le Bénin invite à un geste concret : comprendre, séjourner, parfois s’ancrer.',
@@ -337,7 +402,7 @@ export const regions = [
     label: 'SUD',
     title: 'Mémoriel, balnéaire & lacustre',
     places: 'Littoral · Atlantique · Mono · Ouémé',
-    img: IMG.hero2
+    img: IMG.regionSud
   },
   {
     id: 'r2',
@@ -345,7 +410,7 @@ export const regions = [
     label: 'CENTRE',
     title: 'Royaumes, collines & masques',
     places: 'Zou · Collines · Plateau · Couffo',
-    img: IMG.porto
+    img: IMG.regionCentre
   },
   {
     id: 'r3',
@@ -353,7 +418,7 @@ export const regions = [
     label: 'NORD',
     title: 'Montagnes, parcs & traditions',
     places: 'Atacora · Donga · Borgou · Alibori',
-    img: IMG.pendjari
+    img: IMG.regionNord
   }
 ];
 
@@ -409,3 +474,134 @@ export const sourceRegistry = [
   { source: 'benin.bj/ressources', url: 'https://benin.bj/ressources', note: 'Médias & marque-pays — usage selon conditions.' },
   { source: 'Unseen Benin', url: 'https://unseenbenin.wordpress.com/', note: 'Regards culturels ; droits image à vérifier.' }
 ];
+
+
+/** 5 coffrets signatures — hospitalité éditoriale (phase 1: catalogue statique) */
+export const experiences = [
+  {
+    id: 'x1',
+    slug: 'cinq-soirs-a-table',
+    name: 'Cinq soirs à table',
+    nameEn: 'Five evenings at the table',
+    eyebrow: 'Pack d’atterrissage',
+    eyebrowEn: 'Landing pack',
+    tagline: 'Cinq dîners choisis pour vos premières soirées.',
+    taglineEn: 'Five dinners chosen for your first evenings.',
+    desc: 'Des tables et maquis partenaires — le menu du jour, une note éditoriale, zéro stress du “où manger ce soir”.',
+    descEn: 'Partner tables and maquis — the menu of the day, an editorial note, zero “where to eat tonight” stress.',
+    duration: '5 soirées',
+    group: '1–4 personnes',
+    priceFrom: '180 €',
+    priceNote: 'par personne · selon standing',
+    includes: [
+      '5 réservations confirmées',
+      'Note BONNE ASSISE pour chaque table',
+      'Confirmation WhatsApp la veille'
+    ],
+    img: IMG.expCinq,
+    status: 'interest' // interest | bookable
+  },
+  {
+    id: 'x2',
+    slug: 'marche-feu',
+    name: 'Marché → Feu',
+    nameEn: 'Market → Fire',
+    eyebrow: 'Courses + cuisine',
+    eyebrowEn: 'Market + cook',
+    tagline: 'Acheter avec un local, cuisiner, s’asseoir.',
+    taglineEn: 'Shop with a local, cook, sit down together.',
+    desc: 'Matin au marché, choix des produits, après-midi en cuisine. Deux plats, recettes à emporter.',
+    descEn: 'Morning market, choose ingredients, afternoon in the kitchen. Two dishes, recipes to take home.',
+    duration: '3–4 h',
+    group: '2–6 personnes',
+    priceFrom: '85 €',
+    priceNote: 'par personne',
+    includes: [
+      'Hôte cuisinier·ère nommé·e',
+      'Marché + course',
+      'Atelier + repas partagé',
+      'Fiche recettes PDF'
+    ],
+    img: IMG.expMarche,
+    status: 'interest'
+  },
+  {
+    id: 'x3',
+    slug: 'sodabi-palme-verre',
+    name: 'Sodabi — De la palme au verre',
+    nameEn: 'Sodabi — From palm to glass',
+    eyebrow: 'Producteur',
+    eyebrowEn: 'Producer',
+    tagline: 'Distillerie, histoire, dégustation mesurée.',
+    taglineEn: 'Distillery, story, measured tasting.',
+    desc: 'Visite d’un site de production artisanale, process expliqué, dégustation guidée, puis un plat pour ancrer le goût.',
+    descEn: 'Visit an artisanal production site, process explained, guided tasting, then a dish to ground the flavours.',
+    duration: '½ journée',
+    group: '2–8 personnes',
+    priceFrom: '75 €',
+    priceNote: 'par personne',
+    includes: [
+      'Visite distillerie / producteur',
+      'Dégustation guidée',
+      'Plat d’accompagnement',
+      'Contexte culturel (sans spectacle)'
+    ],
+    img: IMG.expSodabi,
+    status: 'interest'
+  },
+  {
+    id: 'x4',
+    slug: 'gari-gestes-manioc',
+    name: 'Gari & gestes du manioc',
+    nameEn: 'Gari & cassava gestures',
+    eyebrow: 'Savoir-faire',
+    eyebrowEn: 'Craft',
+    tagline: 'Mains, matière, assiette.',
+    taglineEn: 'Hands, material, plate.',
+    desc: 'Avec un groupement de femmes : étapes du gari, essai des gestes, dégustation d’un plat simple.',
+    descEn: 'With a women’s cooperative: gari steps, try the gestures, taste a simple dish.',
+    duration: '2–3 h',
+    group: '2–8 personnes',
+    priceFrom: '65 €',
+    priceNote: 'par personne',
+    includes: [
+      'Atelier avec productrices',
+      'Essai des gestes',
+      'Dégustation',
+      'Échange sur le quotidien du métier'
+    ],
+    img: IMG.expGari,
+    status: 'interest'
+  },
+  {
+    id: 'x5',
+    slug: 'lac-filet-ganvie',
+    name: 'Lac & filet — Ganvié autrement',
+    nameEn: 'Lake & net — Ganvié otherwise',
+    eyebrow: 'Territoire',
+    eyebrowEn: 'Territory',
+    tagline: 'Pirogue, rythme du lac, table simple.',
+    taglineEn: 'Pirogue, lake rhythm, simple table.',
+    desc: 'Traversée hors pic touristique, temps avec un pêcheur ou une famille, déjeuner du jour — pas le tour photo de 2 heures.',
+    descEn: 'Crossing off peak hours, time with a fisher or family, lunch of the day — not a two-hour photo tour.',
+    duration: 'Matinée',
+    group: '2–6 personnes',
+    priceFrom: '110 €',
+    priceNote: 'par personne',
+    includes: [
+      'Pirogue + hôte local',
+      'Temps sur le lac',
+      'Repas simple',
+      'Créneau tôt recommandé'
+    ],
+    img: IMG.expLac,
+    status: 'interest'
+  }
+];
+
+/** Pick FR/EN field: pickLang(item, 'desc', lang) */
+export function pickLang(item, field, lang = 'FR') {
+  if (!item) return '';
+  if (lang === 'EN' && item[field + 'En']) return item[field + 'En'];
+  return item[field] || '';
+}
