@@ -1,20 +1,40 @@
+# BONNE ASSISE — Render Blueprint
+# Two native services (no Docker). Frontend = Next.js, Backend = FastAPI.
+
 services:
+  # ── FastAPI ──────────────────────────────────────────────
   - type: web
     name: bonne-assise-api
     runtime: python
+    plan: free
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
-    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.0"
+      # Set after first deploy to the public URL of bonne-assise-web
+      # e.g. https://bonne-assise-web.onrender.com
+      - key: FRONTEND_ORIGIN
+        sync: false
 
+  # ── Next.js ──────────────────────────────────────────────
   - type: web
     name: bonne-assise-web
     runtime: node
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    startCommand: npm start
     plan: free
+    rootDir: frontend
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /en
     envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # Public origin of the API service (no trailing slash)
+      # e.g. https://bonne-assise-api.onrender.com
+      # Leave empty to use built-in frontend mocks.
       - key: NEXT_PUBLIC_API_BASE_URL
         sync: false
