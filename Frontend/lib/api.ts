@@ -290,12 +290,106 @@ export type ExperienceProductDetail = {
   booking_label: string; related: { id: string; label: string; href: string }[]; locale: 'en'|'fr';
 };
 
+const experienceMockCopy: Record<'en' | 'fr', Record<string, {
+  title: string;
+  promise: string;
+  intro: string;
+  why_it_matters: string;
+  eyebrow: string;
+  booking_label: string;
+}>> = {
+  en: {
+    'market-to-fire': {
+      title: 'Buy with a local. Cook what you found. Sit down together.',
+      promise: 'Enter the chain between market, ingredient, gesture and table.',
+      intro: 'Food is not simply prepared in Benin. It is bought, negotiated, carried, transformed and shared. This morning-to-table experience lets you enter that chain instead of watching it from the outside.',
+      why_it_matters: 'The value is not a cooking lesson alone. It is the relationship between market, ingredient, gesture and table — with a host who can explain what you are seeing and why it matters.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Reserve your place'
+    },
+    'life-on-the-water': {
+      title: 'Ganvié, beyond the postcard.',
+      promise: 'Spend a morning where the lake is road, workplace, market and home.',
+      intro: 'Ganvié is not a floating attraction. It is a lived environment where the lake is road, workplace, market and home. This experience deliberately slows the visit down.',
+      why_it_matters: 'The experience shifts the focus from seeing the lake to spending time with someone whose life is organised around it. The pirogue is a way into the relationship, not the destination itself.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Reserve your place'
+    },
+    'the-first-table': {
+      title: 'A January 1st table where food, memory and freedom meet.',
+      promise: 'A contemporary gathering shaped by Haitian and Beninese voices.',
+      intro: 'Joumou carries a powerful place in Haitian memory: a soup associated with January 1st and the independence of Haiti. Ouidah carries another history — the routes of enslavement and their remembrance. The First Table brings these histories into a contemporary gathering, without reenactment or spectacle.',
+      why_it_matters: 'The experience is deliberately co-created with Haitian and Beninese voices. Its purpose is not to turn memory into tourism, but to create a place for food, conversation, remembrance and connection.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Join the waiting list'
+    }
+  },
+  fr: {
+    'market-to-fire': {
+      title: 'Acheter avec un local. Cuisiner ce que l’on a choisi. S’asseoir ensemble.',
+      promise: 'Entrer dans le lien entre marché, ingrédient, geste et table.',
+      intro: 'Au Bénin, la cuisine ne commence pas dans la casserole. Elle commence au marché, dans les choix, les relations, les gestes et la table. Cette expérience permet d’entrer dans cette chaîne plutôt que de la regarder de l’extérieur.',
+      why_it_matters: 'La valeur n’est pas seulement celle d’un cours de cuisine. C’est le lien entre marché, ingrédient, geste et table — avec un hôte capable d’expliquer ce que vous voyez et pourquoi cela compte.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Réserver votre place'
+    },
+    'life-on-the-water': {
+      title: 'Ganvié, au-delà de la carte postale.',
+      promise: 'Passer une matinée là où le lac est route, travail, marché et maison.',
+      intro: 'Ganvié n’est pas une attraction flottante. C’est un environnement vécu où le lac est à la fois route, lieu de travail, marché et maison. Cette expérience choisit volontairement de ralentir.',
+      why_it_matters: 'L’expérience déplace le regard : il ne s’agit plus seulement de voir le lac, mais de passer du temps avec quelqu’un dont la vie s’organise autour de lui. La pirogue est une porte d’entrée, pas la destination.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Réserver votre place'
+    },
+    'the-first-table': {
+      title: 'Une table du 1er janvier où se rencontrent nourriture, mémoire et liberté.',
+      promise: 'Un rassemblement contemporain porté par des voix haïtiennes et béninoises.',
+      intro: 'La soupe Joumou occupe une place forte dans la mémoire haïtienne : elle est associée au 1er janvier et à l’indépendance d’Haïti. Ouidah porte une autre histoire, celle des routes de la traite et de leur mémoire. The First Table met ces histoires en relation dans un rassemblement contemporain, sans reconstitution ni spectacle.',
+      why_it_matters: 'L’expérience doit être co-construite avec des voix haïtiennes et béninoises. Son objectif n’est pas de transformer la mémoire en produit touristique, mais de créer un espace de nourriture, de conversation, de mémoire et de lien.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Rejoindre la liste d’attente'
+    }
+  }
+};
+
+const experienceMockBase: Record<string, Omit<ExperienceProductDetail, 'title' | 'promise' | 'intro' | 'why_it_matters' | 'eyebrow' | 'booking_label' | 'locale'>> = {
+  'market-to-fire': {
+    id: 'market-to-fire', type: 'HOSTED_EXPERIENCE', name: 'MARKET → FIRE', place: 'Ouidah', region: 'The Atlantic', duration: '3–4 hours', format: 'Small group · market · cooking · shared meal',
+    hero: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2400&q=90',
+    host: { name: 'Your host', role: 'Cook & local host', bio: 'A local cook who opens the morning from market choices to a shared table, explaining the ingredients, gestures and everyday decisions along the way.', image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85' },
+    steps: [
+      { time: '08:30', title: 'Meet your host', description: 'Start together and learn what you are looking for before entering the market.' },
+      { time: '09:00', title: 'Go to market', description: 'Choose ingredients with your host, learn what is in season and follow the small negotiations behind the meal.' },
+      { time: '11:00', title: 'Back to the kitchen', description: 'Prepare two dishes together and learn the gestures rather than simply watching a demonstration.' },
+      { time: '12:30', title: 'Sit down', description: 'Share the meal you helped make, with recipes to take home.' }
+    ],
+    included: ['Local market visit', 'Ingredients for the workshop', 'Cooking session', 'Shared meal', 'Recipe booklet'], not_included: ['Transport to Ouidah', 'Personal purchases'], practical: ['Small groups', 'Comfortable shoes for the market', 'Tell us about dietary restrictions when booking'], price_note: 'Price shown at booking · per person', availability_note: 'Selected mornings · subject to host availability', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }, { id: 'life-on-the-water', label: 'Life on the Water', href: '/experiences/life-on-the-water' }]
+  },
+  'life-on-the-water': {
+    id: 'life-on-the-water', type: 'HOSTED_EXPERIENCE', name: 'LIFE ON THE WATER', place: 'Ganvié', region: 'The Atlantic', duration: 'Morning', format: 'Small group · local host · pirogue · shared meal',
+    hero: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2400&q=90',
+    host: { name: 'Your host', role: 'Fisher & lake guide', bio: 'Meet someone whose daily life follows the water — not a staged performance of it.', image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85' },
+    steps: [{ time: '06:30', title: 'Meet at the lake', description: 'Begin early, when the lake is already moving with work and daily routines.' }, { time: '07:00', title: 'Take the pirogue', description: 'Move through the waterways with a local host and learn how the lake connects homes, work and trade.' }, { time: '09:00', title: 'Spend time, not just time passing', description: 'Pause with your host, listen and see the lake beyond the sightseeing circuit.' }, { time: '10:30', title: 'A simple table', description: 'Finish with a meal shaped by what is available that day.' }],
+    included: ['Pirogue and local host', 'Time on the lake', 'Shared lunch', 'Local context and conversation'], not_included: ['Transport to Ganvié', 'Personal purchases'], practical: ['Early start recommended', 'Small groups only', 'Bring sun protection and water'], price_note: 'Price shown at booking · per person', availability_note: 'Morning departures · weather and host dependent', related: [{ id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }, { id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }]
+  },
+  'the-first-table': {
+    id: 'the-first-table', type: 'EVENT', name: 'THE FIRST TABLE', place: 'Ouidah', region: 'The Atlantic', duration: 'January 1', format: 'Annual gathering · limited places',
+    hero: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90',
+    host: { name: 'A shared table', role: 'Beninese & Haitian culinary voices', bio: 'A gathering shaped with people who carry the histories, food traditions and memories this day brings together.', image: 'https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=85' },
+    steps: [{ time: 'Morning', title: 'Remember the place', description: 'Begin with context about Ouidah, the history of the slave trade and the place the gathering inhabits.' }, { time: 'Late morning', title: 'Prepare the table', description: 'Cook and share the story of Joumou with Haitian and Beninese contributors.' }, { time: 'Midday', title: 'Eat together', description: 'A communal meal centred on Joumou, freedom, memory and the act of gathering.' }, { time: 'Afternoon', title: 'Listen and exchange', description: 'Conversation, music and testimony are shaped with the communities involved — never as spectacle.' }],
+    included: ['Joumou meal', 'Cultural mediation', 'Shared gathering', 'Recipe and contextual notes'], not_included: ['Transport to Ouidah', 'Accommodation'], practical: ['January 1 only', 'Limited capacity', 'Programme co-created with community and cultural partners', 'Not a historical re-enactment'], price_note: 'Annual event · final price announced with the programme', availability_note: 'Places open ahead of January 1 · waiting list between editions', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }, { id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }]
+  }
+};
+
+function getExperienceMock(locale: 'en' | 'fr', slug: string): ExperienceProductDetail | null {
+  const base = experienceMockBase[slug];
+  const copy = experienceMockCopy[locale]?.[slug];
+  if (!base || !copy) return null;
+  return { ...base, ...copy, locale };
+}
+
 export async function getExperience(locale: 'en'|'fr', slug: string): Promise<ExperienceProductDetail | null> {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) return null;
+  const base = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
+  if (!base) return getExperienceMock(locale, slug);
   try {
-    const response = await fetch(`${base}/api/v1/experiences/${slug}?locale=${locale}`, { next: { revalidate: 60 } });
+    const response = await fetch(`${base}/api/v1/experiences/${encodeURIComponent(slug)}?locale=${locale}`, { next: { revalidate: 60 } });
     if (!response.ok) throw new Error('Experience API failed');
     return response.json();
-  } catch { return null; }
+  } catch {
+    return getExperienceMock(locale, slug);
+  }
 }

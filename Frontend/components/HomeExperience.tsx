@@ -5,7 +5,9 @@ import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { type HomeResponse } from "@/lib/api";
 import { type Locale, ui } from "@/lib/i18n";
 
-const navItems = (copy: typeof ui.en) => [
+type UiCopy = (typeof ui)[Locale];
+
+const navItems = (copy: UiCopy) => [
   { id: "discover", label: copy.discover },
   { id: "places", label: copy.regions },
   { id: "prendre-place", label: copy.experiences },
