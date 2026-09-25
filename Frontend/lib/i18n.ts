@@ -8,7 +8,7 @@ export function isLocale(value: string): value is Locale {
 
 export const ui = {
   en: {
-    discover: 'Discover', regions: 'Regions', experiences: 'Experiences', stories: 'Stories', journey: 'Your journey',
+    discover: 'Discover', regions: 'Regions', experiences: 'All experiences', stories: 'Stories', journey: 'Your journey',
     food: 'Food', search: 'Search', menu: 'Menu', explore: 'Explore', readStory: 'Read story',
     chooseInterest: 'Choose what moves you', yourSignal: 'Your signal',
     regionsEyebrow: 'A COUNTRY OF MANY WORLDS', regionsTitle: 'Three worlds,', regionsTitle2: 'one country.',
@@ -25,7 +25,7 @@ export const ui = {
     made: 'Made for curious people.',
   },
   fr: {
-    discover: 'Découvrir', regions: 'Régions', experiences: 'Expériences', stories: 'Histoires', journey: 'Votre voyage',
+    discover: 'Découvrir', regions: 'Régions', experiences: 'Toutes les expériences', stories: 'Histoires', journey: 'Votre voyage',
     food: 'Cuisine', search: 'Rechercher', menu: 'Menu', explore: 'Explorer', readStory: 'Lire',
     chooseInterest: 'Choisissez ce qui vous attire', yourSignal: 'Votre signal',
     regionsEyebrow: 'UN PAYS, PLUSIEURS MONDES', regionsTitle: 'Trois mondes,', regionsTitle2: 'un seul pays.',

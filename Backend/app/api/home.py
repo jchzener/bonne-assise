@@ -75,7 +75,7 @@ def get_home(locale: str) -> HomeResponse:
         "discovery": discovery,
         "regions": regions,
         "places": [
-            {"id":"ouidah","name":"Ouidah","region":"South","description":"Memory, spirituality and the Atlantic meet here.","coordinates":[6.3631,2.0851],"image":"https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85","href":"/"+locale+"/ouidah"},
+            {"id":"ouidah","name":"Ouidah","region":"South","description":"Memory, spirituality and the Atlantic meet here.","coordinates":[6.3631,2.0851],"image":"https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85","href":"/"+locale+"/destinations/ouidah"},
             {"id":"ganvie","name":"Ganvié","region":"South","description":"A lake village where life moves with the water.","coordinates":[6.4667,2.4167],"image":IMAGES["ganvie"]},
             {"id":"abomey","name":"Abomey","region":"South","description":"Royal history, craft and the memory of Dahomey.","coordinates":[7.1850,1.9911],"image":"https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=1400&q=85"},
             {"id":"natitingou","name":"Natitingou","region":"North","description":"Gateway to the Atakora landscapes and communities.","coordinates":[10.3042,1.3796],"image":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85"},

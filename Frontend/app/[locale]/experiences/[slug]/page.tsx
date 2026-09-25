@@ -1,13 +1,11 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getExperience } from '@/lib/api';
+import { experienceSlugs, getExperience } from '@/lib/api';
 import { isLocale, locales } from '@/lib/i18n';
 import LocaleDocument from '@/components/LocaleDocument';
 
-const slugs = ['market-to-fire', 'life-on-the-water', 'the-first-table'];
-
 export function generateStaticParams() {
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  return locales.flatMap((locale) => experienceSlugs.map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -19,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function ExperiencePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  if (!isLocale(locale) || !slugs.includes(slug)) notFound();
+  if (!isLocale(locale) || !experienceSlugs.includes(slug as typeof experienceSlugs[number])) notFound();
   const data = await getExperience(locale, slug);
   if (!data) notFound();
 
@@ -57,7 +55,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
   };
 
   const cta = data.type === 'EVENT' ? copy.waiting : copy.reserveCta;
-  const variant = data.id === 'the-first-table' ? 'journal' : data.id === 'life-on-the-water' ? 'water' : 'tactile';
+  const variant = data.id === 'the-first-table' ? 'journal' : data.id === 'life-on-the-water' ? 'water' : data.id === 'five-first-tables' ? 'arrival' : 'tactile';
   const image2 = data.steps[1] ? data.hero : data.host.image;
   const image3 = data.host.image;
 
@@ -72,7 +70,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
       <section className="experience-hero editorial-hero">
         <div className="experience-hero-media" style={{ backgroundImage: `url(${data.hero})` }} />
         <div className="experience-hero-overlay" />
-        <div className="hero-side-note"><span>01</span><span>{data.place}</span><span>{data.duration}</span></div>
+        <div className="hero-side-note"><span>{data.place}</span><span>{data.duration}</span><span>{data.format.split(' · ')[0]}</span></div>
         <div className="experience-hero-content">
           <p className="eyebrow">{data.eyebrow} · {data.type.replace('_', ' ')}</p>
           <h1>{data.name}</h1>
@@ -82,21 +80,21 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
       </section>
 
       <section className="experience-intro experience-editorial-block">
-        <div className="chapter-mark"><span>02</span><p>{copy.chapter}</p></div>
+        <div className="chapter-mark"><p>{copy.chapter}</p></div>
         <div className="intro-main"><p className="editorial-kicker">{data.place} · {data.region}</p><h2>{data.promise}</h2><p className="intro-lede">{data.intro}</p></div>
       </section>
 
       <section className="experience-meaning experience-editorial-block">
         <div className="meaning-image" style={{ backgroundImage: `url(${image2})` }} />
         <div className="meaning-copy">
-          <p className="eyebrow dark">03 · {copy.context}</p>
+          <p className="eyebrow dark">{copy.context}</p>
           <p className="meaning-lede">{data.why_it_matters}</p>
           <span className="editorial-caption">A Bonne Assise experience · {data.place}</span>
         </div>
       </section>
 
       <section className="experience-steps experience-editorial-block">
-        <div className="steps-intro"><p className="eyebrow dark">04 · {copy.journey}</p><h2>{fr ? 'Entrez dans le rythme.' : 'Enter the rhythm.'}</h2><p>{fr ? 'Ce qui compte ici n’est pas de tout faire. C’est de laisser le moment prendre sa place.' : 'What matters is not completing a list. It is giving the moment enough room to unfold.'}</p></div>
+        <div className="steps-intro"><p className="eyebrow dark">{copy.journey}</p><h2>{fr ? 'Entrez dans le rythme.' : 'Enter the rhythm.'}</h2><p>{fr ? 'Ce qui compte ici n’est pas de tout faire. C’est de laisser le moment prendre sa place.' : 'What matters is not completing a list. It is giving the moment enough room to unfold.'}</p></div>
         <div className="steps-list editorial-timeline">
           {data.steps.map((step, i) => <article className="step" key={`${step.time}-${step.title}`}>
             <div className="step-index">0{i + 1}</div>
@@ -108,12 +106,12 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
 
       <section className="experience-image-break" aria-label={data.name}>
         <div className="image-break-main" style={{ backgroundImage: `url(${data.hero})` }} />
-        <div className="image-break-caption"><span>05</span><p>{data.place}</p><em>{data.format}</em></div>
+        <div className="image-break-caption"><p>{data.place}</p><em>{data.format}</em></div>
       </section>
 
       <section className="experience-host experience-editorial-block">
         <div className="host-copy">
-          <p className="eyebrow dark">06 · {copy.host}</p>
+          <p className="eyebrow dark">{copy.host}</p>
           <p className="host-label">{data.host.role}</p>
           <h2>{data.host.name}</h2>
           <p className="host-bio">{data.host.bio}</p>
@@ -123,17 +121,17 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
       </section>
 
       <section className="experience-details experience-editorial-block">
-        <div className="details-heading"><p className="eyebrow dark">07 · {copy.details}</p><h2>{fr ? 'Tout ce qu’il faut savoir.' : 'Everything you need to know.'}</h2></div>
-        <div className="details-column"><p className="eyebrow dark">{copy.included}</p><ul>{data.included.map((x) => <li key={x}><span>+</span>{x}</li>)}</ul></div>
-        <div className="details-column"><p className="eyebrow dark">{copy.not}</p><ul className="muted-list">{[...data.not_included, ...data.practical].map((x) => <li key={x}><span>—</span>{x}</li>)}</ul></div>
+        <div className="details-heading"><p className="eyebrow dark">{copy.details}</p><h2>{fr ? 'Tout ce qu’il faut savoir.' : 'Everything you need to know.'}</h2></div>
+        <div className="details-column details-prose"><p className="eyebrow dark">{copy.included}</p><p>{data.included.join(' · ')}</p></div>
+        <div className="details-column details-prose details-prose--muted"><p className="eyebrow dark">{copy.not}</p><p>{[...data.not_included, ...data.practical].join(' · ')}</p></div>
       </section>
 
       <section className="experience-booking" id="reserve">
-        <div className="booking-art"><span>08</span><em>{data.place}</em></div>
+        <div className="booking-art"><em>{data.place}</em></div>
         <div className="booking-inner">
           <div className="booking-copy"><p className="eyebrow">{copy.reserve}</p><h2>{copy.take}</h2><p>{data.availability_note}</p></div>
           <div className="booking-card">
-            <div className="booking-card-top"><span>{data.type === 'EVENT' ? 'EVENT' : 'EXPERIENCE'}</span><strong>{data.name}</strong></div>
+            <div className="booking-card-top"><span>{data.type === 'EVENT' ? 'EVENT' : data.type === 'ARRIVAL_SERVICE' ? 'ARRIVAL SERVICE' : 'EXPERIENCE'}</span><strong>{data.name}</strong></div>
             <div className="booking-facts"><div><span>{fr ? 'Lieu' : 'Place'}</span><b>{data.place}</b></div><div><span>{fr ? 'Durée' : 'Duration'}</span><b>{data.duration}</b></div><div><span>{fr ? 'Tarif' : 'Price'}</span><b>{data.price_note}</b></div></div>
             <button>{cta}<span>↗</span></button>
           </div>
@@ -141,9 +139,9 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
       </section>
 
       <section className="experience-related experience-editorial-block">
-        <div className="related-head"><p className="eyebrow dark">09 · {copy.related}</p><h2>{fr ? 'La suite peut être ailleurs.' : 'The next story can be somewhere else.'}</h2></div>
+        <div className="related-head"><p className="eyebrow dark">{copy.related}</p><h2>{fr ? 'La suite peut être ailleurs.' : 'The next story can be somewhere else.'}</h2></div>
         <div className="related-grid">
-          {data.related.map((item, i) => <Link key={item.id} href={`/${locale}${item.href.startsWith('/') ? item.href : `/${item.href}`}`} className="related-card"><span>0{i + 1}</span><div><small>{copy.read}</small><strong>{item.label}</strong></div><b>↗</b></Link>)}
+          {data.related.map((item) => <Link key={item.id} href={`/${locale}${item.href.startsWith('/') ? item.href : `/${item.href}`}`} className="related-card"><div><small>{copy.read}</small><strong>{item.label}</strong></div><b>↗</b></Link>)}
         </div>
       </section>
 

@@ -79,7 +79,7 @@ export const homeMock: HomeResponse = {
     { id: 'north', kicker: 'NORTHERN HERITAGE AND LANDSCAPE', title: 'The Northern Heritage and Landscape', description: 'Mountains, wildlife, Tata Somba, royal traditions and northern cultures.', destinations: ['Natitingou', 'Boukoumbé', 'Tanguiéta', 'Nikki'], image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=88' },
   ],
   places: [
-    { id: 'ouidah', name: 'Ouidah', region: 'South', description: 'Memory, spirituality and the Atlantic meet here.', coordinates: [6.3631, 2.0851], image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85', href: '/ouidah' },
+    { id: 'ouidah', name: 'Ouidah', region: 'South', description: 'Memory, spirituality and the Atlantic meet here.', coordinates: [6.3631, 2.0851], image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1400&q=85', href: '/destinations/ouidah' },
     { id: 'ganvie', name: 'Ganvié', region: 'South', description: 'A lake village where life moves with the water.', coordinates: [6.4667, 2.4167], image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85' },
     { id: 'abomey', name: 'Abomey', region: 'South', description: 'Royal history, craft and the memory of Dahomey.', coordinates: [7.1850, 1.9911], image: 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=1400&q=85' },
     { id: 'natitingou', name: 'Natitingou', region: 'North', description: 'Gateway to the Atakora landscapes and communities.', coordinates: [10.3042, 1.3796], image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85' },
@@ -90,9 +90,9 @@ export const homeMock: HomeResponse = {
     { id: 'royal', title: 'Enter the royal courtyards', category: 'HISTORY', place: 'Abomey', duration: 'Half day', image: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1600&q=88' },
   ],
   prendrePlace: [
-    { id: 'arrival-tables', name: 'THE FIRST TABLES', title: 'Five evenings at the table.', promise: 'Five carefully chosen dinners for your first nights in Benin — with the table, the menu and the details already taken care of.', place: 'Cotonou · Ouidah · Porto-Novo', duration: '5 evenings', format: '5 reservations · WhatsApp confirmation', image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=88', href: '#prendre-place' },
-    { id: 'market-to-fire', name: 'MARKET → FIRE', title: 'Buy with a local. Cook. Sit down.', promise: 'A morning at the market, an afternoon around the fire and a shared meal built from what you chose together.', place: 'Ouidah', duration: '3–4 hours', format: 'Market · cooking · shared meal', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1800&q=88', href: '#prendre-place' },
-    { id: 'life-on-the-water', name: 'LIFE ON THE WATER', title: 'Ganvié, beyond the postcard.', promise: 'Leave the sightseeing boat behind. Spend a morning on the lake with an host, a simple table and the rhythm of daily life.', place: 'Ganvié', duration: 'Morning', format: 'Pirogue · local host · lunch', image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=88', href: '#prendre-place' },
+    { id: 'five-first-tables', name: 'FIVE FIRST TABLES', title: 'Five meals to begin with.', promise: 'For your first days in Benin, choose from ten curated Beninese specialties, with drinks to match — delivered to you or served at selected tables, with the decision-making already done.', place: 'Cotonou · Ouidah', duration: '5 meals', format: '10 dishes · delivery or restaurant', image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=88', href: '/experiences/five-first-tables' },
+    { id: 'market-to-fire', name: 'MARKET → FIRE', title: 'Buy with a local. Cook. Sit down.', promise: 'A morning at the market, an afternoon around the fire and a shared meal built from what you chose together.', place: 'Ouidah', duration: '3–4 hours', format: 'Market · cooking · shared meal', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1800&q=88', href: '/experiences/market-to-fire' },
+    { id: 'life-on-the-water', name: 'LIFE ON THE WATER', title: 'Ganvié, beyond the postcard.', promise: 'Leave the sightseeing boat behind. Spend a morning on the lake with an host, a simple table and the rhythm of daily life.', place: 'Ganvié', duration: 'Morning', format: 'Pirogue · local host · lunch', image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=88', href: '/experiences/life-on-the-water' },
   ],
   stories: [
     { id: 'story-1', eyebrow: 'FIELD NOTES', title: 'Why Ouidah stays with you', description: 'A city of doors, routes, drums and memory — best understood slowly.', image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=88', place: 'Ouidah' },
@@ -131,7 +131,10 @@ export async function getHome(locale: 'en' | 'fr' = 'en'): Promise<HomeResponse>
   try {
     const response = await fetch(`${base}/api/v1/home?locale=${locale}`, { next: { revalidate: 60 } });
     if (!response.ok) throw new Error('Home API failed');
-    return response.json();
+    const apiHome: HomeResponse = await response.json();
+    const localArrival = homeMock.prendrePlace.find((item) => item.id === 'five-first-tables');
+    const apiProducts = apiHome.prendrePlace.filter((item) => item.id !== 'arrival-tables' && item.id !== 'five-first-tables');
+    return { ...apiHome, locale, prendrePlace: localArrival ? [localArrival, ...apiProducts] : apiProducts };
   } catch {
     return { ...homeMock, locale };
   }
@@ -144,139 +147,89 @@ export type DestinationResponse = {
   hero: { eyebrow: string; title: string; subtitle: string; image: string; coordinates: [number, number] };
   intro: string;
   threads: { id: string; title: string; label: string; description: string }[];
-  experiences: { id: string; title: string; category: string; duration: string; description: string; image: string }[];
-  stories: { id: string; eyebrow: string; title: string; description: string; image: string }[];
-  foods: { name: string; description: string; image: string }[];
+  experiences: { id: string; title: string; category: string; duration: string; description: string; image: string; href: string }[];
+  stories: { id: string; eyebrow: string; title: string; description: string; image: string; href: string }[];
+  foods: { name: string; description: string; image: string; href: string }[];
   practical: string[];
-  nearby: string[];
+  nearby: { id: string; name: string; region: string; href: string }[];
+  journeyText: string;
+  locale: 'en' | 'fr';
 };
 
-export const ouidahMock: DestinationResponse = {
-  id: 'ouidah',
-  name: 'Ouidah',
-  region: 'South',
+const ouidahBase = {
+  id: 'ouidah', name: 'Ouidah', region: 'The Atlantic',
   hero: {
-    eyebrow: 'SOUTH BENIN · ATLANTIC COAST',
-    title: 'Ouidah, a city of memory and living traditions.',
-    subtitle: 'A historic Atlantic city where memory, architecture, spiritual life and the road to the sea meet.',
+    coordinates: [6.3631, 2.0851] as [number, number],
     image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=90',
-    coordinates: [6.3631, 2.0851],
   },
-  intro: 'Ouidah asks to be understood in layers. Its historic routes lead toward the Atlantic; Afro-Brazilian buildings sit beside older Beninese stories; churches and sacred places share the same urban fabric; and the city continues to carry living traditions.',
-  threads: [
-    {
-      id: 'memory',
-      label: 'MEMORY',
-      title: 'Follow the road to the Atlantic.',
-      description: 'The Route of the Enslaved is a memorial landscape, not simply a sightseeing route. Move through its stages slowly, from the historic city toward the Door of No Return.',
-    },
-    {
-      id: 'architecture',
-      label: 'ARCHITECTURE',
-      title: 'Read the city in its façades.',
-      description: 'Afro-Brazilian architecture adds another layer to Ouidah, reflecting the histories of return, trade and cultural exchange that shaped the city.',
-    },
-    {
-      id: 'living-traditions',
-      label: 'LIVING TRADITIONS',
-      title: 'Encounter belief without reducing it.',
-      description: 'The Temple of Pythons, Kpassè Sacred Forest and Vodun traditions are part of a living cultural landscape. Context and local guidance matter.',
-    },
-    {
-      id: 'atlantic',
-      label: 'ATLANTIC',
-      title: 'Let the city open toward the sea.',
-      description: 'The final stretch of the historic route reaches the coast, where Ouidah’s memory and the Atlantic meet.',
-    },
-  ],
   experiences: [
-    {
-      id:'route-des-esclaves',
-      title:'Walk the Route of the Enslaved',
-      category:'MEMORY',
-      duration:'Half day',
-      description:'Follow the last stretch of a historic route from the city toward the Atlantic. The experience should leave room for remembrance, context and reflection.',
-      image:'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1800&q=90'
-    },
-    {
-      id:'history-museum',
-      title:'Enter the history of Ouidah',
-      category:'HISTORY',
-      duration:'1–2 hours',
-      description:'Visit the Musée d’Histoire de Ouidah in the former Portuguese fort and use its collections to understand the city, the Dahomey Kingdom and the history of enslavement.',
-      image:'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1800&q=90'
-    },
-    {
-      id:'sacred-landscape',
-      title:'Walk through the sacred landscape',
-      category:'LIVING TRADITIONS',
-      duration:'2–3 hours',
-      description:'Explore Kpassè Sacred Forest and the Temple of Pythons with local context. These are places of belief and cultural practice, not props for an exotic itinerary.',
-      image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1800&q=90'
-    },
-    {
-      id:'afro-brazilian',
-      title:'Look up at Ouidah',
-      category:'ARCHITECTURE',
-      duration:'1–2 hours',
-      description:'Slow down through the historic streets and notice the Afro-Brazilian architectural traces that give Ouidah another visual and historical language.',
-      image:'https://images.unsplash.com/photo-1524498250077-390f9e378fc0?auto=format&fit=crop&w=1800&q=90'
-    },
-    {
-      id:'atlantic',
-      title:'End at the Atlantic',
-      category:'COAST',
-      duration:'Late afternoon',
-      description:'Continue toward the coast and the Door of No Return, allowing the landscape to become part of the story rather than an afterthought.',
-      image:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=90'
-    },
+    { id:'route-des-esclaves', title:'Walk the Route of the Enslaved', category:'MEMORY', duration:'Half day', description:'Follow the historic route toward the Atlantic with room for remembrance, context and reflection.', image:'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1800&q=90', href:'/stories/route-to-the-door-of-no-return' },
+    { id:'history-museum', title:'Enter the history of Ouidah', category:'HISTORY', duration:'1–2 hours', description:'Use the former Portuguese fort and its collections to read Ouidah through trade, kingdom, return and enslavement.', image:'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1800&q=90', href:'/stories/ouidah-history' },
+    { id:'sacred-landscape', title:'Walk through the sacred landscape', category:'LIVING TRADITIONS', duration:'2–3 hours', description:'Explore sacred places with local context. These are places of belief and practice, not props for an exotic itinerary.', image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1800&q=90', href:'/experiences/living-traditions-ouidah' },
+    { id:'afro-brazilian', title:'Look up at Ouidah', category:'ARCHITECTURE', duration:'1–2 hours', description:'Slow down through the historic streets and notice the Afro-Brazilian traces that add another language to the city.', image:'https://images.unsplash.com/photo-1524498250077-390f9e378fc0?auto=format&fit=crop&w=1800&q=90', href:'/stories/afro-brazilian-ouidah' },
+    { id:'atlantic', title:'End at the Atlantic', category:'COAST', duration:'Late afternoon', description:'Continue toward the coast and let the landscape become part of the story rather than an afterthought.', image:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=90', href:'/stories/door-of-no-return' },
   ],
   stories: [
-    {
-      id:'route-memory',
-      eyebrow:'MEMORY',
-      title:'The road to the Door of No Return',
-      description:'A memorial route shaped by the forced journeys of enslaved people and by the city’s continuing work of remembrance.',
-      image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=88'
-    },
-    {
-      id:'two-traditions',
-      eyebrow:'CITY',
-      title:'Two traditions, one street',
-      description:'The Temple of Pythons faces the Basilica of the Immaculate Conception — a striking glimpse of the many religious histories that coexist in Ouidah.',
-      image:'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=88'
-    },
-    {
-      id:'living-vodun',
-      eyebrow:'LIVING TRADITIONS',
-      title:'A tradition that is still alive',
-      description:'Vodun is part of Benin’s living cultural and spiritual heritage. Approach it through people, places and context rather than spectacle.',
-      image:'https://images.unsplash.com/photo-1524498250077-390f9e378fc0?auto=format&fit=crop&w=1400&q=88'
-    }
+    { id:'route-memory', eyebrow:'MEMORY', title:'The road to the Door of No Return', description:'A memorial route shaped by the forced journeys of enslaved people and by the city’s continuing work of remembrance.', image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=88', href:'/stories/route-to-the-door-of-no-return' },
+    { id:'two-traditions', eyebrow:'CITY', title:'Two traditions, one street', description:'A glimpse of the many religious histories that coexist in Ouidah’s urban fabric.', image:'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=88', href:'/stories/two-traditions-one-street' },
+    { id:'living-vodun', eyebrow:'LIVING TRADITIONS', title:'A tradition that is still alive', description:'Approach Vodun through people, places and context rather than spectacle.', image:'https://images.unsplash.com/photo-1524498250077-390f9e378fc0?auto=format&fit=crop&w=1400&q=88', href:'/stories/living-vodun' },
   ],
   foods: [
-    {name:'Amiwo', description:'A southern Beninese corn-based staple, often paired with sauce and grilled or braised protein.', image:'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=88'},
-    {name:'Akassa', description:'Soft fermented maize dough that belongs to the culinary vocabulary of southern Benin.', image:'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=88'},
-    {name:'Atlantic fish', description:'Fresh fish, smoke, spice and simple accompaniments connect the southern table to the coast.', image:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=88'}
+    {name:'Amiwo', description:'A southern corn-based staple, often paired with sauce and grilled or braised protein.', image:'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=88', href:'/food/amiwo'},
+    {name:'Akassa', description:'Soft fermented maize dough that belongs to the culinary vocabulary of southern Benin.', image:'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=88', href:'/food/akassa'},
+    {name:'Atlantic fish', description:'Fresh fish, smoke, spice and simple accompaniments connect the southern table to the coast.', image:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=88', href:'/food/atlantic-fish'},
   ],
-  practical: [
-    'Give Ouidah at least a full day if you want to understand its historic core rather than collect a few sights.',
-    'The Route of the Enslaved is best approached as a memorial journey; leave time to pause at its major stages.',
-    'For sacred and spiritual places, follow local guidance and photography rules. Ask before entering, touching or photographing.',
-    'November to February is commonly described by travel sources as a drier, more comfortable period for exploring southern Benin.'
+  nearby: [
+    {id:'cotonou', name:'Cotonou', region:'The Atlantic', href:'/destinations'},
+    {id:'ganvie', name:'Ganvié', region:'The Atlantic', href:'/destinations'},
+    {id:'porto-novo', name:'Porto-Novo', region:'The Atlantic', href:'/destinations'},
+    {id:'abomey', name:'Abomey', region:'Royal Heartlands', href:'/destinations'},
   ],
-  nearby: ['Cotonou', 'Ganvié', 'Porto-Novo', 'Abomey']
 };
 
-export async function getDestination(id: string): Promise<DestinationResponse> {
-  const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) return id === 'ouidah' ? ouidahMock : ouidahMock;
+const ouidahCopy = {
+  en: {
+    hero: { eyebrow:'SOUTH BENIN · ATLANTIC COAST', title:'Ouidah, a city of memory and living traditions.', subtitle:'A historic Atlantic city where memory, architecture, spiritual life and the road to the sea meet.' },
+    intro:'Ouidah asks to be understood in layers. Its historic routes lead toward the Atlantic; Afro-Brazilian buildings sit beside older Beninese stories; churches and sacred places share the same urban fabric; and the city continues to carry living traditions.',
+    threads:[
+      {id:'memory',label:'MEMORY',title:'Follow the road to the Atlantic.',description:'The Route of the Enslaved is a memorial landscape, not simply a sightseeing route. Move through its stages slowly, from the historic city toward the Door of No Return.'},
+      {id:'architecture',label:'ARCHITECTURE',title:'Read the city in its façades.',description:'Afro-Brazilian architecture adds another layer to Ouidah, reflecting histories of return, trade and cultural exchange.'},
+      {id:'living-traditions',label:'LIVING TRADITIONS',title:'Encounter belief without reducing it.',description:'Sacred places and Vodun traditions are part of a living cultural landscape. Context and local guidance matter.'},
+      {id:'atlantic',label:'ATLANTIC',title:'Let the city open toward the sea.',description:'The final stretch reaches the coast, where Ouidah’s memory and the Atlantic meet.'},
+    ],
+    practical:['Give Ouidah at least a full day if you want to understand its historic core rather than collect a few sights.','Approach the Route of the Enslaved as a memorial journey; leave time to pause at its major stages.','For sacred and spiritual places, follow local guidance and photography rules. Ask before entering, touching or photographing.','Use the city as a base for a slower southern journey rather than trying to compress every sight into one afternoon.'],
+    journeyText:'Save Ouidah as a place in your journey. We can connect its experiences, stories and food to the other places you choose.'
+  },
+  fr: {
+    hero: { eyebrow:'SUD DU BÉNIN · CÔTE ATLANTIQUE', title:'Ouidah, une ville de mémoire et de traditions vivantes.', subtitle:'Une ville historique de l’Atlantique où mémoire, architecture, vie spirituelle et route vers la mer se rencontrent.' },
+    intro:'Ouidah demande à être comprise par couches. Ses routes historiques vont vers l’Atlantique ; les architectures afro-brésiliennes côtoient des histoires béninoises plus anciennes ; églises et lieux sacrés partagent le même tissu urbain ; et la ville continue de porter des traditions vivantes.',
+    threads:[
+      {id:'memory',label:'MÉMOIRE',title:'Suivre la route jusqu’à l’Atlantique.',description:'La Route de l’Esclave est un paysage mémoriel, pas une simple succession de sites. Parcourez-la lentement, de la ville vers la Porte du Non-Retour.'},
+      {id:'architecture',label:'ARCHITECTURE',title:'Lire la ville dans ses façades.',description:'Les architectures afro-brésiliennes ajoutent une autre couche à Ouidah et racontent des histoires de retour, de commerce et d’échanges culturels.'},
+      {id:'living-traditions',label:'TRADITIONS VIVANTES',title:'Rencontrer le spirituel sans le réduire.',description:'Les lieux sacrés et les traditions Vodun appartiennent à un paysage culturel vivant. Le contexte et les indications locales comptent.'},
+      {id:'atlantic',label:'ATLANTIQUE',title:'Laisser la ville s’ouvrir vers la mer.',description:'La dernière partie du parcours atteint la côte, là où la mémoire d’Ouidah rencontre l’Atlantique.'},
+    ],
+    practical:['Accordez au moins une journée à Ouidah si vous souhaitez comprendre son centre historique plutôt que collectionner quelques sites.','Abordez la Route de l’Esclave comme un parcours mémoriel et prenez le temps de vous arrêter.','Dans les lieux sacrés et spirituels, suivez les indications locales et demandez avant d’entrer, toucher ou photographier.','Pensez Ouidah comme une étape d’un voyage plus lent dans le Sud plutôt que comme une liste à boucler en quelques heures.'],
+    journeyText:'Enregistrez Ouidah dans votre voyage. Nous pourrons relier ses expériences, ses histoires et sa table aux autres lieux que vous choisissez.'
+  }
+} as const;
+
+export const destinationSlugs = ['ouidah'] as const;
+
+function getDestinationMock(locale: 'en'|'fr', id: string): DestinationResponse {
+  const copy = ouidahCopy[locale];
+  return { ...ouidahBase, ...copy, hero: { ...ouidahBase.hero, ...copy.hero }, locale };
+}
+
+export async function getDestination(id: string, locale: 'en'|'fr' = 'en'): Promise<DestinationResponse> {
+  const base = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
+  if (!base) return getDestinationMock(locale, id);
   try {
-    const response = await fetch(`${base}/api/v1/destinations/${id}`, { next: { revalidate: 60 } });
+    const response = await fetch(`${base}/api/v1/destinations/${encodeURIComponent(id)}?locale=${locale}`, { next: { revalidate: 60 } });
     if (!response.ok) throw new Error('Destination API failed');
     return response.json();
   } catch {
-    return ouidahMock;
+    return getDestinationMock(locale, id);
   }
 }
 
@@ -299,6 +252,13 @@ const experienceMockCopy: Record<'en' | 'fr', Record<string, {
   booking_label: string;
 }>> = {
   en: {
+    'five-first-tables': {
+      title: 'Five meals to begin with — chosen from ten Beninese specialties, with drinks to match.',
+      promise: 'Arrive, eat well, and let the first decisions already be made.',
+      intro: 'The first days in a new country are full of small decisions. Five First Tables turns one of them into a pleasure: choose five meals from a curated list of ten Beninese specialties and drinks, then have them delivered or meet them at a selected restaurant.',
+      why_it_matters: 'This is not a food delivery subscription disguised as travel. It is a gentle way into Benin through its everyday table — with enough context to know what you are eating, where it comes from and why we chose it.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Choose your five meals'
+    },
     'market-to-fire': {
       title: 'Buy with a local. Cook what you found. Sit down together.',
       promise: 'Enter the chain between market, ingredient, gesture and table.',
@@ -322,6 +282,13 @@ const experienceMockCopy: Record<'en' | 'fr', Record<string, {
     }
   },
   fr: {
+    'five-first-tables': {
+      title: 'Cinq repas pour commencer — choisis parmi dix plats et boissons béninois.',
+      promise: 'Arriver, bien manger, et laisser quelques décisions déjà prises.',
+      intro: 'Les premiers jours dans un nouveau pays sont remplis de petites décisions. Cinq Premières Tables transforme l’une d’elles en plaisir : choisissez cinq repas parmi une sélection de dix spécialités et boissons béninoises, puis faites-les livrer ou retrouvez-les dans un restaurant partenaire.',
+      why_it_matters: 'Ce n’est pas un abonnement de livraison maquillé en expérience touristique. C’est une porte d’entrée douce vers le Bénin par sa table quotidienne — avec juste assez de contexte pour comprendre ce que l’on mange, d’où cela vient et pourquoi nous l’avons choisi.',
+      eyebrow: 'PRENDRE PLACE', booking_label: 'Choisir ses cinq repas'
+    },
     'market-to-fire': {
       title: 'Acheter avec un local. Cuisiner ce que l’on a choisi. S’asseoir ensemble.',
       promise: 'Entrer dans le lien entre marché, ingrédient, geste et table.',
@@ -347,6 +314,18 @@ const experienceMockCopy: Record<'en' | 'fr', Record<string, {
 };
 
 const experienceMockBase: Record<string, Omit<ExperienceProductDetail, 'title' | 'promise' | 'intro' | 'why_it_matters' | 'eyebrow' | 'booking_label' | 'locale'>> = {
+  'five-first-tables': {
+    id: 'five-first-tables', type: 'ARRIVAL_SERVICE', name: 'FIVE FIRST TABLES', place: 'Cotonou · Ouidah', region: 'The Atlantic', duration: '5 meals', format: '10 curated dishes · delivery or selected restaurants',
+    hero: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90',
+    host: { name: 'Bonne Assise table editors', role: 'Food curators', bio: 'A small editorial selection of people, tables, dishes and drinks that give a first-time visitor a useful, generous way into Benin’s food culture.', image: 'https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=85' },
+    steps: [
+      { time: '01', title: 'Choose your five', description: 'Pick five meals from a changing list of ten dishes and Beninese drinks, with a short note on each.' },
+      { time: '02', title: 'Decide how to receive them', description: 'Have selected meals delivered to where you are staying, or use the restaurant option when you want the room and the people around the table.' },
+      { time: '03', title: 'Eat through the week', description: 'One meal at a time, without having to solve the “where do we eat tonight?” question from scratch.' },
+      { time: '04', title: 'Keep the map', description: 'Each meal comes with enough context to remember what you tasted and where to look next.' }
+    ],
+    included: ['Five selected meals', 'Choice from ten Beninese specialties + drinks', 'Short editorial notes', 'Delivery or selected restaurant format'], not_included: ['Additional drinks or purchases', 'Transport outside the selected delivery area'], practical: ['Best for first days in Benin', 'Dietary preferences collected at booking', 'Restaurant availability varies by date and city'], price_note: 'Price shown after choosing delivery or restaurant format', availability_note: 'Available in selected areas · advance notice recommended', related: [{ id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }, { id: 'ouidah', label: 'Explore Ouidah', href: '/destinations/ouidah' }]
+  },
   'market-to-fire': {
     id: 'market-to-fire', type: 'HOSTED_EXPERIENCE', name: 'MARKET → FIRE', place: 'Ouidah', region: 'The Atlantic', duration: '3–4 hours', format: 'Small group · market · cooking · shared meal',
     hero: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2400&q=90',
@@ -357,23 +336,25 @@ const experienceMockBase: Record<string, Omit<ExperienceProductDetail, 'title' |
       { time: '11:00', title: 'Back to the kitchen', description: 'Prepare two dishes together and learn the gestures rather than simply watching a demonstration.' },
       { time: '12:30', title: 'Sit down', description: 'Share the meal you helped make, with recipes to take home.' }
     ],
-    included: ['Local market visit', 'Ingredients for the workshop', 'Cooking session', 'Shared meal', 'Recipe booklet'], not_included: ['Transport to Ouidah', 'Personal purchases'], practical: ['Small groups', 'Comfortable shoes for the market', 'Tell us about dietary restrictions when booking'], price_note: 'Price shown at booking · per person', availability_note: 'Selected mornings · subject to host availability', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }, { id: 'life-on-the-water', label: 'Life on the Water', href: '/experiences/life-on-the-water' }]
+    included: ['Local market visit', 'Ingredients for the workshop', 'Cooking session', 'Shared meal', 'Recipe booklet'], not_included: ['Transport to Ouidah', 'Personal purchases'], practical: ['Small groups', 'Comfortable shoes for the market', 'Tell us about dietary restrictions when booking'], price_note: 'Price shown at booking · per person', availability_note: 'Selected mornings · subject to host availability', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/destinations/ouidah' }, { id: 'life-on-the-water', label: 'Life on the Water', href: '/experiences/life-on-the-water' }]
   },
   'life-on-the-water': {
     id: 'life-on-the-water', type: 'HOSTED_EXPERIENCE', name: 'LIFE ON THE WATER', place: 'Ganvié', region: 'The Atlantic', duration: 'Morning', format: 'Small group · local host · pirogue · shared meal',
     hero: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2400&q=90',
     host: { name: 'Your host', role: 'Fisher & lake guide', bio: 'Meet someone whose daily life follows the water — not a staged performance of it.', image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85' },
     steps: [{ time: '06:30', title: 'Meet at the lake', description: 'Begin early, when the lake is already moving with work and daily routines.' }, { time: '07:00', title: 'Take the pirogue', description: 'Move through the waterways with a local host and learn how the lake connects homes, work and trade.' }, { time: '09:00', title: 'Spend time, not just time passing', description: 'Pause with your host, listen and see the lake beyond the sightseeing circuit.' }, { time: '10:30', title: 'A simple table', description: 'Finish with a meal shaped by what is available that day.' }],
-    included: ['Pirogue and local host', 'Time on the lake', 'Shared lunch', 'Local context and conversation'], not_included: ['Transport to Ganvié', 'Personal purchases'], practical: ['Early start recommended', 'Small groups only', 'Bring sun protection and water'], price_note: 'Price shown at booking · per person', availability_note: 'Morning departures · weather and host dependent', related: [{ id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }, { id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }]
+    included: ['Pirogue and local host', 'Time on the lake', 'Shared lunch', 'Local context and conversation'], not_included: ['Transport to Ganvié', 'Personal purchases'], practical: ['Early start recommended', 'Small groups only', 'Bring sun protection and water'], price_note: 'Price shown at booking · per person', availability_note: 'Morning departures · weather and host dependent', related: [{ id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }, { id: 'ouidah', label: 'Explore Ouidah', href: '/destinations/ouidah' }]
   },
   'the-first-table': {
     id: 'the-first-table', type: 'EVENT', name: 'THE FIRST TABLE', place: 'Ouidah', region: 'The Atlantic', duration: 'January 1', format: 'Annual gathering · limited places',
     hero: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90',
     host: { name: 'A shared table', role: 'Beninese & Haitian culinary voices', bio: 'A gathering shaped with people who carry the histories, food traditions and memories this day brings together.', image: 'https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=85' },
     steps: [{ time: 'Morning', title: 'Remember the place', description: 'Begin with context about Ouidah, the history of the slave trade and the place the gathering inhabits.' }, { time: 'Late morning', title: 'Prepare the table', description: 'Cook and share the story of Joumou with Haitian and Beninese contributors.' }, { time: 'Midday', title: 'Eat together', description: 'A communal meal centred on Joumou, freedom, memory and the act of gathering.' }, { time: 'Afternoon', title: 'Listen and exchange', description: 'Conversation, music and testimony are shaped with the communities involved — never as spectacle.' }],
-    included: ['Joumou meal', 'Cultural mediation', 'Shared gathering', 'Recipe and contextual notes'], not_included: ['Transport to Ouidah', 'Accommodation'], practical: ['January 1 only', 'Limited capacity', 'Programme co-created with community and cultural partners', 'Not a historical re-enactment'], price_note: 'Annual event · final price announced with the programme', availability_note: 'Places open ahead of January 1 · waiting list between editions', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/ouidah' }, { id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }]
+    included: ['Joumou meal', 'Cultural mediation', 'Shared gathering', 'Recipe and contextual notes'], not_included: ['Transport to Ouidah', 'Accommodation'], practical: ['January 1 only', 'Limited capacity', 'Programme co-created with community and cultural partners', 'Not a historical re-enactment'], price_note: 'Annual event · final price announced with the programme', availability_note: 'Places open ahead of January 1 · waiting list between editions', related: [{ id: 'ouidah', label: 'Explore Ouidah', href: '/destinations/ouidah' }, { id: 'market-to-fire', label: 'Market → Fire', href: '/experiences/market-to-fire' }]
   }
 };
+
+export const experienceSlugs = ['five-first-tables', 'market-to-fire', 'life-on-the-water', 'the-first-table'] as const;
 
 function getExperienceMock(locale: 'en' | 'fr', slug: string): ExperienceProductDetail | null {
   const base = experienceMockBase[slug];
@@ -393,3 +374,8 @@ export async function getExperience(locale: 'en'|'fr', slug: string): Promise<Ex
     return getExperienceMock(locale, slug);
   }
 }
+export async function getExperienceCatalog(locale: 'en' | 'fr'): Promise<ExperienceProductDetail[]> {
+  const items = await Promise.all(experienceSlugs.map((slug) => getExperience(locale, slug)));
+  return items.filter((item): item is ExperienceProductDetail => Boolean(item));
+}
+

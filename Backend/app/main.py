@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.home import router as home_router
@@ -6,10 +7,11 @@ from app.api.destinations import router as destinations_router
 from app.api.experiences import router as experiences_router
 
 app = FastAPI(title="Bonne Assise API", version="0.1.0")
+frontend_origin = os.getenv("FRONTEND_ORIGIN")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=[frontend_origin] if frontend_origin else ["*"],
+    allow_credentials=bool(frontend_origin),
     allow_methods=["*"],
     allow_headers=["*"],
 )

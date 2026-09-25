@@ -18,7 +18,7 @@ DATA = {
         "not_included":["Transport to Ouidah","Personal market purchases"],
         "practical":["Wear comfortable shoes","Small groups only","Dietary requirements can be discussed before booking"],
         "price_note":"Price shown at booking · per person", "availability_note":"Selected mornings · subject to host availability", "booking_label":"Reserve your place",
-        "related":[{"id":"ouidah","label":"Explore Ouidah","href":"/ouidah"},{"id":"life-on-the-water","label":"Life on the Water","href":"/experiences/life-on-the-water"}]
+        "related":[{"id":"ouidah","label":"Explore Ouidah","href":"/destinations/ouidah"},{"id":"life-on-the-water","label":"Life on the Water","href":"/experiences/life-on-the-water"}]
     },
     "life-on-the-water": {
         "type":"HOSTED_EXPERIENCE", "name":"LIFE ON THE WATER", "place":"Ganvié", "region":"The Atlantic",
@@ -50,7 +50,7 @@ DATA = {
         "not_included":["Transport to Ouidah","Accommodation"],
         "practical":["January 1 only","Limited capacity","The programme is co-created with community and cultural partners","The experience is not a historical re-enactment"],
         "price_note":"Annual event · final price announced with the programme", "availability_note":"Places open ahead of January 1 · waiting list between editions", "booking_label":"Join the waiting list",
-        "related":[{"id":"ouidah","label":"Explore Ouidah","href":"/ouidah"},{"id":"market-to-fire","label":"Market → Fire","href":"/experiences/market-to-fire"}]
+        "related":[{"id":"ouidah","label":"Explore Ouidah","href":"/destinations/ouidah"},{"id":"market-to-fire","label":"Market → Fire","href":"/experiences/market-to-fire"}]
     },
 }
 

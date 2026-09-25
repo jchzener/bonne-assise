@@ -1,0 +1,6 @@
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { getDestination } from '@/lib/api';
+import { isLocale, locales, type Locale } from '@/lib/i18n';
+export async function generateStaticParams(){ const out:{locale:string;slug:string}[]=[]; for(const locale of locales){const d=await getDestination('ouidah',locale); d.foods.forEach(f=>out.push({locale,slug:f.href.split('/').pop()||f.name.toLowerCase()}));} return out; }
+export default async function FoodPage({params}:{params:Promise<{locale:string;slug:string}>}){const {locale,slug}=await params;if(!isLocale(locale))notFound();const d=await getDestination('ouidah',locale as Locale);const food=d.foods.find(f=>f.href.endsWith(`/${slug}`));if(!food)notFound();return <main className="simple-editorial-page"><header><Link href={`/${locale}`} className="destination-brand">BONNE<br/>ASSISE</Link><Link href={`/${locale}/destinations/ouidah`}>Back to Ouidah ↗</Link></header><section className="simple-editorial-hero"><div className="simple-editorial-image" style={{backgroundImage:`url(${food.image})`}}/><div><p className="eyebrow dark">FOOD · OUIDAH</p><h1>{food.name}</h1><p>{food.description}</p><Link className="text-link" href={`/${locale}/experiences/five-first-tables`}>Explore Five First Tables <span>↗</span></Link></div></section></main>}

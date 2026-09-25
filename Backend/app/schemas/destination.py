@@ -1,3 +1,4 @@
+from typing import Literal
 from pydantic import BaseModel
 
 class DestinationHero(BaseModel):
@@ -20,6 +21,7 @@ class DestinationExperience(BaseModel):
     duration: str
     description: str
     image: str
+    href: str
 
 class DestinationStory(BaseModel):
     id: str
@@ -27,11 +29,19 @@ class DestinationStory(BaseModel):
     title: str
     description: str
     image: str
+    href: str
 
 class DestinationFood(BaseModel):
     name: str
     description: str
     image: str
+    href: str
+
+class DestinationNearby(BaseModel):
+    id: str
+    name: str
+    region: str
+    href: str
 
 class DestinationResponse(BaseModel):
     id: str
@@ -44,4 +54,6 @@ class DestinationResponse(BaseModel):
     stories: list[DestinationStory]
     foods: list[DestinationFood]
     practical: list[str]
-    nearby: list[str]
+    nearby: list[DestinationNearby]
+    journeyText: str
+    locale: Literal['en', 'fr']
