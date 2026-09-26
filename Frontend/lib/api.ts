@@ -1,3 +1,15 @@
+export type EventItem = {
+  id: string;
+  title: string;
+  category: string;
+  place: string;
+  dateLabel: string;
+  description: string;
+  image: string;
+  href: string;
+  sponsored?: boolean;
+};
+
 export type Story = {
   id: string;
   eyebrow: string;
@@ -60,6 +72,7 @@ export type HomeResponse = {
   experiences: Experience[];
   prendrePlace: ExperienceProduct[];
   stories: Story[];
+  events: EventItem[];
   locale: "en" | "fr";
 };
 
@@ -280,6 +293,12 @@ export const homeMock: HomeResponse = {
       place: "Abomey",
     },
   ],
+  events: [
+    { id:'festival-mangal', title:'Festival Mangal', category:'ECOLOGY · CULTURE', place:'Grand-Popo', dateLabel:'23–27 September 2026', description:'A festival around mangrove ecosystems, local culture, ecological awareness, conversations, arts and eco-tourism.', image:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=86', href:'https://festivalmangal.mangroves.network/' },
+    { id:'festival-sica', title:'Festival SICA', category:'MUSIC · ARTS', place:'Cotonou', dateLabel:'9–15 November 2026', description:'A week of African music, exhibitions, fashion, conversations and cultural encounters under the theme Heritage & Innovation.', image:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=86', href:'https://festivalsica.com/en/' },
+    { id:'weloveya', title:'WeLovEya', category:'MUSIC · CULTURE', place:'Cotonou', dateLabel:'26–27 December 2026', description:'A festive end-of-year gathering celebrating African music, culture and talent in Cotonou.', image:'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1500&q=86', href:'https://benin.bj/en/news' },
+    { id:'vodun-days', title:'Vodun Days', category:'CULTURE · SPIRITUALITY', place:'Ouidah', dateLabel:'2–9 January 2027', description:'Eight days in Ouidah dedicated to arts, culture and spirituality, bringing the city into a new year of living heritage.', image:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=86', href:'https://benin.bj/en/news' },
+  ],
 };
 
 
@@ -317,6 +336,12 @@ function getHomeMock(locale: "en" | "fr"): HomeResponse {
       {...homeMock.stories[0],eyebrow:'NOTES DE TERRAIN',title:'Pourquoi Ouidah reste avec vous',description:'Une ville de portes, de routes, de tambours et de mémoire — à comprendre lentement.'},
       {...homeMock.stories[1],eyebrow:'PERSONNES',title:'La vie sur l’eau',description:'Passer une matinée là où le lac est route, marché et maison.'},
       {...homeMock.stories[2],eyebrow:'TABLE',title:'Un pays raconté par le feu',description:'Les marchés et les cuisines familiales dessinent une autre carte du Bénin.'},
+    ],
+    events:[
+      {...homeMock.events[0],category:'ÉCOLOGIE · CULTURE',dateLabel:'23–27 septembre 2026',description:'Un festival autour des mangroves, de la culture locale, de l’écologie, des rencontres, des arts et de l’écotourisme.'},
+      {...homeMock.events[1],category:'MUSIQUE · ARTS',dateLabel:'9–15 novembre 2026',description:'Une semaine de musique africaine, expositions, mode, conversations et rencontres culturelles autour du thème Héritage & Innovation.'},
+      {...homeMock.events[2],category:'MUSIQUE · CULTURE',dateLabel:'26–27 décembre 2026',description:'Un grand rendez-vous de fin d’année consacré à la musique, à la culture et aux talents africains à Cotonou.'},
+      {...homeMock.events[3],category:'CULTURE · SPIRITUALITÉ',dateLabel:'2–9 janvier 2027',description:'Huit jours à Ouidah autour des arts, de la culture et de la spiritualité, pour commencer l’année au rythme du patrimoine vivant.'},
     ],
   };
 }

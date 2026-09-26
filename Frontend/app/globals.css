@@ -927,9 +927,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 
 /* Prendre Place */
 .prendre-place { background: var(--paper-2); border-top: 1px solid var(--line); }
-.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.product-grid { display: grid; grid-template-columns: 1.12fr .94fr .94fr; gap: 14px; }
 .product-card { min-width: 0; }
-.product-media { display: block; height: 500px; position: relative; overflow: hidden; background: var(--cream); color: white; }
+.product-card:nth-child(2) .product-media { height: 470px; }
+.product-card:nth-child(3) .product-media { height: 495px; }
+.product-media { display: block; height: 520px; position: relative; overflow: hidden; background: var(--cream); color: white; }
 .product-image { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .8s var(--ease); }
 .product-media:after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 45%, rgba(0,0,0,.48)); }
 .product-media:hover .product-image { transform: scale(1.045); }
@@ -942,14 +944,45 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .product-meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 22px; padding: 13px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); font: 700 9px var(--ui); letter-spacing: .08em; text-transform: uppercase; }
 .product-signature { margin-top: 55px; padding-top: 17px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; color: var(--muted); font: 700 9px var(--ui); letter-spacing: .13em; text-transform: uppercase; }
 
+/* Pass 12.1 — Living Benin / current events */
+.events-section { background:var(--paper); color:var(--ink); padding:145px 7vw 155px; border-top:1px solid var(--line); }
+.events-head { display:grid; grid-template-columns:1.15fr .85fr; gap:70px; align-items:end; margin-bottom:65px; }
+.events-head h2 { margin:0; font:650 clamp(56px,6.7vw,105px)/.86 var(--display); letter-spacing:-.08em; }
+.events-head h2 em { font-family:var(--editorial); font-weight:400; letter-spacing:-.035em; }
+.events-head .lede { max-width:430px; margin:0 0 4px; }
+.events-grid { display:grid; grid-template-columns:1.2fr .8fr .8fr; grid-template-rows:300px 300px; gap:12px; }
+.event-card { position:relative; display:flex; flex-direction:column; justify-content:space-between; min-width:0; overflow:hidden; color:#fff; background:#18382d; isolation:isolate; }
+.event-card-1 { grid-row:span 2; }
+.event-card-4 { grid-column:2 / 4; }
+.event-image { position:absolute; inset:0; z-index:-2; background-size:cover; background-position:center; transform:scale(1.01); transition:transform .8s var(--ease); }
+.event-card:hover .event-image { transform:scale(1.055); }
+.event-overlay { position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(8,18,14,.35),rgba(8,18,14,.05) 35%,rgba(8,18,14,.88)); }
+.event-card-top { display:flex; justify-content:space-between; gap:20px; padding:22px; font:700 9px var(--ui); letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.76); }
+.event-card-bottom { padding:24px 24px 23px; }
+.event-place { display:block; margin-bottom:9px; font:700 9px var(--ui); letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.62); }
+.event-card h3 { margin:0 0 11px; font:650 clamp(30px,3.2vw,52px)/.9 var(--display); letter-spacing:-.065em; }
+.event-card p { max-width:430px; margin:0; color:rgba(255,255,255,.74); font-size:12px; line-height:1.5; }
+.event-link { display:inline-flex; gap:10px; margin-top:19px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,.65); font:700 9px var(--ui); letter-spacing:.12em; text-transform:uppercase; }
+.event-link b { font-size:12px; line-height:.8; }
+
+
 @media (max-width: 900px) {
+  .events-section { padding:105px 6vw 110px; }
+  .events-head { grid-template-columns:1fr; gap:28px; }
+  .events-grid { grid-template-columns:1fr 1fr; grid-template-rows:420px 300px 300px; }
+  .event-card-1 { grid-row:span 1; grid-column:1 / -1; }
+  .event-card-4 { grid-column:1 / -1; }
   .language-switch { margin-right: 4px; }
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 55px 14px; }
-  .product-media { height: 560px; }
+  .product-media, .product-card:nth-child(2) .product-media, .product-card:nth-child(3) .product-media { height: 560px; }
 }
 @media (max-width: 560px) {
+  .events-section { padding:78px 5vw 90px; }
+  .events-grid { display:flex; flex-direction:column; }
+  .event-card { min-height:390px; }
+  .events-head h2 { font-size:52px; }
   .language-switch { font-size: 8px; }
-  .product-media { height: 440px; }
+  .product-media, .product-card:nth-child(2) .product-media, .product-card:nth-child(3) .product-media { height: 440px; }
   .product-grid { grid-template-columns: 1fr; gap: 55px; }
   .product-copy h3 { font-size: 42px; }
   .product-signature { display: block; line-height: 2; }
@@ -1322,7 +1355,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .destination-experience-world-copy h3 { margin:16px 0 20px; max-width:570px; font:650 clamp(42px,5vw,78px)/.9 var(--display); letter-spacing:-.075em; }
 .destination-experience-world-copy > p:not(.eyebrow) { max-width:480px; margin:0 0 28px; color:#626961; font-size:15px; line-height:1.65; }
 .destination-food-world { background:#153f32; color:#f7f4eb; }
-.destination-food-world-inner { display:grid; grid-template-columns:.72fr 1.28fr; gap:8vw; padding-top:150px; padding-bottom:150px; }
+.destination-food-world-inner { display:grid; grid-template-columns:.68fr 1.32fr; gap:9vw; padding-top:155px; padding-bottom:155px; }
 .destination-food-world-copy { align-self:center; position:sticky; top:130px; }
 .destination-food-world-copy h2 { max-width:500px; margin:18px 0 25px; }
 .destination-food-world-copy > p:not(.eyebrow) { max-width:390px; color:rgba(247,244,235,.72); line-height:1.65; }
@@ -1466,52 +1499,52 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .destination-location-link { margin-top:18px; padding:0; border:0; background:none; color:var(--dw-ink); font:700 9px var(--ui); letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
 .destination-location-link:hover { text-decoration:underline; text-underline-offset:4px; }
 .destination-read-head { margin-bottom:58px; }
-.destination-read-grid { display:grid; grid-template-columns:1.05fr .8fr .95fr; gap:28px; align-items:start; }
-.destination-read-card { display:block; position:relative; }
-.destination-read-card.read-card-2 { margin-top:80px; }
-.destination-read-card.read-card-3 { margin-top:25px; }
-.destination-read-image { height:430px; background-size:cover; background-position:center; transition:transform .7s var(--ease); }
-.destination-read-card:hover .destination-read-image { transform:translateY(-4px); }
-.destination-read-copy { position:relative; width:calc(100% - 28px); margin:-46px 0 0 28px; padding:25px 28px 28px; background:var(--dw-paper); }
+.destination-read-grid { display:grid; grid-template-columns:1.05fr .8fr .95fr; gap:34px; align-items:start; }
+.destination-read-card { display:block; position:relative; overflow:visible; }
+.destination-read-card.read-card-2 { margin-top:92px; }
+.destination-read-card.read-card-3 { margin-top:32px; }
+.destination-read-image { height:450px; background-size:cover; background-position:center; transition:transform .7s var(--ease); }
+.destination-read-card:hover .destination-read-image { transform:translateY(-5px); }
+.destination-read-copy { position:absolute; z-index:2; top:0; left:0; width:min(88%, 430px); margin:0; padding:24px 26px 26px; background:rgba(247,244,235,.94); backdrop-filter:blur(7px); transform:translate(20px,-18px); }
 .destination-read-copy h3 { margin:11px 0 10px; font:650 clamp(30px,3.3vw,48px)/.93 var(--display); letter-spacing:-.065em; }
 .destination-read-copy p:not(.eyebrow) { max-width:420px; margin:0 0 15px; color:#646b64; font-size:13px; line-height:1.55; }
 .destination-read-copy span { font:700 9px var(--ui); letter-spacing:.12em; text-transform:uppercase; }
-.destination-experience-world-list { gap:95px; }
+.destination-experience-world-list { gap:125px; }
+.destination-experience-world-item { column-gap:7vw; }
+.destination-experience-world-image { min-height:470px; }
 .destination-experience-world-item { position:relative; display:block; min-height:500px; }
 .destination-experience-world-item .destination-experience-world-image { position:relative; width:62%; height:520px; }
 .destination-experience-world-item:nth-child(2) .destination-experience-world-image { width:54%; margin-left:auto; height:470px; }
 .destination-experience-world-item:nth-child(3) .destination-experience-world-image { width:58%; height:500px; margin-left:10%; }
 .destination-experience-world-item:nth-child(4) .destination-experience-world-image { width:51%; height:455px; margin-left:auto; }
-.destination-experience-world-item:nth-child(5) .destination-experience-world-image { width:60%; height:510px; margin-left:5%; }
 .destination-experience-world-copy { position:absolute; z-index:3; left:49%; bottom:25px; width:min(480px,42vw); padding:28px 32px 32px; background:var(--dw-paper); box-shadow:0 18px 50px rgba(24,34,27,.08); }
 .destination-experience-world-item:nth-child(2) .destination-experience-world-copy { left:10%; bottom:20px; }
 .destination-experience-world-item:nth-child(3) .destination-experience-world-copy { left:48%; bottom:5px; }
 .destination-experience-world-item:nth-child(4) .destination-experience-world-copy { left:14%; bottom:8px; }
-.destination-experience-world-item:nth-child(5) .destination-experience-world-copy { left:48%; bottom:15px; }
 .destination-experience-world-copy h3 { font-size:clamp(38px,4.2vw,66px); margin-top:12px; }
 .destination-experience-world-copy > p:not(.eyebrow) { font-size:14px; }
 .destination-experience-world-image span { top:18px; left:18px; }
 .destination-food-world-inner { align-items:center; }
 .destination-food-world-copy { position:relative; z-index:5; }
-.destination-food-world-constellation { position:relative; min-height:690px; }
+.destination-food-world-constellation { position:relative; min-height:760px; }
 .food-constellation-item { position:absolute; display:block; }
 .food-constellation-item div { background-size:cover; background-position:center; transition:transform .65s var(--ease); }
 .food-constellation-item:hover div { transform:scale(1.025) rotate(.4deg); }
 .food-constellation-item span { position:absolute; z-index:2; padding:8px 12px; background:#f7f4eb; color:#153f32; font:650 18px/.95 var(--display); letter-spacing:-.03em; }
 .food-constellation-item p { position:absolute; z-index:2; width:180px; margin:0; color:rgba(247,244,235,.75); font-size:11px; line-height:1.45; }
-.food-constellation-1 { width:46%; left:4%; top:20px; transform:rotate(-1.5deg); }
-.food-constellation-1 div { height:300px; }
+.food-constellation-1 { width:43%; left:1%; top:12px; transform:rotate(-1.3deg); }
+.food-constellation-1 div { height:320px; }
 .food-constellation-1 span { left:-12px; bottom:-16px; }
 .food-constellation-1 p { left:calc(100% + 18px); bottom:5px; }
-.food-constellation-2 { width:43%; right:2%; top:155px; transform:rotate(1.4deg); }
-.food-constellation-2 div { height:335px; }
+.food-constellation-2 { width:39%; right:0; top:175px; transform:rotate(1.5deg); }
+.food-constellation-2 div { height:350px; }
 .food-constellation-2 span { left:-14px; bottom:20px; }
 .food-constellation-2 p { right:calc(100% + 18px); bottom:24px; text-align:right; }
-.food-constellation-3 { width:40%; left:20%; bottom:22px; transform:rotate(-.7deg); }
-.food-constellation-3 div { height:285px; }
+.food-constellation-3 { width:37%; left:22%; bottom:8px; transform:rotate(-.7deg); }
+.food-constellation-3 div { height:300px; }
 .food-constellation-3 span { right:-14px; top:-17px; }
 .food-constellation-3 p { right:-190px; top:25px; }
-.food-constellation-note { position:absolute; left:42%; top:47%; z-index:1; font:400 clamp(27px,3vw,45px)/.92 var(--editorial); color:#f7f4eb; transform:rotate(-4deg); text-align:center; }
+.food-constellation-note { position:absolute; left:43%; top:45%; z-index:1; font:400 clamp(27px,3vw,45px)/.92 var(--editorial); color:#f7f4eb; transform:rotate(-4deg); text-align:center; }
 .destination-practical-world-inner { align-items:start; }
 .destination-practical-prose p { padding:0 0 20px; border:0; }
 .destination-practical-prose p+p { padding-top:0; }
@@ -1548,7 +1581,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
   .destination-read-grid { display:block; }
   .destination-read-card,.destination-read-card.read-card-2,.destination-read-card.read-card-3 { margin:0 0 46px; max-width:none; }
   .destination-read-image { height:350px; }
-  .destination-read-copy { width:calc(100% - 18px); margin:-35px 0 0 18px; padding:20px 20px 23px; }
+  .destination-read-copy { position:relative; width:calc(100% - 18px); margin:-35px 0 0 18px; padding:20px 20px 23px; transform:none; }
   .destination-experience-world-item .destination-experience-world-image,.destination-experience-world-item:nth-child(n) .destination-experience-world-image { width:88%; height:360px; }
   .destination-experience-world-copy,.destination-experience-world-item:nth-child(n) .destination-experience-world-copy { width:86%; margin-top:-36px; padding:22px 22px 25px; }
   .destination-experience-world-copy h3 { font-size:43px; }
