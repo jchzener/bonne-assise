@@ -188,16 +188,17 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
           <div><p className="eyebrow dark">{copy.eventsEyebrow}</p><h2>{copy.eventsTitle}<br /><em>{copy.eventsTitle2}</em></h2></div>
           <p className="lede">{copy.eventsLede}</p>
         </div>
-        <div className="events-grid" role="list" aria-label={copy.eventsEyebrow}>
-          {data.events.map((event, index) => (
-            <motion.a key={event.id} className={`event-card event-card-${index + 1}`} href={event.href} target="_blank" rel="noreferrer" role="listitem" whileHover={{ y: -6 }}>
-              <div className="event-image" style={{ backgroundImage: `url(${event.image})` }} />
-              <div className="event-overlay" />
-              <div className="event-card-top"><span>{event.category}</span><span>{event.dateLabel}</span></div>
-              <div className="event-card-bottom"><span className="event-place">{event.place}</span><h3>{event.title}</h3><p>{event.description}</p><span className="event-link">{copy.eventsExplore} <b>↗</b></span></div>
+        <div className="events-editorial" role="list" aria-label={copy.eventsEyebrow}>
+          {data.events.slice(0, 4).map((event, index) => (
+            <motion.a key={event.id} className={`event-editorial-card event-editorial-${index + 1}`} href={event.href} target="_blank" rel="noreferrer" role="listitem" whileHover={{ y: -6 }}>
+              <div className="event-editorial-image" style={{ backgroundImage: `url(${event.image})` }} />
+              <div className="event-editorial-shade" />
+              <div className="event-editorial-meta"><span>{event.dateLabel}</span><span>{event.place}</span></div>
+              <div className="event-editorial-copy"><p>{event.category}</p><h3>{event.title}</h3><span>{copy.eventsExplore} <b>↗</b></span></div>
             </motion.a>
           ))}
         </div>
+        <div className="events-footer-link"><Link href={`/${locale}/events`}>{locale === 'fr' ? 'Explorer tous les événements' : 'Explore all events'} <span>↗</span></Link></div>
       </section>
 
       <section className="section prendre-place" id="prendre-place">

@@ -29,3 +29,9 @@ Set `FRONTEND_ORIGIN` on the API and `NEXT_PUBLIC_API_BASE_URL` on the web servi
 TypeScript was checked with `tsc --noEmit` successfully in the build workspace.
 
 A full `next build` could not be completed in the offline build environment because Next.js attempted to download its platform SWC binary. Render's normal networked build can perform that step.
+
+## Pass 12.1 — Living Benin / Events
+
+The homepage now includes a curated `events` feed from the FastAPI home contract. Event records are structured separately from editorial content so they can later support a dedicated `/events` experience, location/date/category filtering, partner submissions, and clearly-labelled sponsored placements without changing the homepage component contract.
+
+The current seed set was checked against event/official sources on 26 September 2026. It is a curated upcoming set, not an exhaustive national event database; stale or conflicting dates should be removed during each content refresh.

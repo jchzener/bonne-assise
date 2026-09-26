@@ -5,7 +5,7 @@ __pycache__/
 *.py[cod]
 .DS_Store
 node_modules/
-Frontend/dist/
+Frontend/.next/
 Backend/bonne_assise.db
 Backend/uploads/
 bonne_assise.db

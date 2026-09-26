@@ -120,7 +120,7 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
           <p className="lede">{copy.experiencesLede}</p>
         </div>
         <div className="destination-experience-world-list">
-          {data.experiences.map((item, index) => (
+          {data.experiences.slice(0, 4).map((item, index) => (
             <motion.article key={item.id} className={`destination-experience-world-item collage-item collage-${index + 1}`} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .7 }}>
               <Link href={localPath(item.href)} className="destination-experience-world-image" style={{ backgroundImage: `url(${item.image})` }}>
                 <span>{item.category}</span><i>↗</i>

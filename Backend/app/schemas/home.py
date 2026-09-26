@@ -48,6 +48,17 @@ class Experience(BaseModel):
     duration: str
     image: str
 
+class Event(BaseModel):
+    id: str
+    title: str
+    category: str
+    place: str
+    dateLabel: str
+    description: str
+    image: str
+    href: str
+    sponsored: bool = False
+
 class Story(BaseModel):
     id: str
     eyebrow: str
@@ -55,6 +66,17 @@ class Story(BaseModel):
     description: str
     image: str
     place: str
+
+class EventItem(BaseModel):
+    id: str
+    title: str
+    category: str
+    place: str
+    dateLabel: str
+    description: str
+    image: str
+    href: str
+    sponsored: bool = False
 
 class HomeResponse(BaseModel):
     hero: Hero
@@ -64,4 +86,5 @@ class HomeResponse(BaseModel):
     experiences: list[Experience]
     prendrePlace: list[ExperienceProduct]
     stories: list[Story]
+    events: list[Event]
     locale: str

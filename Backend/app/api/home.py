@@ -18,6 +18,37 @@ IMAGES = {
     "ganvie": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1800&q=88",
 }
 
+EVENTS = {
+    "en": [
+        {"id":"festival-mangal","title":"Festival Mangal","category":"ECOLOGY · CULTURE","place":"Grand-Popo","dateLabel":"23–27 September 2026","description":"A festival around mangrove ecosystems, local culture, ecological awareness, conversations, arts and eco-tourism.","image":"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=86","href":"https://festivalmangal.mangroves.network/"},
+        {"id":"festival-sica","title":"Festival SICA","category":"MUSIC · ARTS","place":"Cotonou","dateLabel":"9–15 November 2026","description":"A week of African music, exhibitions, fashion, conversations and cultural encounters under the theme Heritage & Innovation.","image":"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=86","href":"https://festivalsica.com/en/"},
+        {"id":"weloveya","title":"WeLovEya","category":"MUSIC · CULTURE","place":"Cotonou","dateLabel":"26–27 December 2026","description":"A festive end-of-year gathering celebrating African music, culture and talent in Cotonou.","image":"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/en/news"},
+        {"id":"vodun-days","title":"Vodun Days","category":"CULTURE · SPIRITUALITY","place":"Ouidah","dateLabel":"2–9 January 2027","description":"Eight days in Ouidah dedicated to arts, culture and spirituality, bringing the city into a new year of living heritage.","image":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/en/news"},
+    ],
+    "fr": [
+        {"id":"festival-mangal","title":"Festival Mangal","category":"ÉCOLOGIE · CULTURE","place":"Grand-Popo","dateLabel":"23–27 septembre 2026","description":"Un festival autour des écosystèmes de mangrove, de la culture locale, de l’écologie, des rencontres, des arts et de l’écotourisme.","image":"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=86","href":"https://festivalmangal.mangroves.network/"},
+        {"id":"festival-sica","title":"Festival SICA","category":"MUSIQUE · ARTS","place":"Cotonou","dateLabel":"9–15 novembre 2026","description":"Une semaine de musique africaine, expositions, mode, conversations et rencontres culturelles autour du thème Héritage & Innovation.","image":"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=86","href":"https://festivalsica.com/fr/"},
+        {"id":"weloveya","title":"WeLovEya","category":"MUSIQUE · CULTURE","place":"Cotonou","dateLabel":"26–27 décembre 2026","description":"Un grand rendez-vous de fin d’année consacré à la musique, à la culture et aux talents africains à Cotonou.","image":"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/a-la-une/page/2"},
+        {"id":"vodun-days","title":"Vodun Days","category":"CULTURE · SPIRITUALITÉ","place":"Ouidah","dateLabel":"2–9 janvier 2027","description":"Huit jours à Ouidah autour des arts, de la culture et de la spiritualité, pour commencer l’année au rythme du patrimoine vivant.","image":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/a-la-une/page/2"},
+    ],
+}
+
+
+EVENTS = {
+    "en": [
+        {"id":"festival-mangal","title":"Festival Mangal","category":"ECOLOGY · CULTURE","place":"Grand-Popo","dateLabel":"23–27 September 2026","description":"A festival around mangrove ecosystems, local culture, ecological awareness, conversations, arts and eco-tourism.","image":"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=86","href":"https://festivalmangal.mangroves.network/"},
+        {"id":"festival-sica","title":"Festival SICA","category":"MUSIC · ARTS","place":"Cotonou","dateLabel":"9–15 November 2026","description":"A week of African music, exhibitions, fashion, conversations and cultural encounters under the theme Heritage & Innovation.","image":"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=86","href":"https://festivalsica.com/en/"},
+        {"id":"weloveya","title":"WeLovEya","category":"MUSIC · CULTURE","place":"Cotonou","dateLabel":"26–27 December 2026","description":"A festive end-of-year gathering celebrating African music, culture and talent in Cotonou.","image":"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/en/news"},
+        {"id":"vodun-days","title":"Vodun Days","category":"CULTURE · SPIRITUALITY","place":"Ouidah","dateLabel":"2–9 January 2027","description":"Eight days in Ouidah dedicated to arts, culture and spirituality, bringing the city into a new year of living heritage.","image":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/en/news"},
+    ],
+    "fr": [
+        {"id":"festival-mangal","title":"Festival Mangal","category":"ÉCOLOGIE · CULTURE","place":"Grand-Popo","dateLabel":"23–27 septembre 2026","description":"Un festival autour des écosystèmes de mangrove, de la culture locale, de l’écologie, des rencontres, des arts et de l’écotourisme.","image":"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1500&q=86","href":"https://festivalmangal.mangroves.network/"},
+        {"id":"festival-sica","title":"Festival SICA","category":"MUSIQUE · ARTS","place":"Cotonou","dateLabel":"9–15 novembre 2026","description":"Une semaine de musique africaine, expositions, mode, conversations et rencontres culturelles autour du thème Héritage & Innovation.","image":"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=86","href":"https://festivalsica.com/fr/"},
+        {"id":"weloveya","title":"WeLovEya","category":"MUSIQUE · CULTURE","place":"Cotonou","dateLabel":"26–27 décembre 2026","description":"Un grand rendez-vous de fin d’année consacré à la musique, à la culture et aux talents africains à Cotonou.","image":"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/a-la-une/page/2"},
+        {"id":"vodun-days","title":"Vodun Days","category":"CULTURE · SPIRITUALITÉ","place":"Ouidah","dateLabel":"2–9 janvier 2027","description":"Huit jours à Ouidah autour des arts, de la culture et de la spiritualité, pour commencer l’année au rythme du patrimoine vivant.","image":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1500&q=86","href":"https://benin.bj/a-la-une/page/2"},
+    ],
+}
+
 COPY = {
     "en": {
         "hero": ("BENIN · WEST AFRICA", "Come closer to the stories.", "A living country of water, memory, ritual, food and extraordinary encounters."),
@@ -82,11 +113,13 @@ def get_home(locale: str) -> HomeResponse:
         ],
         "experiences": [],
         "prendrePlace": products,
+        "events": EVENTS[locale],
         "stories": [
             {"id":"story-1","eyebrow":"NOTES DE TERRAIN" if locale == "fr" else "FIELD NOTES","title":"Pourquoi Ouidah reste avec vous" if locale == "fr" else "Why Ouidah stays with you","description":"Une ville de portes, de routes, de tambours et de mémoire — à comprendre lentement." if locale == "fr" else "A city of doors, routes, drums and memory — best understood slowly.","image":"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=88","place":"Ouidah"},
             {"id":"story-2","eyebrow":"PERSONNES" if locale == "fr" else "PEOPLE","title":"La vie sur l’eau" if locale == "fr" else "Life on the water","description":"Passer une matinée là où le lac est route, marché et maison." if locale == "fr" else "Spend a morning where the lake is road, market and home.","image":"https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=88","place":"Ganvié"},
             {"id":"story-3","eyebrow":"TABLE","title":"Un pays raconté par le feu" if locale == "fr" else "A country told through fire","description":"Les marchés et les cuisines familiales dessinent une autre carte du Bénin." if locale == "fr" else "Markets and family kitchens reveal another map of Benin.","image":"https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=88","place":"Abomey"},
         ],
+        "events": EVENTS[locale],
     })
 
 

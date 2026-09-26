@@ -70,7 +70,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 /* Discovery */
 .section { padding: 150px 7vw; }
 .discovery { background: var(--paper); }
-.reveal-grid { display: grid; grid-template-columns: 1fr 2fr 1.1fr; gap: 50px; align-items: end; margin-bottom: 75px; }
+.reveal-grid { display: grid; grid-template-columns: 1fr 2fr 1.1fr; gap: 50px; align-items: flex-end; margin-bottom: 75px; }
 .interest-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .interest-card { height: 530px; position: relative; text-align: left; overflow: hidden; color: white; isolation: isolate; border: 1px solid transparent; transition: border-color .3s, transform .3s var(--ease); }
 .interest-card:hover, .interest-card.active { border-color: rgba(23,32,25,.22); }
@@ -86,9 +86,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 
 /* Map / geography */
 .map-section { background: var(--forest); color: white; padding: 150px 7vw; }
-.map-heading { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 50px; align-items: end; }
+.map-heading { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 50px; align-items: flex-end; }
 .map-heading>p:last-child { font-size: 15px; line-height: 1.6; opacity: .7; }
-.map-location-tools { margin-top: 42px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.map-location-tools { margin-top: 42px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: flex-end; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.14); }
 .map-tool-label { display: block; margin-bottom: 7px; color: rgba(255,255,255,.48); font: 700 9px var(--ui); letter-spacing: .15em; text-transform: uppercase; }
 .map-location-tools strong { font: 650 22px var(--display); letter-spacing: -.035em; }
 .map-tool-actions { display: flex; gap: 8px; align-items: center; }
@@ -127,9 +127,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 
 /* Experiences */
 .experiences { background: var(--paper); }
-.split-heading { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: end; margin-bottom: 90px; }
+.split-heading { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: flex-end; margin-bottom: 90px; }
 .experience-stack { display: flex; flex-direction: column; gap: 120px; }
-.experience { display: grid; grid-template-columns: 1.35fr .65fr; gap: 70px; align-items: end; }
+.experience { display: grid; grid-template-columns: 1.35fr .65fr; gap: 70px; align-items: flex-end; }
 .experience.reverse { grid-template-columns: .65fr 1.35fr; }
 .experience.reverse .experience-image { grid-column: 2; }
 .experience.reverse .experience-copy { grid-row: 1; grid-column: 1; }
@@ -142,7 +142,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 
 /* Stories */
 .stories-section { background: #1a211c; color: white; padding: 150px 7vw; }
-.stories-head { display: grid; grid-template-columns: 1fr 1.35fr; gap: 60px; align-items: end; margin-bottom: 70px; }
+.stories-head { display: grid; grid-template-columns: 1fr 1.35fr; gap: 60px; align-items: flex-end; margin-bottom: 70px; }
 .stories-head > div { justify-self: end; width: 100%; }
 .stories-head > p { order: -1; }
 .stories-grid { display: grid; grid-template-columns: 1.3fr .7fr; grid-template-rows: 390px 390px; gap: 12px; }
@@ -620,7 +620,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .destination-hero-content>p:last-child { max-width: 570px; margin: 28px 0 0; font-size: 17px; line-height: 1.55; color: rgba(255,255,255,.88); }
 .destination-coordinates { position: absolute; right: 7vw; bottom: 9vh; writing-mode: vertical-rl; font: 700 8px var(--ui); letter-spacing: .18em; opacity: .7; }
 .destination-intro { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
-.destination-intro-copy { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: end; }
+.destination-intro-copy { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: flex-end; }
 .destination-intro-copy h2, .food-heading h2, .practical-grid h2, .destination-nearby h2, .destination-journey-content h2 { font: 650 clamp(54px, 6.3vw, 100px)/.88 var(--display); letter-spacing: -.075em; margin: 0; }
 .destination-intro-copy h2 em, .food-heading h2 em, .practical-grid h2 em, .destination-nearby h2 em, .destination-journey-content h2 em { font-family: var(--editorial); font-weight: 400; letter-spacing: -.035em; }
 .destination-intro-copy>p { color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0; }
@@ -639,7 +639,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 
 .destination-explore { padding-top: 90px; }
 .destination-experience-list { display: flex; flex-direction: column; gap: 100px; }
-.destination-experience-card { display: grid; grid-template-columns: 1.45fr .55fr; gap: 65px; align-items: end; }
+.destination-experience-card { display: grid; grid-template-columns: 1.45fr .55fr; gap: 65px; align-items: flex-end; }
 .destination-experience-card.reverse { grid-template-columns: .55fr 1.45fr; }
 .destination-experience-card.reverse .destination-experience-image { grid-column: 2; }
 .destination-experience-card.reverse .destination-experience-copy { grid-row: 1; grid-column: 1; }
@@ -753,7 +753,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
   display: grid;
   grid-template-columns: 1.25fr .75fr;
   gap: 70px;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: 72px;
 }
 .regions-intro h2 {
@@ -1040,10 +1040,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .booking-card button { border: 1px solid rgba(255,255,255,.6); background: white; color: var(--ink); padding: 17px 20px; font: 700 10px var(--ui); text-transform: uppercase; letter-spacing: .1em; text-align: left; cursor: pointer; }
 .booking-card button span { color: var(--ink); float: right; }
 .experience-related { padding: 140px 0 120px; }
-.related-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 55px; }
+.related-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 55px; }
 .related-head h2 { font: 650 clamp(50px, 6vw, 82px)/.86 var(--display); letter-spacing: -.075em; margin: 0; }
 .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.related-card { min-height: 180px; background: #e8e5dc; padding: 28px; display: flex; justify-content: space-between; align-items: end; transition: transform .35s var(--ease), background .35s; }
+.related-card { min-height: 180px; background: #e8e5dc; padding: 28px; display: flex; justify-content: space-between; align-items: flex-end; transition: transform .35s var(--ease), background .35s; }
 .related-card:hover { transform: translateY(-5px); background: #dedbd1; }
 .related-card span { font: 650 34px/.95 var(--display); letter-spacing: -.045em; max-width: 300px; }
 .related-card b { font: 400 22px var(--ui); }
@@ -1613,3 +1613,261 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
 .journey-editorial-body h2 { max-width:480px; margin:14px 0 0; font:650 clamp(36px,4.5vw,68px)/.9 var(--display); letter-spacing:-.065em; }
 .journey-editorial-body > p { max-width:480px; color:var(--muted); line-height:1.7; }
 @media (max-width: 800px) { .personalization-note { grid-template-columns:1fr; gap:7px; } .journey-editorial-hero { grid-template-columns:1fr; gap:30px; padding:100px 6vw 85px; } .journey-editorial-body { margin:0 6vw 90px; grid-template-columns:1fr; gap:28px; } }
+
+/* =========================================================
+   PASS 12.2 — MOBILE FIRST / ASSISE COMPOSITION
+   Mobile is not a compressed desktop: fewer objects, stronger rhythm,
+   touch-first rails and editorial event listing.
+   ========================================================= */
+.events-grid { display:none; }
+.events-list { border-top:1px solid var(--line); }
+.event-row {
+  display:grid;
+  grid-template-columns:150px minmax(0,1fr) auto;
+  gap:28px;
+  align-items:center;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+  transition:transform .35s var(--ease);
+}
+.event-date { display:flex; align-items:baseline; gap:8px; }
+.event-date strong { font:650 clamp(32px,4vw,54px)/.85 var(--display); letter-spacing:-.07em; }
+.event-date span { font:700 9px var(--ui); letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.event-main .event-place { color:var(--muted); margin-bottom:7px; }
+.event-main h3 { margin:0 0 7px; font:650 clamp(27px,3vw,42px)/.92 var(--display); letter-spacing:-.06em; }
+.event-main p { max-width:620px; margin:0; color:var(--muted); font-size:13px; line-height:1.5; }
+.events-list .event-link { margin:0; color:var(--ink); border-color:var(--ink); white-space:nowrap; }
+
+@media (max-width: 900px) {
+  .site-nav { min-height:64px; }
+  .hero { min-height:760px; }
+  .hero-content { max-width:650px; }
+  .hero h1 { max-width:720px; }
+  .regions-section { overflow:hidden; }
+  .product-grid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:14px; margin-right:-6vw; padding-right:6vw; scrollbar-width:none; }
+  .product-grid::-webkit-scrollbar { display:none; }
+  .product-card { flex:0 0 min(78vw,520px); scroll-snap-align:start; }
+  .product-card:first-child { flex-basis:min(84vw,560px); }
+  .product-media, .product-card:nth-child(2) .product-media, .product-card:nth-child(3) .product-media { height:500px; }
+  .events-section { padding-bottom:100px; }
+}
+
+@media (max-width: 560px) {
+  /* Navigation / hero */
+  .site-nav { padding:14px 5vw; min-height:62px; }
+  .wordmark { font-size:18px; }
+  .nav-actions { gap:10px; }
+  .language-switch { margin-right:2px; }
+  .menu-button { width:42px; height:42px; }
+  .hero { min-height:calc(100svh - 0px); height:auto; padding:0 5vw 9vh; align-items:end; }
+  .hero-media { background-position:62% center; }
+  .hero-content { padding-bottom:10px; }
+  .hero-content .eyebrow { font-size:8px; letter-spacing:.14em; }
+  .hero h1 { font-size:clamp(54px,15.8vw,76px); line-height:.86; letter-spacing:-.085em; }
+  .hero-subtitle { max-width:300px; font-size:14px; line-height:1.5; }
+  .circle-cta { width:74px; height:74px; font-size:9px; margin-top:24px; }
+
+  /* Reduce vertical repetition: cards become tactile horizontal galleries. */
+  .section, .regions-section, .stories-section { padding:72px 5vw; }
+  .section h2, .regions-intro h2, .split-heading h2, .stories-head h2 { font-size:clamp(48px,14vw,62px); line-height:.9; }
+  .reveal-grid>*+*, .split-heading>*+* { margin-top:22px; }
+  .lede { font-size:14px; line-height:1.55; }
+
+  /* Find Your Benin: one deliberate card at a time, not five stacked boxes. */
+  .interest-grid {
+    display:flex;
+    overflow-x:auto;
+    gap:9px;
+    margin-right:-5vw;
+    padding:7px 5vw 14px 0;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .interest-grid::-webkit-scrollbar { display:none; }
+  .interest-card, .interest-card:nth-child(n) { flex:0 0 78vw; height:430px; scroll-snap-align:start; }
+  .interest-card:hover, .interest-card.active { transform:translateY(-4px) scale(1); }
+  .interest-card .interest-image { inset:0; }
+  .interest-card:hover .interest-image, .interest-card.active .interest-image { inset:-2px; transform:scale(1.012); }
+  .interest-copy { padding:23px 22px 21px; }
+  .interest-copy strong { font-size:35px; }
+  .interest-copy p { opacity:.86; transform:none; font-size:12px; line-height:1.45; }
+  .interest-copy i { margin-top:13px; }
+  .preference-result { margin-top:8px; padding:16px 0 0; border-top:1px solid var(--line); }
+
+  /* Three worlds: one hero, then a sideways pair. */
+  .regions-section { padding-top:78px; }
+  .regions-intro { margin-bottom:36px; }
+  .region-atlas { display:block; }
+  .region-feature { min-height:480px; }
+  .region-secondary { display:flex; overflow-x:auto; gap:9px; margin:9px -5vw 0 0; padding-right:5vw; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .region-secondary::-webkit-scrollbar { display:none; }
+  .region-secondary .region-card { flex:0 0 78vw; min-height:390px; scroll-snap-align:start; }
+  .region-content { padding:24px 22px; }
+  .region-content h3, .region-card .region-content h3 { font-size:37px; }
+  .region-content > p:not(.eyebrow) { font-size:12px; }
+  .region-destinations { font-size:8px; }
+
+  /* What's happening now is intentionally not another image gallery. */
+  .events-section { padding:76px 5vw 86px; }
+  .events-head { margin-bottom:38px; }
+  .events-head h2 { font-size:clamp(50px,14vw,62px); }
+  .events-head .lede { font-size:13px; }
+  .event-row { grid-template-columns:72px minmax(0,1fr); gap:17px; padding:23px 0; align-items:start; }
+  .event-date { display:block; padding-top:2px; }
+  .event-date strong { display:block; font-size:35px; }
+  .event-date span { display:block; margin-top:5px; font-size:7px; line-height:1.2; }
+  .event-main h3 { font-size:30px; }
+  .event-main p { font-size:11px; line-height:1.45; }
+  .events-list .event-link { grid-column:2; justify-self:start; margin-top:-4px; font-size:8px; }
+
+  /* Prendre Place: horizontal editorial rail instead of three stacked cards. */
+  .prendre-place .personalization-note { margin-bottom:24px; }
+  .product-grid { margin-right:-5vw; padding-right:5vw; gap:10px; }
+  .product-card, .product-card:first-child { flex-basis:84vw; }
+  .product-media, .product-card:nth-child(2) .product-media, .product-card:nth-child(3) .product-media { height:430px; }
+  .product-copy { padding:20px 2px 0; }
+  .product-copy h3 { font-size:38px; margin-bottom:10px; }
+  .product-copy > p:not(.eyebrow) { font-size:12px; }
+  .product-meta { margin-top:15px; }
+  .product-signature { margin-top:38px; }
+
+  /* Field notes: swipe, don't stack a photo wall. */
+  .stories-grid { display:flex; overflow-x:auto; gap:9px; margin-right:-5vw; padding-right:5vw; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .stories-grid::-webkit-scrollbar { display:none; }
+  .story, .story-1 { flex:0 0 84vw; height:430px; scroll-snap-align:start; }
+  .story-copy { left:21px; right:21px; bottom:22px; }
+  .story-copy h3 { font-size:35px; }
+  .story-copy p:not(.eyebrow) { font-size:12px; }
+
+  /* Journey: quieter, more intimate finish. */
+  .journey-section { min-height:650px; padding:78px 5vw; }
+  .journey-content h2 { font-size:clamp(54px,15vw,76px); }
+  .journey-content>p:not(.eyebrow) { font-size:14px; margin:25px auto; }
+  .journey-bg { background-position:58% center; }
+  .journey-grid-lines { display:none; }
+
+  /* Footer */
+  .footer { padding:60px 5vw 25px; }
+  .footer-links { gap:16px 22px; font-size:11px; }
+
+  /* Destination / experience pages: fewer giant vertical blocks. */
+  .destination-nav { height:62px; padding:12px 5vw; }
+  .destination-hero { min-height:calc(100svh - 0px); height:auto; padding:0 5vw 8vh; }
+  .destination-hero-content h1 { font-size:clamp(52px,15vw,78px); }
+  .destination-hero-content>p:last-child { font-size:14px; margin-top:19px; }
+  .destination-intro, .destination-explore, .destination-stories, .destination-nearby { padding-top:68px; padding-bottom:68px; }
+  .destination-intro-copy h2, .food-heading h2, .practical-grid h2, .destination-nearby h2, .destination-journey-content h2 { font-size:clamp(48px,14vw,64px); }
+  .destination-experience-world-list { gap:72px; }
+  .destination-experience-world-item .destination-experience-world-image,
+  .destination-experience-world-item:nth-child(n) .destination-experience-world-image { width:90%; height:350px; }
+  .destination-experience-world-copy,
+  .destination-experience-world-item:nth-child(n) .destination-experience-world-copy { width:86%; margin-top:-32px; padding:20px 20px 23px; }
+  .destination-experience-world-copy h3 { font-size:40px; }
+  .food-inner { padding-top:68px; padding-bottom:68px; }
+  .food-grid { display:flex; overflow-x:auto; gap:12px; margin-right:-5vw; padding-right:5vw; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .food-grid::-webkit-scrollbar { display:none; }
+  .food-card { flex:0 0 72vw; scroll-snap-align:start; }
+  .food-card>div { height:330px; }
+
+  .experience-nav { height:64px; padding:0 5vw; }
+  .experience-nav-right { gap:14px; font-size:8px; }
+  .experience-hero { min-height:calc(100svh - 64px); padding:6vw 5vw 8vh; }
+  .experience-hero h1 { font-size:clamp(56px,16vw,82px); }
+  .hero-promise { font-size:24px; }
+  .experience-intro { padding-top:72px; padding-bottom:78px; gap:28px; }
+  .experience-intro h2 { font-size:clamp(46px,13vw,64px); }
+  .experience-intro p:not(.eyebrow) { font-size:15px; line-height:1.6; }
+  .experience-meaning { padding:55px 0; gap:24px; }
+  .meaning-copy p { font-size:29px; }
+  .experience-steps { padding:76px 0; }
+  .steps-head { margin-bottom:42px; }
+  .step { display:block; padding:25px 0; }
+  .step-index { margin-bottom:7px; }
+  .step-copy h3 { font-size:29px; }
+  .experience-host { padding-top:72px; padding-bottom:78px; gap:30px; }
+  .host-image { height:390px; }
+  .host-copy h2 { font-size:50px; }
+  .experience-details { padding-top:68px; padding-bottom:78px; gap:28px; }
+  .details-column ul { margin-top:18px; }
+  .experience-booking { padding:78px 0; }
+  .booking-inner { gap:42px; }
+  .booking-inner h2 { font-size:54px; }
+}
+
+
+/* PASS 12.3 — Editorial events + quieter destination composition */
+.events-grid, .events-list { display:none !important; }
+.events-editorial { display:grid; grid-template-columns:1.18fr .82fr .82fr; grid-template-rows:285px 285px; gap:14px; }
+.event-editorial-card { position:relative; min-width:0; overflow:hidden; color:#fff; background:#17372c; isolation:isolate; display:flex; flex-direction:column; justify-content:space-between; }
+.event-editorial-1 { grid-row:1 / 3; }
+.event-editorial-4 { grid-column:2 / 4; }
+.event-editorial-image { position:absolute; inset:0; z-index:-2; background-size:cover; background-position:center; transition:transform .8s var(--ease); }
+.event-editorial-card:hover .event-editorial-image { transform:scale(1.045); }
+.event-editorial-shade { position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(10,20,15,.22),rgba(10,20,15,.04) 42%,rgba(10,20,15,.88)); }
+.event-editorial-meta { display:flex; justify-content:space-between; gap:20px; padding:19px 20px; font:700 8px var(--ui); letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.72); }
+.event-editorial-copy { padding:20px 22px 22px; }
+.event-editorial-copy p { margin:0 0 9px; font:700 8px var(--ui); letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.62); }
+.event-editorial-copy h3 { margin:0 0 14px; font:650 clamp(29px,3.2vw,50px)/.9 var(--display); letter-spacing:-.065em; }
+.event-editorial-copy span { display:inline-flex; gap:8px; padding-bottom:5px; border-bottom:1px solid rgba(255,255,255,.62); font:700 8px var(--ui); letter-spacing:.12em; text-transform:uppercase; }
+.events-footer-link { margin-top:30px; text-align:right; }
+.events-footer-link a { display:inline-flex; gap:10px; align-items:center; padding-bottom:7px; border-bottom:1px solid var(--ink); font:700 9px var(--ui); letter-spacing:.13em; text-transform:uppercase; }
+.events-footer-link span { font-size:13px; }
+
+.destination-read-card.read-card-1 .destination-read-copy { top:auto; bottom:0; transform:translate(20px,18px); }
+.destination-read-card.read-card-2 .destination-read-copy { top:auto; bottom:-10px; left:auto; right:0; transform:translate(-20px,18px); }
+.destination-read-card.read-card-3 .destination-read-copy { position:relative; top:auto; left:auto; width:calc(100% - 26px); margin:-28px 0 0 26px; transform:none; }
+.destination-read-card.read-card-1 .destination-read-image { height:500px; }
+.destination-read-card.read-card-2 .destination-read-image { height:430px; }
+.destination-read-card.read-card-3 .destination-read-image { height:390px; }
+.destination-read-copy { box-shadow:0 14px 40px rgba(24,34,27,.08); }
+
+.destination-food-world-constellation { min-height:700px; }
+.destination-food-world-copy { max-width:380px; }
+.destination-food-world-copy h2 { max-width:360px; }
+.food-constellation-1 { width:44%; left:0; top:28px; transform:rotate(-1.8deg); }
+.food-constellation-1 div { height:300px; }
+.food-constellation-2 { width:36%; right:2%; top:95px; transform:rotate(1.8deg); }
+.food-constellation-2 div { height:330px; }
+.food-constellation-3 { width:38%; left:25%; bottom:0; transform:rotate(-.8deg); }
+.food-constellation-3 div { height:285px; }
+.food-constellation-note { left:42%; top:43%; max-width:210px; font-size:clamp(31px,3.3vw,48px); line-height:.9; }
+.food-constellation-item span { font-size:17px; }
+
+@media (max-width:900px) {
+  .events-editorial { grid-template-columns:1fr 1fr; grid-template-rows:390px 250px 250px; }
+  .event-editorial-1 { grid-column:1 / 3; grid-row:auto; }
+  .event-editorial-4 { grid-column:auto; }
+  .destination-read-card.read-card-1 .destination-read-copy,
+  .destination-read-card.read-card-2 .destination-read-copy { transform:none; }
+}
+
+@media (max-width:600px) {
+  .events-section { padding:78px 5vw 88px; }
+  .events-head { margin-bottom:34px; }
+  .events-head h2 { font-size:clamp(48px,14vw,62px); }
+  .events-editorial { display:flex; overflow-x:auto; gap:12px; margin-right:-5vw; padding-right:5vw; scroll-snap-type:x mandatory; scrollbar-width:none; }
+  .events-editorial::-webkit-scrollbar { display:none; }
+  .event-editorial-card, .event-editorial-1, .event-editorial-4 { flex:0 0 82vw; min-height:430px; height:430px; scroll-snap-align:start; }
+  .event-editorial-meta { padding:17px; }
+  .event-editorial-copy { padding:18px; }
+  .event-editorial-copy h3 { font-size:37px; }
+  .events-footer-link { text-align:left; margin-top:24px; }
+
+  .destination-read-card.read-card-1 .destination-read-copy,
+  .destination-read-card.read-card-2 .destination-read-copy,
+  .destination-read-card.read-card-3 .destination-read-copy { position:relative; width:calc(100% - 18px); margin:-30px 0 0 18px; padding:20px 20px 22px; left:auto; right:auto; bottom:auto; top:auto; transform:none; }
+  .destination-read-card.read-card-1 .destination-read-image,
+  .destination-read-card.read-card-2 .destination-read-image,
+  .destination-read-card.read-card-3 .destination-read-image { height:330px; }
+  .destination-read-card { margin-bottom:46px; }
+
+  .destination-food-world-constellation { min-height:610px; }
+  .food-constellation-1 { width:58%; left:0; top:18px; }
+  .food-constellation-2 { width:49%; right:0; top:145px; }
+  .food-constellation-3 { width:52%; left:12%; bottom:0; }
+  .food-constellation-1 div { height:235px; }
+  .food-constellation-2 div { height:255px; }
+  .food-constellation-3 div { height:220px; }
+  .food-constellation-note { left:34%; top:43%; max-width:160px; font-size:31px; }
+}

@@ -387,8 +387,24 @@ export async function getHome(
       next: { revalidate: 60 },
     });
     if (!response.ok) throw new Error("Home API failed");
-    const apiHome: HomeResponse = await response.json();
-    const localArrival = getHomeMock(locale).prendrePlace.find(
+    const raw = await response.json();
+    const fallback = getHomeMock(locale);
+    // Keep the homepage resilient when the API is one deploy behind the frontend
+    // or when a new collection has not been populated yet. A 200 response with
+    // an omitted/null array should never be allowed to crash prerendering.
+    const apiHome: HomeResponse = {
+      ...fallback,
+      ...raw,
+      discovery: Array.isArray(raw.discovery) ? raw.discovery : fallback.discovery,
+      regions: Array.isArray(raw.regions) ? raw.regions : fallback.regions,
+      places: Array.isArray(raw.places) ? raw.places : fallback.places,
+      experiences: Array.isArray(raw.experiences) ? raw.experiences : fallback.experiences,
+      prendrePlace: Array.isArray(raw.prendrePlace) ? raw.prendrePlace : fallback.prendrePlace,
+      stories: Array.isArray(raw.stories) ? raw.stories : fallback.stories,
+      events: Array.isArray(raw.events) ? raw.events : fallback.events,
+      locale,
+    };
+    const localArrival = fallback.prendrePlace.find(
       (item) => item.id === "five-first-tables",
     );
     const apiProducts = apiHome.prendrePlace.filter(
