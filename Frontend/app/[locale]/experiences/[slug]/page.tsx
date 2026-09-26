@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { experienceSlugs, getExperience } from '@/lib/api';
 import { isLocale, locales } from '@/lib/i18n';
 import LocaleDocument from '@/components/LocaleDocument';
+import JourneyIndicator from '@/components/JourneyIndicator';
+import JourneyToggle from '@/components/JourneyToggle';
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => experienceSlugs.map((slug) => ({ locale, slug })));
@@ -65,7 +67,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
       <header className="experience-nav">
         <Link className="brand" href={`/${locale}`}>BONNE<br />ASSISE</Link>
         <div className="experience-nav-center"><span>PRENDRE PLACE</span><span className="nav-rule" /></div>
-        <Link className="experience-nav-back" href={`/${locale}`}>{copy.back} <span>↗</span></Link>
+        <div className="experience-nav-actions"><Link className="experience-nav-journey" href={`/${locale}/journey`}>{fr ? 'Votre voyage' : 'Your journey'} <JourneyIndicator locale={locale} /></Link><Link className="experience-nav-back" href={`/${locale}`}>{copy.back} <span>↗</span></Link></div>
       </header>
 
       <section className="experience-hero editorial-hero">
@@ -133,6 +135,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
           <div className="booking-copy"><p className="eyebrow">{copy.reserve}</p><h2>{copy.take}</h2><p>{data.availability_note}</p></div>
           <div className="booking-card">
             <div className="booking-card-top"><span>{typeLabel}</span><strong>{data.name}</strong></div>
+            <JourneyToggle locale={locale} item={{ id: data.id, label: data.name, href: `/${locale}/experiences/${data.id}` }} interests={['culture']} />
             <div className="booking-facts"><div><span>{fr ? 'Lieu' : 'Place'}</span><b>{data.place}</b></div><div><span>{fr ? 'Durée' : 'Duration'}</span><b>{data.duration}</b></div><div><span>{fr ? 'Tarif' : 'Price'}</span><b>{data.price_note}</b></div></div>
             <button>{cta}<span>↗</span></button>
           </div>

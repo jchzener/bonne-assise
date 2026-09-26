@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import { type HomeResponse } from '@/lib/api';
 import { type Locale, ui } from '@/lib/i18n';
+import JourneyIndicator from '@/components/JourneyIndicator';
 import { interestForExperience, interestForStory, ranked, readSignals, recordContentSignal, recordInterest, type InterestId } from '@/lib/recommendations';
 
 type UiCopy = (typeof ui)[Locale];
@@ -30,6 +31,7 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
   const links = navItems(copy, locale);
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedInterest, setSelectedInterest] = useState<string | null>(null);
+  const [activeEvent, setActiveEvent] = useState(0);
   const [activeSection, setActiveSection] = useState('discover');
   const [signals, setSignals] = useState<Record<string, number>>({});
   const { scrollY, scrollYProgress } = useScroll();
@@ -76,7 +78,7 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
       <motion.header className="site-nav" style={{ backgroundColor: navBg, color: navColor, boxShadow: navShadow }}>
         <Link className="wordmark" href={`/${locale}`} aria-label="Bonne Assise home">BONNE<br />ASSISE</Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {links.map((item) => item.href.startsWith('#') ? <a key={item.id} className={activeSection === item.section ? 'active' : ''} href={item.href}>{item.label}</a> : <Link key={item.id} href={item.href}>{item.label}</Link>)}
+          {links.map((item) => item.href.startsWith('#') ? <a key={item.id} className={activeSection === item.section ? 'active' : ''} href={item.href}>{item.label}</a> : <Link key={item.id} className={item.id === 'journey' ? 'nav-journey-link' : undefined} href={item.href}>{item.label}{item.id === 'journey' && <JourneyIndicator locale={locale} />}</Link>)}
         </nav>
         <div className="nav-actions"><div className="language-switch" aria-label="Language"><a className={locale === 'en' ? 'active' : ''} href="/en">EN</a><span>/</span><a className={locale === 'fr' ? 'active' : ''} href="/fr">FR</a></div>
           <button className="ghost-button search-button" aria-label={copy.search}><span aria-hidden="true" /></button>
@@ -91,7 +93,7 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
             <div className="mobile-menu-links">
               {links.map((item, index) => (
                 <motion.a key={item.id} href={item.href} onClick={() => setMenuOpen(false)} initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.06 }}>
-                  <span>0{index + 1}</span>{item.label}
+                  <span>0{index + 1}</span>{item.label}{item.id === 'journey' && <JourneyIndicator locale={locale} />}
                 </motion.a>
               ))}
             </div>
@@ -134,11 +136,7 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
             );
           })}
         </div>
-        <motion.div className="preference-result" key={selectedInterest} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          <span>{copy.yourSignal}</span><strong>{selectedInterestData?.label ?? copy.chooseInterest}</strong>
-          <p>{selectedInterestData?.description ?? (locale === 'fr' ? 'Sélectionnez un univers ci-dessus. Votre choix guidera ensuite les lieux, expériences et idées de voyage que nous vous proposerons.' : 'Select an interest above. Your choice will later shape the places, experiences and journey we recommend.')}</p>
-          <span className="signal-arrow" aria-hidden="true">↗</span>
-        </motion.div>
+
       </section>
 
       <section className="regions-section" id="places">
@@ -188,9 +186,9 @@ export default function HomeExperience({ data, locale }: { data: HomeResponse; l
           <div><p className="eyebrow dark">{copy.eventsEyebrow}</p><h2>{copy.eventsTitle}<br /><em>{copy.eventsTitle2}</em></h2></div>
           <p className="lede">{copy.eventsLede}</p>
         </div>
-        <div className="events-editorial" role="list" aria-label={copy.eventsEyebrow}>
+        <div className={`events-editorial has-active-${activeEvent}`} role="list" aria-label={copy.eventsEyebrow}>
           {data.events.slice(0, 4).map((event, index) => (
-            <motion.a key={event.id} className={`event-editorial-card event-editorial-${index + 1}`} href={event.href} target="_blank" rel="noreferrer" role="listitem" whileHover={{ y: -6 }}>
+            <motion.a key={event.id} className={`event-editorial-card event-editorial-${index + 1} ${activeEvent === index ? 'is-active' : ''}`} href={event.href} target="_blank" rel="noreferrer" role="listitem" tabIndex={0} onMouseEnter={() => setActiveEvent(index)} onFocus={() => setActiveEvent(index)} onClick={() => setActiveEvent(index)}>
               <div className="event-editorial-image" style={{ backgroundImage: `url(${event.image})` }} />
               <div className="event-editorial-shade" />
               <div className="event-editorial-meta"><span>{event.dateLabel}</span><span>{event.place}</span></div>

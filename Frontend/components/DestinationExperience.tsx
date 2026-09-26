@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import type { DestinationResponse } from '@/lib/api';
 import { type Locale, pageCopy } from '@/lib/i18n';
+import JourneyIndicator from '@/components/JourneyIndicator';
+import JourneyToggle from '@/components/JourneyToggle';
 
 const COTONOU: [number, number] = [6.3703, 2.3912];
 
@@ -62,6 +64,7 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
         </nav>
         <div className="destination-world-actions">
           <Link href={`/${locale}/experiences`}>{copy.allExperiences}</Link>
+          <Link className="destination-journey-link" href={`/${locale}/journey`}>{copy.journey}<JourneyIndicator locale={locale} /></Link>
           <Link href={home}>{copy.benin} ↗</Link>
         </div>
       </header>
@@ -129,7 +132,10 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
                 <p className="eyebrow dark">{item.duration}</p>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <Link className="text-link" href={localPath(item.href)}>{copy.exploreExperience} <span>↗</span></Link>
+                <div className="destination-experience-actions">
+                  <Link className="text-link" href={localPath(item.href)}>{copy.exploreExperience} <span>↗</span></Link>
+                  <JourneyToggle locale={locale} item={{ id: item.id, label: item.title, href: localPath(item.href) }} interests={['culture']} />
+                </div>
               </div>
             </motion.article>
           ))}
