@@ -282,6 +282,45 @@ export const homeMock: HomeResponse = {
   ],
 };
 
+
+function getHomeMock(locale: "en" | "fr"): HomeResponse {
+  if (locale === 'en') return { ...homeMock, locale };
+  const discovery = [
+    ['culture','Culture','Rencontrer les traditions qui continuent de façonner la vie quotidienne.'],
+    ['nature','Nature','De la côte atlantique aux forêts, lagunes et savanes.'],
+    ['food','Cuisine','Goûter un pays à travers les marchés, le feu et les tables familiales.'],
+    ['history','Histoire','Parcourir des récits qui relient le Bénin au monde.'],
+    ['spirituality','Spiritualité','Approcher croyances, rituels et traditions vivantes avec respect et contexte.'],
+  ] as const;
+  const regionTitles: Record<string,[string,string,string,string]> = {
+    atlantic:['ATLANTIQUE','L’Atlantique','Villes, lagunes, mémoire, traditions vivantes et océan.','Ouidah · Porto-Novo · Ganvié · Grand-Popo · Cotonou'],
+    heartlands:['ROYAUMES DU CENTRE','Les anciens royaumes','Royaumes, patrimoine, artisanat, paysages et cultures vivantes.','Abomey · Dassa · Kétou · Allada'],
+    north:['PATRIMOINE ET PAYSAGES DU NORD','Le patrimoine et les paysages du Nord','Montagnes, faune, Tata Somba, traditions royales et cultures du Nord.','Natitingou · Boukoumbé · Tanguiéta · Nikki'],
+  };
+  return {
+    ...homeMock,
+    locale,
+    hero:{...homeMock.hero, eyebrow:'BÉNIN · AFRIQUE DE L’OUEST',title:'Entrez plus près des histoires.',subtitle:'Un pays vivant de l’eau, de la mémoire, des rituels, de la cuisine et des rencontres.'},
+    discovery:homeMock.discovery.map((item)=>{const t=discovery.find(([id])=>id===item.id)!;return {...item,label:t[1],description:t[2]};}),
+    regions:homeMock.regions.map((r)=>{const t=regionTitles[r.id];return {...r,kicker:t[0],title:t[1],description:t[2],destinations:t[3].split(' · ')};}),
+    experiences:[
+      {...homeMock.experiences[0],title:'Parcourir la ville sacrée',category:'CULTURE',duration:'Demi-journée'},
+      {...homeMock.experiences[1],title:'Se réveiller sur le lac',category:'NATURE',duration:'1–2 jours'},
+      {...homeMock.experiences[2],title:'Entrer dans les cours royales',category:'HISTOIRE',duration:'Demi-journée'},
+    ],
+    prendrePlace:[
+      {...homeMock.prendrePlace[0],name:'CINQ PREMIÈRES TABLES',title:'Cinq repas pour commencer.',promise:'Pour vos premiers jours au Bénin, choisissez cinq repas parmi dix spécialités béninoises et des boissons choisies — livrés ou servis à des tables partenaires.',place:'Cotonou · Ouidah',duration:'5 repas',format:'10 plats · livraison ou restaurant'},
+      {...homeMock.prendrePlace[1],name:'MARCHÉ → FEU',title:'Acheter avec un local. Cuisiner. S’asseoir.',promise:'Une matinée au marché, un après-midi autour du feu et un repas partagé construit à partir de vos choix.',place:'Ouidah',duration:'3–4 heures',format:'Marché · cuisine · repas partagé'},
+      {...homeMock.prendrePlace[2],name:'LA VIE SUR L’EAU',title:'Ganvié, au-delà de la carte postale.',promise:'Quitter le bateau touristique. Passer une matinée sur le lac avec un hôte, une table simple et le rythme de la vie quotidienne.',place:'Ganvié',duration:'Matinée',format:'Pirogue · hôte local · déjeuner'},
+    ],
+    stories:[
+      {...homeMock.stories[0],eyebrow:'NOTES DE TERRAIN',title:'Pourquoi Ouidah reste avec vous',description:'Une ville de portes, de routes, de tambours et de mémoire — à comprendre lentement.'},
+      {...homeMock.stories[1],eyebrow:'PERSONNES',title:'La vie sur l’eau',description:'Passer une matinée là où le lac est route, marché et maison.'},
+      {...homeMock.stories[2],eyebrow:'TABLE',title:'Un pays raconté par le feu',description:'Les marchés et les cuisines familiales dessinent une autre carte du Bénin.'},
+    ],
+  };
+}
+
 export type TravelResponse = {
   place_id: string;
   origin: [number, number];
@@ -316,7 +355,7 @@ export async function getHome(
   locale: "en" | "fr" = "en",
 ): Promise<HomeResponse> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-  if (!base) return { ...homeMock, locale };
+  if (!base) return getHomeMock(locale);
 
   try {
     const response = await fetch(`${base}/api/v1/home?locale=${locale}`, {
@@ -324,7 +363,7 @@ export async function getHome(
     });
     if (!response.ok) throw new Error("Home API failed");
     const apiHome: HomeResponse = await response.json();
-    const localArrival = homeMock.prendrePlace.find(
+    const localArrival = getHomeMock(locale).prendrePlace.find(
       (item) => item.id === "five-first-tables",
     );
     const apiProducts = apiHome.prendrePlace.filter(
@@ -336,7 +375,7 @@ export async function getHome(
       prendrePlace: localArrival ? [localArrival, ...apiProducts] : apiProducts,
     };
   } catch {
-    return { ...homeMock, locale };
+    return getHomeMock(locale);
   }
 }
 
@@ -1111,6 +1150,34 @@ export const experienceSlugs = [
   "the-first-table",
 ] as const;
 
+
+const experienceMockFrenchBase: Record<string, Partial<Omit<ExperienceProductDetail, 'id' | 'locale' | 'title' | 'promise' | 'intro' | 'why_it_matters' | 'eyebrow' | 'booking_label'>>> = {
+  'five-first-tables': {
+    name: 'CINQ PREMIÈRES TABLES', place: 'Cotonou · Ouidah', region: 'L’Atlantique', duration: '5 repas', format: '10 plats choisis · livraison ou restaurants partenaires',
+    host: { name: 'L’équipe éditoriale des tables Bonne Assise', role: 'Curateurs de tables', bio: 'Une sélection éditoriale de personnes, de tables, de plats et de boissons pour offrir une première entrée généreuse et utile dans la cuisine béninoise.', image: 'https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=85' },
+    steps: [{time:'01',title:'Choisir ses cinq',description:'Choisissez cinq repas parmi une liste évolutive de dix plats et boissons béninois, avec une courte note pour chacun.'},{time:'02',title:'Choisir comment les recevoir',description:'Faites livrer certains repas là où vous séjournez, ou choisissez l’option restaurant lorsque vous souhaitez retrouver la salle et les personnes autour de la table.'},{time:'03',title:'Manger au fil de la semaine',description:'Un repas à la fois, sans devoir résoudre chaque soir la question de savoir où manger.'},{time:'04',title:'Garder la carte',description:'Chaque repas apporte assez de contexte pour se souvenir de ce que vous avez goûté et savoir où aller ensuite.'}],
+    included:['Cinq repas sélectionnés','Choix parmi dix spécialités béninoises + boissons','Notes éditoriales courtes','Livraison ou restaurant partenaire'], not_included:['Boissons ou achats supplémentaires','Transport hors zone de livraison'], practical:['Pensé pour les premiers jours au Bénin','Préférences alimentaires recueillies à la réservation','Disponibilités des restaurants variables selon la date et la ville'], price_note:'Tarif affiché après le choix livraison ou restaurant', availability_note:'Disponible dans certaines zones · réservation anticipée recommandée', related:[{id:'market-to-fire',label:'Marché → Feu',href:'/experiences/market-to-fire'},{id:'ouidah',label:'Explorer Ouidah',href:'/destinations/ouidah'}]
+  },
+  'market-to-fire': {
+    name:'MARCHÉ → FEU', region:'L’Atlantique', duration:'3–4 heures', format:'Petit groupe · marché · cuisine · repas partagé',
+    host:{name:'Votre hôte',role:'Cuisinier·ère & hôte local·e',bio:'Une personne qui ouvre la matinée du choix au marché jusqu’à la table partagée, en expliquant ingrédients, gestes et décisions du quotidien.',image:'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=85'},
+    steps:[{time:'08:30',title:'Rencontrer votre hôte',description:'Commencez ensemble et découvrez ce que vous allez chercher avant d’entrer au marché.'},{time:'09:00',title:'Aller au marché',description:'Choisissez les ingrédients avec votre hôte, découvrez ce qui est de saison et les petites négociations derrière le repas.'},{time:'11:00',title:'Revenir en cuisine',description:'Préparez deux plats ensemble et apprenez les gestes plutôt que de simplement regarder une démonstration.'},{time:'12:30',title:'S’asseoir',description:'Partagez le repas que vous avez contribué à préparer, avec les recettes à emporter.'}],
+    included:['Visite du marché local','Ingrédients de l’atelier','Session de cuisine','Repas partagé','Fiches recettes'],not_included:['Transport jusqu’à Ouidah','Achats personnels'],practical:['Petits groupes','Chaussures confortables pour le marché','Indiquer les restrictions alimentaires à la réservation'],price_note:'Tarif affiché à la réservation · par personne',availability_note:'Matins sélectionnés · selon disponibilité de l’hôte',related:[{id:'ouidah',label:'Explorer Ouidah',href:'/destinations/ouidah'},{id:'life-on-the-water',label:'La vie sur l’eau',href:'/experiences/life-on-the-water'}]
+  },
+  'life-on-the-water': {
+    name:'LA VIE SUR L’EAU', region:'L’Atlantique', duration:'Matinée', format:'Petit groupe · hôte local · pirogue · repas partagé',
+    host:{name:'Votre hôte',role:'Pêcheur·se & guide du lac',bio:'Rencontrez une personne dont la vie quotidienne suit l’eau — sans transformer cette vie en spectacle.',image:'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1200&q=85'},
+    steps:[{time:'06:30',title:'Rendez-vous au lac',description:'Commencez tôt, lorsque le lac est déjà en mouvement avec le travail et les routines du quotidien.'},{time:'07:00',title:'Prendre la pirogue',description:'Parcourez les voies d’eau avec un hôte local et découvrez comment le lac relie maisons, travail et commerce.'},{time:'09:00',title:'Prendre le temps',description:'Arrêtez-vous avec votre hôte, écoutez et regardez le lac au-delà du circuit touristique.'},{time:'10:30',title:'Une table simple',description:'Terminez par un repas façonné par ce qui est disponible ce jour-là.'}],
+    included:['Pirogue et hôte local','Temps sur le lac','Repas partagé','Contexte local et conversation'],not_included:['Transport jusqu’à Ganvié','Achats personnels'],practical:['Départ matinal recommandé','Petits groupes uniquement','Prévoir protection solaire et eau'],price_note:'Tarif affiché à la réservation · par personne',availability_note:'Départs le matin · selon météo et disponibilité de l’hôte',related:[{id:'market-to-fire',label:'Marché → Feu',href:'/experiences/market-to-fire'},{id:'ouidah',label:'Explorer Ouidah',href:'/destinations/ouidah'}]
+  },
+  'the-first-table': {
+    name:'THE FIRST TABLE', region:'L’Atlantique', duration:'1er janvier', format:'Rassemblement annuel · places limitées',
+    host:{name:'Une table partagée',role:'Voix culinaires béninoises & haïtiennes',bio:'Un rassemblement façonné avec des personnes qui portent les histoires, les traditions culinaires et les mémoires que cette journée met en relation.',image:'https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1200&q=85'},
+    steps:[{time:'Matin',title:'Se souvenir du lieu',description:'Commencez par un contexte sur Ouidah, l’histoire de la traite et le lieu que le rassemblement habite.'},{time:'Fin de matinée',title:'Préparer la table',description:'Cuisinez et partagez l’histoire du Joumou avec des contributeurs haïtiens et béninois.'},{time:'Midi',title:'Manger ensemble',description:'Un repas commun autour du Joumou, de la liberté, de la mémoire et du fait de se rassembler.'},{time:'Après-midi',title:'Écouter et échanger',description:'Conversations, musique et témoignages sont construits avec les communautés impliquées — jamais comme spectacle.'}],
+    included:['Repas de Joumou','Médiation culturelle','Rassemblement partagé','Recette et notes de contexte'],not_included:['Transport jusqu’à Ouidah','Hébergement'],practical:['Uniquement le 1er janvier','Capacité limitée','Programme co-construit avec les communautés et partenaires culturels','Pas une reconstitution historique'],price_note:'Événement annuel · tarif annoncé avec le programme',availability_note:'Places ouvertes avant le 1er janvier · liste d’attente entre les éditions',related:[{id:'ouidah',label:'Explorer Ouidah',href:'/destinations/ouidah'},{id:'market-to-fire',label:'Marché → Feu',href:'/experiences/market-to-fire'}]
+  }
+};
+
 function getExperienceMock(
   locale: "en" | "fr",
   slug: string,
@@ -1118,7 +1185,8 @@ function getExperienceMock(
   const base = experienceMockBase[slug];
   const copy = experienceMockCopy[locale]?.[slug];
   if (!base || !copy) return null;
-  return { ...base, ...copy, locale };
+  const localizedBase = locale === 'fr' ? { ...base, ...experienceMockFrenchBase[slug] } : base;
+  return { ...localizedBase, ...copy, locale };
 }
 
 export async function getExperience(

@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import type { DestinationResponse } from '@/lib/api';
-import type { Locale } from '@/lib/i18n';
+import { type Locale, pageCopy } from '@/lib/i18n';
 
 const COTONOU: [number, number] = [6.3703, 2.3912];
 
@@ -23,6 +23,7 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
   const heroScale = useTransform(scrollY, [0, 850], [1, 1.07]);
   const heroY = useTransform(scrollY, [0, 850], ['0%', '8%']);
   const home = `/${locale}`;
+  const copy = pageCopy[locale].destination;
   const [userOrigin, setUserOrigin] = useState<[number, number] | null>(null);
   const [locating, setLocating] = useState(false);
 
@@ -54,14 +55,14 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
       <header className="destination-world-nav">
         <Link className="destination-brand" href={home} aria-label="Bonne Assise home">BONNE<br />ASSISE</Link>
         <nav aria-label="Destination navigation">
-          <a href="#place">The place</a>
-          <a href="#experiences">Experiences</a>
-          <a href="#food">Food</a>
-          <a href="#stories">Stories</a>
+          <a href="#place">{copy.placeNav}</a>
+          <a href="#experiences">{copy.experiences}</a>
+          <a href="#food">{copy.food}</a>
+          <a href="#stories">{copy.stories}</a>
         </nav>
         <div className="destination-world-actions">
-          <Link href={`/${locale}/experiences`}>All experiences</Link>
-          <Link href={home}>Benin ↗</Link>
+          <Link href={`/${locale}/experiences`}>{copy.allExperiences}</Link>
+          <Link href={home}>{copy.benin} ↗</Link>
         </div>
       </header>
 
@@ -74,29 +75,29 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
           <p className="destination-world-subtitle">{data.hero.subtitle}</p>
         </div>
         <div className="destination-world-coordinates">{data.hero.coordinates[0].toFixed(2)}°N<br />{data.hero.coordinates[1].toFixed(2)}°E</div>
-        <a className="destination-world-enter" href="#place">Enter the place <span>↓</span></a>
+        <a className="destination-world-enter" href="#place">{copy.enter} <span>↓</span></a>
       </section>
 
       <section className="destination-orientation section" id="place">
-        <div className="destination-orientation-label"><p className="eyebrow dark">A PLACE TO FOLLOW</p><span>{data.name} · {data.region}</span></div>
+        <div className="destination-orientation-label"><p className="eyebrow dark">{copy.orientationEyebrow}</p><span>{data.name} · {data.region}</span></div>
         <div className="destination-orientation-main">
           <h2>{locale === 'fr' ? <>Une ville que l’on<br /><em>lit lentement.</em></> : <>A city you<br /><em>read slowly.</em></>}</h2>
           <div className="destination-orientation-copy">
             <p>{data.intro}</p>
             <div className="destination-place-facts">
-              <span><b>{userDistance ? 'FROM YOU' : locale === 'fr' ? 'DEPUIS COTONOU' : 'FROM COTONOU'}</b>{displayedDistance} km</span>
+              <span><b>{userDistance ? (locale === 'fr' ? 'DEPUIS VOUS' : 'FROM YOU') : (locale === 'fr' ? 'DEPUIS COTONOU' : 'FROM COTONOU')}</b>{displayedDistance} km</span>
               <span><b>{locale === 'fr' ? 'TEMPS DE ROUTE' : 'ROAD TIME'}</b>≈ {Math.floor(estimatedMinutes / 60) > 0 ? `${Math.floor(estimatedMinutes / 60)}h ` : ''}{estimatedMinutes % 60} min</span>
               <span><b>{locale === 'fr' ? 'POUR Y ALLER' : 'GETTING THERE'}</b>Car · taxi</span>
             </div>
-            {!userDistance && <button className="destination-location-link" type="button" onClick={requestLocation}>{locating ? 'Locating…' : locale === 'fr' ? 'Utiliser ma position ↗' : 'Use my location ↗'}</button>}
+            {!userDistance && <button className="destination-location-link" type="button" onClick={requestLocation}>{locating ? (locale === 'fr' ? 'Localisation…' : 'Locating…') : (locale === 'fr' ? 'Utiliser ma position ↗' : 'Use my location ↗')}</button>}
           </div>
         </div>
       </section>
 
       <section className="destination-threads-world section" id="stories">
         <div className="destination-section-head destination-read-head">
-          <div><p className="eyebrow dark">READ THE PLACE</p><h2>More than<br /><em>one story.</em></h2></div>
-          <p className="lede">Three ways into Ouidah — history, memory and living traditions. Read one, then follow the thread into the city.</p>
+          <div><p className="eyebrow dark">{copy.readPlace}</p><h2>{copy.readPlaceTitle}</h2></div>
+          <p className="lede">{copy.readPlaceLede}</p>
         </div>
         <div className="destination-read-grid">
           {storyCards.map((story, index) => (
@@ -106,7 +107,7 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
                 <p className="eyebrow dark">{story.eyebrow}</p>
                 <h3>{story.title}</h3>
                 <p>{story.description}</p>
-                <span>Read the story ↗</span>
+                <span>{copy.readStory} ↗</span>
               </div>
             </Link>
           ))}
@@ -115,8 +116,8 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
 
       <section className="destination-world-experiences section" id="experiences">
         <div className="destination-section-head destination-section-head-tight">
-          <div><p className="eyebrow dark">EXPERIENCES</p><h2>Don't just see it.<br /><em>Enter it.</em></h2></div>
-          <p className="lede">Places become memorable through what you do there. These are the ways Bonne Assise helps you move from looking to taking part.</p>
+          <div><p className="eyebrow dark">{copy.experiences}</p><h2>{copy.experiencesTitle}</h2></div>
+          <p className="lede">{copy.experiencesLede}</p>
         </div>
         <div className="destination-experience-world-list">
           {data.experiences.map((item, index) => (
@@ -128,7 +129,7 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
                 <p className="eyebrow dark">{item.duration}</p>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <Link className="text-link" href={localPath(item.href)}>Explore the experience <span>↗</span></Link>
+                <Link className="text-link" href={localPath(item.href)}>{copy.exploreExperience} <span>↗</span></Link>
               </div>
             </motion.article>
           ))}
@@ -138,10 +139,10 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
       <section className="destination-food-world" id="food">
         <div className="section destination-food-world-inner">
           <div className="destination-food-world-copy">
-            <p className="eyebrow">TASTE THE PLACE</p>
-            <h2>Food is another<br /><em>way in.</em></h2>
-            <p>Start with the table. Then follow the market, the ingredients, the people and the places behind it.</p>
-            <Link className="text-link light" href={`/${locale}/experiences/five-first-tables`}>Start with five tables <span>↗</span></Link>
+            <p className="eyebrow">{copy.taste}</p>
+            <h2>{copy.tasteTitle}</h2>
+            <p>{copy.tasteLede}</p>
+            <Link className="text-link light" href={`/${locale}/experiences/five-first-tables`}>{copy.startTables} <span>↗</span></Link>
           </div>
           <div className="destination-food-world-constellation">
             {foodCards.map((food, index) => <Link href={localPath(food.href)} className={`food-constellation-item food-constellation-${index + 1}`} key={food.name}><div style={{ backgroundImage: `url(${food.image})` }} /><span>{food.name}</span><p>{food.description}</p></Link>)}
@@ -152,25 +153,25 @@ export default function DestinationExperience({ data, locale }: { data: Destinat
 
       <section className="destination-practical-world" id="field-notes">
         <div className="section destination-practical-world-inner">
-          <div><p className="eyebrow">FIELD NOTES</p><h2>Read before<br /><em>you arrive.</em></h2></div>
-          <div className="destination-practical-prose">{data.practical.slice(0, 4).map((item) => <p key={item}>{item}</p>)}<a className="pill-button" href="https://www.google.com/maps/search/?api=1&query=Ouidah%2C%20Benin" target="_blank" rel="noreferrer">Open the place on map <span>↗</span></a></div>
+          <div><p className="eyebrow">{copy.field}</p><h2>{copy.fieldTitle}</h2></div>
+          <div className="destination-practical-prose">{data.practical.slice(0, 4).map((item) => <p key={item}>{item}</p>)}<a className="pill-button" href="https://www.google.com/maps/search/?api=1&query=Ouidah%2C%20Benin" target="_blank" rel="noreferrer">{copy.map} <span>↗</span></a></div>
         </div>
       </section>
 
       <section className="destination-nearby-world section">
         <div className="destination-chapter-line">
-          <div><p className="eyebrow dark">KEEP MOVING</p><h2>Ouidah is a chapter.<br /><em>Keep reading.</em></h2></div>
-          <p>Follow the southern route or change rhythm completely. The next place is part of the story too.</p>
+          <div><p className="eyebrow dark">{copy.keep}</p><h2>{copy.keepTitle}</h2></div>
+          <p>{copy.keepLede}</p>
         </div>
-        <div className="destination-nearby-world-list">{data.nearby.map((place) => <Link href={localPath(place.href)} key={place.id}><span>{place.region}</span><strong>{place.name}</strong><i>Explore ↗</i></Link>)}</div>
+        <div className="destination-nearby-world-list">{data.nearby.map((place) => <Link href={localPath(place.href)} key={place.id}><span>{place.region}</span><strong>{place.name}</strong><i>{copy.explore} ↗</i></Link>)}</div>
       </section>
 
       <section className="destination-journey-world">
         <div className="destination-journey-world-bg" />
-        <div className="destination-journey-world-content"><p className="eyebrow">YOUR JOURNEY</p><h2>{locale === 'fr' ? <>Gardez Ouidah<br /><em>dans votre voyage.</em></> : <>Keep Ouidah<br /><em>in your journey.</em></>}</h2><p>{data.journeyText}</p><Link className="pill-button" href={`/${locale}#journey`}>{locale === 'fr' ? 'Ajouter à mon voyage' : 'Add to my journey'} <span>→</span></Link></div>
+        <div className="destination-journey-world-content"><p className="eyebrow">{copy.journey}</p><h2>{locale === 'fr' ? <>Gardez Ouidah<br /><em>dans votre voyage.</em></> : <>Keep Ouidah<br /><em>in your journey.</em></>}</h2><p>{data.journeyText}</p><Link className="pill-button" href={`/${locale}/journey`}>{copy.addJourney} <span>→</span></Link></div>
       </section>
 
-      <footer className="destination-world-footer"><div><Link href={home}>BONNE<br />ASSISE</Link><p>A new way to discover Benin.<br />Built around places, people and stories.</p></div><nav><Link href={`/${locale}/destinations`}>Places</Link><Link href={`/${locale}/experiences`}>Experiences</Link><a href="#stories">Stories</a><a href="#food">Food</a><a href="#top">Top ↑</a></nav><span>© 2026 Bonne Assise · {data.name}</span></footer>
+      <footer className="destination-world-footer"><div><Link href={home}>BONNE<br />ASSISE</Link><p>{copy.footer}</p></div><nav><Link href={`/${locale}/destinations`}>{copy.placeNav}</Link><Link href={`/${locale}/experiences`}>{copy.experiences}</Link><a href="#stories">{copy.stories}</a><a href="#food">{copy.food}</a><a href="#top">Top ↑</a></nav><span>© 2026 Bonne Assise · {data.name}</span></footer>
     </main>
   );
 }

@@ -55,6 +55,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
   };
 
   const cta = data.type === 'EVENT' ? copy.waiting : copy.reserveCta;
+  const typeLabel = data.type === 'EVENT' ? (fr ? 'ÉVÉNEMENT' : 'EVENT') : data.type === 'ARRIVAL_SERVICE' ? (fr ? 'SERVICE D’ARRIVÉE' : 'ARRIVAL SERVICE') : (fr ? 'EXPÉRIENCE' : 'EXPERIENCE');
   const variant = data.id === 'the-first-table' ? 'journal' : data.id === 'life-on-the-water' ? 'water' : data.id === 'five-first-tables' ? 'arrival' : 'tactile';
   const image2 = data.steps[1] ? data.hero : data.host.image;
   const image3 = data.host.image;
@@ -76,7 +77,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
           <h1>{data.name}</h1>
           <p className="hero-promise">{data.title}</p>
         </div>
-        <div className="hero-scroll-note"><span>SCROLL TO ENTER</span><i>↓</i></div>
+        <div className="hero-scroll-note"><span>{fr ? 'DÉFILER POUR ENTRER' : 'SCROLL TO ENTER'}</span><i>↓</i></div>
       </section>
 
       <section className="experience-intro experience-editorial-block">
@@ -89,7 +90,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
         <div className="meaning-copy">
           <p className="eyebrow dark">{copy.context}</p>
           <p className="meaning-lede">{data.why_it_matters}</p>
-          <span className="editorial-caption">A Bonne Assise experience · {data.place}</span>
+          <span className="editorial-caption">{fr ? 'Une expérience Bonne Assise · ' : 'A Bonne Assise experience · '}{data.place}</span>
         </div>
       </section>
 
@@ -115,9 +116,9 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
           <p className="host-label">{data.host.role}</p>
           <h2>{data.host.name}</h2>
           <p className="host-bio">{data.host.bio}</p>
-          <span className="editorial-caption">The experience is built around a person, not a performance.</span>
+          <span className="editorial-caption">{fr ? 'Une expérience construite autour d’une personne, pas d’une performance.' : 'The experience is built around a person, not a performance.'}</span>
         </div>
-        <div className="host-image-wrap"><div className="host-image" style={{ backgroundImage: `url(${image3})` }} /><span className="image-note">HOST / {data.place}</span></div>
+        <div className="host-image-wrap"><div className="host-image" style={{ backgroundImage: `url(${image3})` }} /><span className="image-note">{fr ? 'HÔTE / ' : 'HOST / '}{data.place}</span></div>
       </section>
 
       <section className="experience-details experience-editorial-block">
@@ -131,7 +132,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
         <div className="booking-inner">
           <div className="booking-copy"><p className="eyebrow">{copy.reserve}</p><h2>{copy.take}</h2><p>{data.availability_note}</p></div>
           <div className="booking-card">
-            <div className="booking-card-top"><span>{data.type === 'EVENT' ? 'EVENT' : data.type === 'ARRIVAL_SERVICE' ? 'ARRIVAL SERVICE' : 'EXPERIENCE'}</span><strong>{data.name}</strong></div>
+            <div className="booking-card-top"><span>{typeLabel}</span><strong>{data.name}</strong></div>
             <div className="booking-facts"><div><span>{fr ? 'Lieu' : 'Place'}</span><b>{data.place}</b></div><div><span>{fr ? 'Durée' : 'Duration'}</span><b>{data.duration}</b></div><div><span>{fr ? 'Tarif' : 'Price'}</span><b>{data.price_note}</b></div></div>
             <button>{cta}<span>↗</span></button>
           </div>
@@ -145,7 +146,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <footer className="experience-footer"><Link href={`/${locale}`}>BONNE ASSISE</Link><span>Benin · {data.place}</span><span>© 2026 Bonne Assise</span></footer>
+      <footer className="experience-footer"><Link href={`/${locale}`}>BONNE ASSISE</Link><span>{fr ? 'Bénin' : 'Benin'} · {data.place}</span><span>© 2026 Bonne Assise</span></footer>
     </main>
   </LocaleDocument>;
 }

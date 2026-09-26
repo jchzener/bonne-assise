@@ -63,6 +63,25 @@ COPY = {
     }
 }
 
+
+FR_ENTRIES = {
+"experiences":[
+{"id":"route-des-esclaves","title":"Parcourir la Route de l’Esclave","category":"MÉMOIRE","duration":"Demi-journée","description":"Suivez la route historique vers l’Atlantique en laissant une place à la mémoire, au contexte et à la réflexion."},
+{"id":"history-museum","title":"Entrer dans l’histoire de Ouidah","category":"HISTOIRE","duration":"1–2 heures","description":"Le fort portugais et ses collections permettent de lire Ouidah à travers commerce, royaume, retour et esclavage."},
+{"id":"sacred-landscape","title":"Parcourir le paysage sacré","category":"TRADITIONS VIVANTES","duration":"2–3 heures","description":"Explorez les lieux sacrés avec du contexte local. Ce sont des lieux de croyance et de pratique, pas des décors exotiques."},
+{"id":"afro-brazilian","title":"Lever les yeux sur Ouidah","category":"ARCHITECTURE","duration":"1–2 heures","description":"Ralentissez dans les rues historiques et observez les traces afro-brésiliennes qui ajoutent une autre langue à la ville."},
+{"id":"atlantic","title":"Finir sur l’Atlantique","category":"CÔTE","duration":"Fin d’après-midi","description":"Continuez vers la côte et laissez le paysage devenir une partie de l’histoire plutôt qu’un simple détour."}],
+"stories":[
+{"id":"route-memory","eyebrow":"MÉMOIRE","title":"La route vers la Porte du Non-Retour","description":"Un parcours mémoriel façonné par les déplacements forcés des personnes réduites en esclavage et par le travail continu de mémoire de la ville."},
+{"id":"two-traditions","eyebrow":"VILLE","title":"Deux traditions, une même rue","description":"Un aperçu des histoires religieuses multiples qui coexistent dans le tissu urbain de Ouidah."},
+{"id":"living-vodun","eyebrow":"TRADITIONS VIVANTES","title":"Une tradition toujours vivante","description":"Approchez le Vodun par les personnes, les lieux et le contexte plutôt que par le spectacle."}],
+"foods":[
+{"name":"Amiwo","description":"Une préparation de maïs du Sud, souvent accompagnée de sauce et de viande grillée ou braisée."},
+{"name":"Akassa","description":"Une pâte souple de maïs fermenté qui appartient au vocabulaire culinaire du Sud du Bénin."},
+{"name":"Poisson de l’Atlantique","description":"Poisson frais, fumée, épices et accompagnements simples relient la table du Sud à la côte."}],
+"nearby":[{"id":"cotonou","name":"Cotonou","region":"L’Atlantique"},{"id":"ganvie","name":"Ganvié","region":"L’Atlantique"},{"id":"porto-novo","name":"Porto-Novo","region":"L’Atlantique"},{"id":"abomey","name":"Abomey","region":"Royaumes centraux"}]
+}
+
 @router.get("/{destination_id}", response_model=DestinationResponse)
 def get_destination(destination_id: str, locale: str = "en") -> DestinationResponse:
     if destination_id != "ouidah":
@@ -71,4 +90,9 @@ def get_destination(destination_id: str, locale: str = "en") -> DestinationRespo
         locale = "en"
     content = COPY[locale]
     payload = {**BASE, **content, "hero": {**BASE["hero"], **content["hero"]}, "locale": locale}
+    if locale == "fr":
+        payload["experiences"] = [{**base_item, **localized} for base_item, localized in zip(BASE["experiences"], FR_ENTRIES["experiences"])]
+        payload["stories"] = [{**base_item, **localized} for base_item, localized in zip(BASE["stories"], FR_ENTRIES["stories"])]
+        payload["foods"] = [{**base_item, **localized} for base_item, localized in zip(BASE["foods"], FR_ENTRIES["foods"])]
+        payload["nearby"] = [{**base_item, **localized} for base_item, localized in zip(BASE["nearby"], FR_ENTRIES["nearby"])]
     return DestinationResponse.model_validate(payload)

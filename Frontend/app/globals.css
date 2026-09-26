@@ -1563,3 +1563,20 @@ button:focus-visible, a:focus-visible { outline: 2px solid currentColor; outline
   .destination-nearby-world-list { grid-template-columns:1fr; }
   .destination-nearby-world-list a:nth-child(even) { padding-left:0; border-left:0; }
 }
+
+/* PASS 12 — The Assise Composition */
+.personalization-note { display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:baseline; margin:0 0 28px; padding:15px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); transition:opacity .35s ease; }
+.personalization-note span { font:700 9px var(--ui); letter-spacing:.16em; }
+.personalization-note p { margin:0; color:var(--muted); font-size:13px; }
+.personalization-note.is-active span { color:var(--ink); }
+.journey-editorial-page { min-height:100vh; background:var(--paper); color:var(--ink); }
+.simple-page-nav { height:76px; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); font:700 9px var(--ui); letter-spacing:.12em; text-transform:uppercase; }
+.journey-editorial-hero { padding:150px 7vw 130px; display:grid; grid-template-columns:1.25fr .75fr; gap:8vw; align-items:end; }
+.journey-editorial-hero h1 { margin:18px 0 28px; font:650 clamp(70px,9vw,140px)/.82 var(--display); letter-spacing:-.09em; }
+.journey-editorial-hero h1 em { font-family:var(--editorial); font-weight:400; }
+.journey-editorial-hero > p:last-child { max-width:500px; color:var(--muted); font-size:18px; line-height:1.7; }
+.journey-editorial-body { margin:0 7vw 150px; padding:70px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr auto; gap:6vw; align-items:end; }
+.journey-editorial-body span { font:700 9px var(--ui); letter-spacing:.16em; color:var(--muted); }
+.journey-editorial-body h2 { max-width:480px; margin:14px 0 0; font:650 clamp(36px,4.5vw,68px)/.9 var(--display); letter-spacing:-.065em; }
+.journey-editorial-body > p { max-width:480px; color:var(--muted); line-height:1.7; }
+@media (max-width: 800px) { .personalization-note { grid-template-columns:1fr; gap:7px; } .journey-editorial-hero { grid-template-columns:1fr; gap:30px; padding:100px 6vw 85px; } .journey-editorial-body { margin:0 6vw 90px; grid-template-columns:1fr; gap:28px; } }
