@@ -1,6 +1,0 @@
-import Link from 'next/link';
-import { getDestination } from '@/lib/api';
-import { isLocale, locales, type Locale, pageCopy } from '@/lib/i18n';
-import { notFound } from 'next/navigation';
-export function generateStaticParams(){ return locales.map(locale=>({locale})); }
-export default async function StoriesPage({params}:{params:Promise<{locale:string}>}){ const {locale}=await params; if(!isLocale(locale)) notFound(); const data=await getDestination('ouidah',locale as Locale); const c=pageCopy[locale].stories; return <main className="destinations-index"><header><Link href={`/${locale}`} className="destination-brand">BONNE<br/>ASSISE</Link><Link href={`/${locale}/destinations/ouidah`}>{c.back} ↗</Link></header><section className="destinations-index-hero"><div><p className="eyebrow dark">{c.eyebrow}</p><h1>{c.title}</h1></div><p>{c.lede}</p></section><section className="destination-story-world-grid stories-index-grid">{data.stories.map(story=><Link href={`/${locale}/stories/${story.href.split('/').pop()}`} className="destination-story-world-card" key={story.id}><div className="destination-story-world-image" style={{backgroundImage:`url(${story.image})`}}/><div className="destination-story-world-copy"><p className="eyebrow dark">{story.eyebrow}</p><h3>{story.title}</h3><p>{story.description}</p><span>{c.read} ↗</span></div></Link>)}</section></main>; }

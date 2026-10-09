@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Native Node runtime on Render (`npm start` → `next start`).
-  // Do NOT set output: 'export' or 'standalone' unless you switch to Docker.
-  images: {
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
-  },
+  // Keep the current hash-based prototype navigation and existing external image URLs.
 };
 
 export default nextConfig;

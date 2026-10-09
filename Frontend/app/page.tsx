@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import BAApp from "./ba-app";
 
-export default function RootPage() {
-  redirect('/en');
+export default function HomePage() {
+  return <BAApp />;
 }
