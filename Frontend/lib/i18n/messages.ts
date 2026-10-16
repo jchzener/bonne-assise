@@ -40,11 +40,38 @@ function mergeLocale(
   };
 }
 
-const en = mergeLocale(enChrome, enHome, enExplore, enPages, enPlaces, enFoods, enExperiences, enStories);
-const fr = mergeLocale(frChrome, frHome, frExplore, frPages, frPlaces, frFoods, frExperiences, frStories);
+const en = mergeLocale(
+  enChrome,
+  enHome,
+  enExplore,
+  enPages,
+  enPlaces,
+  enFoods,
+  enExperiences,
+  enStories,
+) as Messages;
+const fr = mergeLocale(
+  frChrome,
+  frHome,
+  frExplore,
+  frPages,
+  frPlaces,
+  frFoods,
+  frExperiences,
+  frStories,
+) as Messages;
 
 export const messages = { en, fr } as const;
 
-export function getMessages(locale: Locale) {
-  return messages[locale];
+export type Messages = typeof enChrome &
+  typeof enHome &
+  typeof enExplore &
+  typeof enPages &
+  typeof enPlaces &
+  typeof enFoods &
+  typeof enExperiences &
+  typeof enStories;
+
+export function getMessages(locale: Locale): Messages {
+  return messages[locale] ?? messages.en;
 }

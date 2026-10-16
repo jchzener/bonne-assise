@@ -1,10 +1,24 @@
 "use client";
 import React from "react";
-import { photos, placeCatalog, foodCatalog, experienceCatalog } from "../../lib/content";
+import {
+  photos,
+  placeCatalog,
+  foodCatalog,
+  experienceCatalog,
+} from "../../lib/content";
 import type { Page, Locale } from "../../lib/types";
 import { getMessages } from "../../lib/i18n/messages";
 import { usePathname } from "next/navigation";
-import { Icon, Button, Link, Heading, Image, Eyebrow, SaveActions, TextLink } from "../ui/primitives";
+import {
+  Icon,
+  Button,
+  Link,
+  Heading,
+  Image,
+  Eyebrow,
+  SaveActions,
+  TextLink,
+} from "../ui/primitives";
 
 function useLocale(): Locale {
   const pathname = usePathname() || "/en";
@@ -39,7 +53,9 @@ export function DetailHero({
           </Eyebrow>
           <Heading level={1}>{title}</Heading>
         </div>
-        <span className="scroll-note">{scrollLabel || "Scroll to discover ↓"}</span>
+        <span className="scroll-note">
+          {scrollLabel || "Scroll to discover ↓"}
+        </span>
       </section>
       <section className="detail-intro section-pad">
         <p className="lede">{intro}</p>
@@ -62,7 +78,15 @@ export function InfoRail({ items }: { items: [string, string][] }) {
   );
 }
 
-export function Related({ title, goFurther, items }: { title: string; goFurther?: string; items: [string, string, string, Page, string?][] }) {
+export function Related({
+  title,
+  goFurther,
+  items,
+}: {
+  title: string;
+  goFurther?: string;
+  items: [string, string, string, Page, string?][];
+}) {
   return (
     <section className="related section-pad">
       <div className="section-top">
@@ -73,7 +97,12 @@ export function Related({ title, goFurther, items }: { title: string; goFurther?
       </div>
       <div className="related-grid">
         {items.map(([type, name, image, to, itemSlug], i) => (
-          <Link to={to} slug={itemSlug} key={name} className={i === 0 ? "related-main" : ""}>
+          <Link
+            to={to}
+            slug={itemSlug}
+            key={name}
+            className={i === 0 ? "related-main" : ""}
+          >
             <Image src={image} alt={name} />
             <Eyebrow>{type}</Eyebrow>
             <Heading level={3}>{name}</Heading>
@@ -123,8 +152,21 @@ export function Place({
 
   return (
     <main>
-      <DetailHero type={d?.placeType || "Place"} title={place.title} location={place.location} image={place.image} intro={place.intro} scrollLabel={d?.scroll}>
-        <SaveActions saved={saved} toggleSaved={toggleSaved} addTrip={addTrip} added={added} labels={ui} />
+      <DetailHero
+        type={d?.placeType || "Place"}
+        title={place.title}
+        location={place.location}
+        image={place.image}
+        intro={place.intro}
+        scrollLabel={d?.scroll}
+      >
+        <SaveActions
+          saved={saved}
+          toggleSaved={toggleSaved}
+          addTrip={addTrip}
+          added={added}
+          labels={ui}
+        />
       </DetailHero>
       <section className="detail-body section-pad">
         <InfoRail
@@ -141,25 +183,40 @@ export function Place({
           <p>{place.paragraph}</p>
           {slug === "ganvie" && d?.quoteGanvie && (
             <blockquote>
-              “{d.quoteGanvie}”
-              <small>{d.quoteGanvieAttr}</small>
+              “{d.quoteGanvie}”<small>{d.quoteGanvieAttr}</small>
             </blockquote>
           )}
         </article>
       </section>
       <section className="wide-image">
         <Image src={place.image} alt={`${place.title}, Benin`} />
-        <span>
-          {place.title} · Benin
-        </span>
+        <span>{place.title} · Benin</span>
       </section>
       <Related
         title={(d?.around || "Around {title}").replace("{title}", place.title)}
         goFurther={d?.goFurther}
         items={[
-          [relatedLabels[0][0], relatedLabels[0][1], photos.grill, "food", "wagassi"],
-          [relatedLabels[1][0], relatedLabels[1][1], photos.fisherman, "story", "rosine-cooks"],
-          [relatedLabels[2][0], relatedLabels[2][1], photos.boats, "experience", "on-the-water"],
+          [
+            relatedLabels[0][0],
+            relatedLabels[0][1],
+            photos.grill,
+            "food",
+            "wagassi",
+          ],
+          [
+            relatedLabels[1][0],
+            relatedLabels[1][1],
+            photos.fisherman,
+            "story",
+            "rosine-cooks",
+          ],
+          [
+            relatedLabels[2][0],
+            relatedLabels[2][1],
+            photos.boats,
+            "experience",
+            "on-the-water",
+          ],
         ]}
       />
     </main>
@@ -203,8 +260,21 @@ export function Food({
 
   return (
     <main>
-      <DetailHero type={d?.foodType || "Food"} title={item.title} location={item.location} image={item.image} intro={item.intro} scrollLabel={d?.scroll}>
-        <SaveActions saved={saved} toggleSaved={toggleSaved} addTrip={addTrip} added={added} labels={ui} />
+      <DetailHero
+        type={d?.foodType || "Food"}
+        title={item.title}
+        location={item.location}
+        image={item.image}
+        intro={item.intro}
+        scrollLabel={d?.scroll}
+      >
+        <SaveActions
+          saved={saved}
+          toggleSaved={toggleSaved}
+          addTrip={addTrip}
+          added={added}
+          labels={ui}
+        />
       </DetailHero>
       <section className="detail-body food-detail section-pad">
         <InfoRail
@@ -229,8 +299,13 @@ export function Food({
       <section className="maker-section section-pad">
         <div>
           <Eyebrow>{labels.makerEyebrow || "Who makes it"}</Eyebrow>
-          <Heading level={2}>{labels.makerHeading || "Meet the people behind the plate."}</Heading>
-          <p>{labels.makerBody || "Follow the ingredients to the cooks, makers and markets that keep them alive."}</p>
+          <Heading level={2}>
+            {labels.makerHeading || "Meet the people behind the plate."}
+          </Heading>
+          <p>
+            {labels.makerBody ||
+              "Follow the ingredients to the cooks, makers and markets that keep them alive."}
+          </p>
           <TextLink to="story" slug="rosine-cooks">
             {labels.makerCta || "Meet a cook"}
           </TextLink>
@@ -242,7 +317,13 @@ export function Food({
         goFurther={d?.goFurther}
         items={[
           ["Place", "Cotonou markets", photos.grill, "place", "cotonou"],
-          ["Experience", "Cotonou after dark", photos.market, "experience", "after-dark"],
+          [
+            "Experience",
+            "Cotonou after dark",
+            photos.market,
+            "experience",
+            "after-dark",
+          ],
           ["Story", "Rosine cooks", photos.women, "story", "rosine-cooks"],
         ]}
       />
@@ -287,8 +368,21 @@ export function Experience({
 
   return (
     <main>
-      <DetailHero type={d?.experienceType || "Experience"} title={item.title} location={item.location} image={item.image} intro={item.intro} scrollLabel={d?.scroll}>
-        <SaveActions saved={saved} toggleSaved={toggleSaved} addTrip={addTrip} added={added} labels={ui} />
+      <DetailHero
+        type={d?.experienceType || "Experience"}
+        title={item.title}
+        location={item.location}
+        image={item.image}
+        intro={item.intro}
+        scrollLabel={d?.scroll}
+      >
+        <SaveActions
+          saved={saved}
+          toggleSaved={toggleSaved}
+          addTrip={addTrip}
+          added={added}
+          labels={ui}
+        />
       </DetailHero>
       <section className="booking-bar section-pad">
         <div>
@@ -318,7 +412,10 @@ export function Experience({
         />
         <article className="article-copy">
           {e.productNote && (
-            <p className="lede" style={{ marginBottom: "1.5rem", opacity: 0.9 }}>
+            <p
+              className="lede"
+              style={{ marginBottom: "1.5rem", opacity: 0.9 }}
+            >
               <strong>{e.productEyebrow || "Starter experiences"}</strong>
               <br />
               {e.productNote}
@@ -349,11 +446,31 @@ export function Experience({
       <Related
         title={e.relatedTitle || "More ways in"}
         goFurther={d?.goFurther}
-        items={[
-          ["Experience", "Five meals · First days", photos.market, "experience", "five-meals"],
-          ["Experience", "Cotonou after dark", photos.grill, "experience", "after-dark"],
-          ["Experience", "The First Table", photos.ouidah, "experience", "first-table"],
-        ].filter((row) => row[4] !== slug)}
+        items={(
+          [
+            [
+              "Experience",
+              "Five meals · First days",
+              photos.market,
+              "experience",
+              "five-meals",
+            ],
+            [
+              "Experience",
+              "Cotonou after dark",
+              photos.grill,
+              "experience",
+              "after-dark",
+            ],
+            [
+              "Experience",
+              "The First Table",
+              photos.ouidah,
+              "experience",
+              "first-table",
+            ],
+          ] as [string, string, string, Page, string?][]
+        ).filter((row) => row[4] !== slug)}
       />
     </main>
   );
