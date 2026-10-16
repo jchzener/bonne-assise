@@ -1,0 +1,31 @@
+{
+  "explore": {
+    "eyebrow": "Find your way in",
+    "title": "What are you",
+    "titleAccent": "curious about?",
+    "searchLabel": "Search places, food, people and stories",
+    "placeholder": "A place, a taste, a person...",
+    "everything": "Everything",
+    "places": "Places",
+    "food": "Food",
+    "experiences": "Experiences",
+    "people": "People",
+    "stories": "Stories",
+    "discoveries": "discoveries",
+    "curated": "Curated for now",
+    "moreFilters": "More filters +",
+    "discover": "Discover",
+    "saveItem": "Save {title}",
+    "emptyTitle": "Nothing by that name—yet.",
+    "emptyText": "Try a region, a dish, or simply “unexpected”."
+  },
+  "events": {
+    "eyebrow": "What's on in Benin",
+    "title": "GOOD THINGS",
+    "titleAccent": "HAPPEN HERE.",
+    "verified": "Editorially verified listings",
+    "emptyTitle": "The next good thing is worth getting right.",
+    "emptyText": "We are building a verified calendar of festivals, food gatherings, cultural events and local experiences across Benin. Listings appear here once their dates and sources have been checked.",
+    "sponsored": "Sponsored"
+  }
+}

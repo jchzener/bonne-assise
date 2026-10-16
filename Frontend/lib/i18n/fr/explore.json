@@ -1,0 +1,31 @@
+{
+  "explore": {
+    "eyebrow": "Trouvez votre chemin",
+    "title": "Qu’avez-vous",
+    "titleAccent": "envie de découvrir ?",
+    "searchLabel": "Rechercher des lieux, des plats, des personnes et des récits",
+    "placeholder": "Un lieu, une saveur, une personne…",
+    "everything": "Tout",
+    "places": "Lieux",
+    "food": "Gastronomie",
+    "experiences": "Expériences",
+    "people": "Rencontres",
+    "stories": "Récits",
+    "discoveries": "découvertes",
+    "curated": "Sélection du moment",
+    "moreFilters": "Plus de filtres +",
+    "discover": "Découvrir",
+    "saveItem": "Enregistrer {title}",
+    "emptyTitle": "Rien de ce nom — pour l’instant.",
+    "emptyText": "Essayez une région, un plat, ou simplement « inattendu »."
+  },
+  "events": {
+    "eyebrow": "À l’affiche au Bénin",
+    "title": "DE BELLES CHOSES",
+    "titleAccent": "SE PASSENT ICI.",
+    "verified": "Événements vérifiés par la rédaction",
+    "emptyTitle": "Les bonnes choses méritent d’être bien vérifiées.",
+    "emptyText": "Nous constituons un calendrier vérifié de festivals, de rendez-vous gastronomiques, d’événements culturels et d’expériences locales partout au Bénin. Les événements seront publiés après vérification de leurs dates et de leurs sources.",
+    "sponsored": "Sponsorisé"
+  }
+}

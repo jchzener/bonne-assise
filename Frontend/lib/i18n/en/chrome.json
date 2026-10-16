@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "explore": "Explore",
+    "places": "Places",
+    "food": "Food",
+    "experiences": "Experiences",
+    "stories": "Stories",
+    "search": "Search",
+    "saved": "Saved",
+    "switchLanguage": "Passer en français"
+  },
+  "footer": {
+    "eyebrow": "From Benin, with care",
+    "description": "A living guide to the places, tastes and people that make Benin alive.",
+    "newsletter": "Notes from Benin",
+    "newsletterDescription": "Occasional stories and places worth knowing.",
+    "subscribe": "Subscribe",
+    "plan": "Plan a trip",
+    "savedPlaces": "Saved places",
+    "work": "Work with us",
+    "contact": "Contact"
+  },
+  "ui": {
+    "save": "Save",
+    "saved": "Saved",
+    "addTrip": "Add to trip",
+    "addedTrip": "Added to trip",
+    "share": "Share"
+  },
+  "hero": {
+    "title": "Be Local.",
+    "posterAlt": "Life and everyday culture in Benin",
+    "greetings": [
+      {
+        "text": "Kwabor",
+        "color": "#F5C84C"
+      },
+      {
+        "text": "Wézon",
+        "color": "#69D1CA"
+      },
+      {
+        "text": "Welcome",
+        "color": "#F7F2E8"
+      },
+      {
+        "text": "Bienvenue",
+        "color": "#F09A72"
+      },
+      {
+        "text": "Ẹ káàbọ̀",
+        "color": "#B9A0F6"
+      }
+    ],
+    "greetingLabel": "A welcome in many languages"
+  }
+}

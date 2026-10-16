@@ -1,0 +1,324 @@
+{
+  "home": {
+    "ticker": "Porto-Novo before breakfast — the city at first light",
+    "tickerLink": "Read",
+    "intentEyebrow": "Choose your way in",
+    "intentLead": "I want to",
+    "intentFood": "taste something local",
+    "intentPeople": "meet the people",
+    "intentPlace": "understand a place",
+    "intentExperience": "live an experience",
+    "featureEyebrow": "Porto-Novo · First light",
+    "featureTitle": "The city before breakfast.",
+    "featureBody": "At first light, the day is already taking shape: baskets change hands, zemidjans thread through the streets, and breakfast is served from enamel pots. Come slowly; let the city set the pace.",
+    "featureCta": "Walk through Porto-Novo",
+    "foodEyebrow": "Food is a map",
+    "foodTitle": "Taste the place first.",
+    "foodBody": "Every dish carries a landscape, a memory and the hands that made it. Begin with one taste, then follow the people, ingredients and places that give it meaning.",
+    "peopleEyebrow": "People to know",
+    "peopleTitle": "No place without people.",
+    "peopleBody": "Meet the cooks, guides, makers and storytellers who help you see beyond the postcard — and understand a place through the people who call it home.",
+    "experienceEyebrow": "Go a little closer · Grand-Popo",
+    "experienceTitle": "Follow the water at first light.",
+    "experienceBody": "Along the Mono estuary, daily life follows the tide. Discover the coast with a local perspective, make room for conversation, and remember that a good visit begins with respect.",
+    "experienceMeta": [
+      "Local perspectives",
+      "Small-group discovery",
+      "Ask before photographing"
+    ],
+    "planEyebrow": "Make it yours",
+    "planTitle": "A journey built from curiosity.",
+    "planBody": "Keep the places that stay with you. Add a meal, a person, a story. Shape them into a journey that feels entirely your own.",
+    "planCta": "Start planning",
+    "storiesEyebrow": "Read slowly",
+    "storiesTitle": "Stories from here.",
+    "storiesCta": "All stories",
+    "storyOne": "What the morning market knows",
+    "storyTwo": "Cooking by memory, not by recipe",
+    "eventsCta": "Explore the calendar",
+    "allPlaces": "Explore all places",
+    "indexLabel": "The Bonne Assise index",
+    "indexTitle": "See all",
+    "indexMeta": "Places · tastes · people",
+    "editionsAria": "Explore Bonne Assise",
+    "tickerLabel": "NEW /",
+    "featureCaption": "Morning, Porto-Novo",
+    "featureAlt": "Porto-Novo, Benin",
+    "meetPerson": "Meet {name}",
+    "seeAllPeople": "See all people",
+    "seeAllEvents": "See all events",
+    "presentedWith": "Presented with {name}",
+    "eventTabs": [
+      "Eat & drink",
+      "Arts & culture",
+      "Festivals & events",
+      "Activities & itineraries"
+    ],
+    "experienceAlt": "A wooden fishing boat on the Beninese coast",
+    "planAltCity": "Aerial view of Cotonou",
+    "planAltCook": "Cook at a local market",
+    "savedStamp": "7 discoveries\nsaved",
+    "storyMetaOne": "Food story · 8 min",
+    "storyMetaTwo": "People · 6 min",
+    "marketAlt": "The busy morning market",
+    "womenAlt": "Women working together at a food market",
+    "save": "Save",
+    "saved": "Saved",
+    "addTrip": "Add to trip",
+    "addedTrip": "Added to trip",
+    "share": "Share",
+    "heroExplore": "Explore Benin",
+    "heroTitleLines": [
+      "Get",
+      "local",
+      "in Benin"
+    ],
+    "foodSelector": "Food feature selector",
+    "showFood": "Show food feature {n}",
+    "news": {
+      "aria": "From the field",
+      "policy": "Editorial dispatches only — never the same destination as the edition cards above.",
+      "items": [
+        {
+          "label": "Field note",
+          "text": "Porto-Novo before breakfast — the city at first light",
+          "cta": "Read",
+          "to": "story",
+          "slug": "early-light"
+        },
+        {
+          "label": "Portrait",
+          "text": "Rosine cooks without recipes — Dantokpa at six in the morning",
+          "cta": "Read",
+          "to": "story",
+          "slug": "rosine-cooks"
+        },
+        {
+          "label": "Field note",
+          "text": "Market names — the people behind Cotonou’s stalls",
+          "cta": "Read",
+          "to": "story",
+          "slug": "market-names"
+        }
+      ]
+    }
+  },
+  "editions": {
+    "indexLabel": "Bonne Assise index",
+    "indexTitle": "SEE|ALL",
+    "indexMeta": "Places · tastes · people →",
+    "sets": [
+      [
+        {
+          "label": "Explore · Littoral",
+          "title": "COTO|NOU",
+          "sub": "City of movement",
+          "to": "place",
+          "tone": "edition-blue",
+          "slug": "cotonou"
+        },
+        {
+          "label": "Explore · Ouémé",
+          "title": "PORTO|—NOVO",
+          "sub": "City of layers",
+          "to": "place",
+          "tone": "edition-red",
+          "slug": "porto-novo"
+        },
+        {
+          "label": "Taste · North",
+          "title": "WA|GASSI",
+          "sub": "A food with a territory",
+          "to": "food",
+          "tone": "edition-yellow",
+          "slug": "wagassi"
+        },
+        {
+          "label": "Experience · Atacora",
+          "title": "NORTH|BOUND",
+          "sub": "Take the red road",
+          "to": "experience",
+          "tone": "edition-cyan",
+          "slug": "north-bound"
+        }
+      ],
+      [
+        {
+          "label": "Place · Mono",
+          "title": "GRAND|POPO",
+          "sub": "Where river meets sea",
+          "to": "place",
+          "tone": "edition-cyan",
+          "slug": "grand-popo"
+        },
+        {
+          "label": "Food · South",
+          "title": "AMI|WO",
+          "sub": "Red rice, many tables",
+          "to": "food",
+          "tone": "edition-red",
+          "slug": "amiwo"
+        },
+        {
+          "label": "Experience · Night",
+          "title": "AFTER|DARK",
+          "sub": "Cotonou street kitchens",
+          "to": "experience",
+          "tone": "edition-red",
+          "slug": "after-dark"
+        },
+        {
+          "label": "Guide · Ouidah",
+          "title": "OUI|DAH",
+          "sub": "History still in motion",
+          "to": "place",
+          "tone": "edition-blue",
+          "slug": "ouidah"
+        }
+      ],
+      [
+        {
+          "label": "Place · Nokoué",
+          "title": "GAN|VIÉ",
+          "sub": "Life on the water",
+          "to": "place",
+          "tone": "edition-blue",
+          "slug": "ganvie"
+        },
+        {
+          "label": "Experience · Cotonou",
+          "title": "AFTER|DARK",
+          "sub": "Follow the smoke",
+          "to": "experience",
+          "tone": "edition-red",
+          "slug": "after-dark"
+        },
+        {
+          "label": "Experience · First days",
+          "title": "FIVE|MEALS",
+          "sub": "Five dinners to live local",
+          "to": "experience",
+          "tone": "edition-yellow",
+          "slug": "five-meals"
+        },
+        {
+          "label": "Experience · Ouidah",
+          "title": "FIRST|TABLE",
+          "sub": "New Year · Place Chacha",
+          "to": "experience",
+          "tone": "edition-blue",
+          "slug": "first-table"
+        }
+      ],
+      [
+        {
+          "label": "Place · Ouémé",
+          "title": "PORTO|—NOVO",
+          "sub": "City of layers",
+          "to": "place",
+          "tone": "edition-yellow",
+          "slug": "porto-novo"
+        },
+        {
+          "label": "Food · Markets",
+          "title": "BUY|LOCAL",
+          "sub": "Take it home, make it together",
+          "to": "food",
+          "tone": "edition-cyan",
+          "slug": "buy-local"
+        },
+        {
+          "label": "Experience · Mono",
+          "title": "ON THE|WATER",
+          "sub": "Two quiet hours with a local",
+          "to": "experience",
+          "tone": "edition-blue",
+          "slug": "on-the-water"
+        },
+        {
+          "label": "Place · Abomey",
+          "title": "ROYAL|GROUND",
+          "sub": "Memory in the red earth",
+          "to": "place",
+          "tone": "edition-red",
+          "slug": "abomey"
+        }
+      ]
+    ]
+  },
+  "people": {
+    "entries": [
+      {
+        "meta": "Cook · Cotonou",
+        "title": "Rosine sees a market as a kitchen without walls.",
+        "ctaName": "Rosine"
+      },
+      {
+        "meta": "Fisherman · Lake Nokoué",
+        "title": "Koffi, keeper of the water."
+      },
+      {
+        "meta": "Maker · Natitingou",
+        "title": "Aïssatou works the old way, by hand."
+      },
+      {
+        "meta": "Guide · Ouidah",
+        "title": "Désiré knows where the road changes character."
+      }
+    ]
+  },
+  "foodCycles": [
+    {
+      "label": "Fresh Peulh Cheese",
+      "title": "Wagassi",
+      "intro": "One taste, many paths",
+      "paths": [
+        "From the north",
+        "Made by hand",
+        "Taste it here",
+        "Go further"
+      ],
+      "detail": "Borgou & Alibori",
+      "link": "Follow the story of Wagassi"
+    },
+    {
+      "label": "Five meals to begin with",
+      "title": "Start at the table",
+      "intro": "A first taste of Benin",
+      "paths": [
+        "Amiwo at noon",
+        "Akassa by the water",
+        "Grilled fish at dusk",
+        "Pâte with a local sauce"
+      ],
+      "detail": "Across the country",
+      "link": "Explore Beninese food"
+    },
+    {
+      "label": "Buy with a local",
+      "title": "Cook. Sit down.",
+      "intro": "The market is the beginning",
+      "paths": [
+        "Choose what is fresh",
+        "Learn the ingredients",
+        "Cook together",
+        "Eat without rushing"
+      ],
+      "detail": "Cotonou · Porto-Novo",
+      "link": "Meet the people behind the table"
+    },
+    {
+      "label": "A taste of the north",
+      "title": "The red road",
+      "intro": "Food can be a direction",
+      "paths": [
+        "Follow the ingredients",
+        "Meet a maker",
+        "Eat where it comes from",
+        "Keep going north"
+      ],
+      "detail": "Atacora · Borgou",
+      "link": "Take the food trail"
+    }
+  ]
+}

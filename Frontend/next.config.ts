@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Keep the current hash-based prototype navigation and existing external image URLs.
+  poweredByHeader: false,
+  reactStrictMode: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

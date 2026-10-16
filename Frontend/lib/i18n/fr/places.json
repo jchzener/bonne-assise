@@ -1,0 +1,169 @@
+{
+  "places": {
+    "cotonou": {
+      "title": "Cotonou",
+      "location": "Littoral · Sud du Bénin",
+      "intro": "Une ville côtière que l’on comprend à travers ses marchés, ses cuisines de rue, sa musique et les habitants qui donnent son rythme à chaque quartier.",
+      "heading": "Une ville qui avance au rythme de l’appétit.",
+      "paragraph": "Commencez au marché, suivez l’odeur du charbon et laissez de la place aux conversations. Cotonou se révèle autant par les rencontres que par ses lieux emblématiques.",
+      "bestTime": "Tôt le matin ou en soirée",
+      "duration": "1 à 3 jours",
+      "from": "Principal pôle urbain",
+      "note": "Explorez sans vous presser"
+    },
+    "porto-novo": {
+      "title": "Porto-Novo",
+      "location": "Ouémé · Sud du Bénin",
+      "intro": "Une capitale aux histoires superposées, aux rues ombragées et à l’architecture singulière, qui se découvre mieux sans précipitation.",
+      "heading": "Rencontrer la ville avant le petit-déjeuner.",
+      "paragraph": "À l’aube, Ouando est déjà en conversation : les paniers changent de mains, les zemidjans passent et le petit-déjeuner se sert dans des bols émaillés.",
+      "bestTime": "Le matin",
+      "duration": "Une journée entière",
+      "from": "Environ 45 min depuis Cotonou ; vérifier les transports",
+      "note": "Découvrir la ville avec un guide local"
+    },
+    "ganvie": {
+      "title": "Ganvié",
+      "location": "Lac Nokoué · Atlantique",
+      "intro": "Une cité lacustre où les pirogues sont essentielles aux déplacements quotidiens. Visitez avec respect une communauté vivante, pas un spectacle.",
+      "heading": "La vie suit le rythme de l’eau.",
+      "paragraph": "Venez tôt, quand le lac s’éveille. Avec un guide local compétent, découvrez comment l’eau façonne le travail, les échanges, la vie familiale et la cuisine.",
+      "bestTime": "Tôt le matin",
+      "duration": "Une demi-journée",
+      "from": "Rejoindre le point d’embarquement au bord du lac, puis continuer en bateau",
+      "note": "Demandez la permission avant de photographier les personnes"
+    },
+    "ouidah": {
+      "title": "Ouidah",
+      "location": "Atlantique · Sud du Bénin",
+      "intro": "Un lieu de mémoire, de spiritualité, d’art et de littoral atlantique, où l’histoire reste présente dans les rues, les sites et les cérémonies.",
+      "heading": "Une histoire toujours en mouvement.",
+      "paragraph": "Prenez le temps de parcourir les lieux de mémoire, les pratiques culturelles vivantes et le littoral, en laissant une place aux voix locales et au contexte historique.",
+      "bestTime": "Le matin",
+      "duration": "Une journée entière",
+      "from": "À l’ouest de Cotonou ; vérifier les transports sur place",
+      "note": "Aborder les sites et cérémonies avec attention"
+    },
+    "abomey": {
+      "title": "Abomey",
+      "location": "Zou · Sud du Bénin",
+      "intro": "Cœur historique du royaume du Dahomey, où mémoire royale, artisanat et vie contemporaine se rencontrent sur une terre rouge.",
+      "heading": "La mémoire dans la terre rouge.",
+      "paragraph": "Explorez le patrimoine royal avec attention et écoutez les histoires, les objets et les traditions qui relient le passé au présent.",
+      "bestTime": "Le matin",
+      "duration": "Une journée entière",
+      "from": "À l’intérieur des terres ; prévoir le transport",
+      "note": "Choisir un guide qui connaît bien le lieu"
+    },
+    "grand-popo": {
+      "title": "Grand-Popo",
+      "location": "Mono · Sud-ouest du Bénin",
+      "intro": "Un paysage côtier où l’estuaire du Mono, les communautés de pêcheurs et l’Atlantique donnent son rythme à la journée.",
+      "heading": "Là où le fleuve rencontre la mer.",
+      "paragraph": "Suivez l’estuaire avec un guide local et découvrez comment l’eau, les marées, le travail et les repas s’entrelacent.",
+      "bestTime": "À l’aube ou en fin d’après-midi",
+      "duration": "1 à 2 jours",
+      "from": "Côte sud-ouest ; vérifier les transports locaux",
+      "note": "Respecter le rythme des pêcheurs et les marées"
+    },
+    "natitingou": {
+      "title": "Natitingou",
+      "location": "Atacora · Nord du Bénin",
+      "intro": "Une porte d’entrée vers les paysages du nord, les traditions vivantes et les communautés de l’Atacora.",
+      "heading": "Prendre la route rouge vers le nord.",
+      "paragraph": "Ne faites pas que traverser : prenez le temps de rencontrer des guides locaux, de goûter la cuisine régionale et de découvrir les paysages qui donnent son caractère au nord.",
+      "bestTime": "Vérifier les conditions saisonnières avant le départ",
+      "duration": "2 à 3 jours",
+      "from": "Nord-ouest du Bénin ; prévoir le transport",
+      "note": "Se faire accompagner pour les visites de communautés"
+    },
+    "so-ava": {
+      "title": "Sô-Ava",
+      "location": "Lac Nokoué · Atlantique",
+      "intro": "Porte d’entrée lacustre des cités de l’eau—pirogues, marchés du matin et rythme lent du lac Nokoué.",
+      "heading": "Là où le lac commence à parler.",
+      "paragraph": "Sô-Ava est moins un spectacle qu’une rive qui travaille : embarcadères, filets et conversations qui donnent le ton avant d’atteindre la cité sur pilotis.",
+      "bestTime": "Tôt le matin",
+      "duration": "Une demi-journée",
+      "from": "Au nord de Cotonou",
+      "note": "À combiner avec Ganvié en pirogue"
+    },
+    "pendjari": {
+      "title": "Pendjari",
+      "location": "Atacora · Extrême nord-ouest",
+      "intro": "L’une des dernières grandes réserves d’Afrique de l’Ouest—éléphants, lions et savane ouverte, à aborder avec des guides et du temps.",
+      "heading": "Le nord garde encore un sol sauvage.",
+      "paragraph": "La Pendjari récompense la patience : pistes de saison sèche, départs tôt, et la conscience que ce parc fait partie d’un écosystème transfrontalier plus large.",
+      "bestTime": "Décembre–mars",
+      "duration": "2 à 3 jours",
+      "from": "Via Natitingou",
+      "note": "Réserver lodge et guide à l’avance"
+    },
+    "tanougou": {
+      "title": "Chutes de Tanougou",
+      "location": "Atacora · Près de Tanguiéta",
+      "intro": "Cascades dans un amphithéâtre de roche—une pause fraîche sur la route de la Pendjari et des collines du nord.",
+      "heading": "L’eau dans les collines.",
+      "paragraph": "Tanougou se visite avec intention : ombre, bruit de l’eau, et le sentiment de l’Atacora au-delà des villes de transit.",
+      "bestTime": "Mois plus frais",
+      "duration": "Une demi-journée",
+      "from": "Près de Tanguiéta",
+      "note": "À combiner avec Natitingou"
+    },
+    "possotome": {
+      "title": "Possotomè",
+      "location": "Mono · Lac Ahémé",
+      "intro": "Bourg lacustre d’Ahémé, connu pour ses sources thermales, l’eau calme et un rythme Mono plus lent—à aborder sans précipitation.",
+      "heading": "L’eau qui tient la journée.",
+      "paragraph": "Possotomè n’est pas une case à cocher. Venez pour le bord du lac, les sources, et le sentiment que la vie du Mono s’organise autour de l’eau, du travail et d’une hospitalité discrète.",
+      "bestTime": "Matin ; saison sèche pour les routes",
+      "duration": "Demi-journée à journée",
+      "from": "À l’ouest de Cotonou via Bopa",
+      "note": "À combiner avec le lac Ahémé et des guides locaux"
+    },
+    "bopa": {
+      "title": "Bopa",
+      "location": "Mono · Sud-ouest du Bénin",
+      "intro": "Ville active du Mono et porte vers le lac Ahémé—marchés, vie fluviale et cœur pratique du sud-ouest.",
+      "heading": "Porte des eaux du Mono.",
+      "paragraph": "Bopa récompense l’attention au mouvement ordinaire : étals, nœuds de transport, et les gens qui relient le lac et la route. Prenez-la comme une charnière, pas seulement un nom de transit.",
+      "bestTime": "Heures de marché le matin",
+      "duration": "Une demi-journée",
+      "from": "Route à l’ouest de Cotonou",
+      "note": "Base utile pour Ahémé et Possotomè"
+    },
+    "allada": {
+      "title": "Allada",
+      "location": "Atlantique · Centre-sud du Bénin",
+      "intro": "Ancien siège de royaume et ville vivante—où la mémoire royale, les marchés et le trafic quotidien partagent le même sol.",
+      "heading": "L’histoire sous une lumière ordinaire.",
+      "paragraph": "Allada n’est pas un musée. Lignées royales, bruit du marché et vie de la route coexistent. Venez prêts à écouter autant qu’à regarder.",
+      "bestTime": "Matin",
+      "duration": "Demi-journée à journée",
+      "from": "Au nord de Cotonou",
+      "note": "Visiter avec un contexte historique local"
+    },
+    "parakou": {
+      "title": "Parakou",
+      "location": "Borgou · Centre-nord du Bénin",
+      "intro": "Principal pôle urbain du centre-nord—mémoire ferroviaire, marchés, et carrefour entre le sud et le bord du Sahel.",
+      "heading": "Une ville qui tourne la carte.",
+      "paragraph": "Parakou est l’endroit où les distances changent. Marchés, gares routières et cuisines régionales en font un lieu pour comprendre le milieu du pays—pas seulement le traverser.",
+      "bestTime": "Saison sèche ; heures plus fraîches",
+      "duration": "1 à 2 jours",
+      "from": "Au nord du corridor du Zou",
+      "note": "Prévoir repos et arrêts repas locaux"
+    },
+    "ketou": {
+      "title": "Kétou",
+      "location": "Plateau · Sud-est du Bénin",
+      "intro": "Ville historique yoruba du Plateau—remparts, mémoire et une vie culturelle qui façonne encore le sud-est.",
+      "heading": "Une ville qui garde son propre temps.",
+      "paragraph": "Kétou porte des couches d’histoire yoruba dans une ville vivante. Marchez avec attention : fortifications, jours de marché et espaces plus calmes où la mémoire n’est pas jouée pour les visiteurs.",
+      "bestTime": "Matin",
+      "duration": "Demi-journée à journée",
+      "from": "Est de l’axe Porto-Novo / Pobè",
+      "note": "Aborder le patrimoine avec un accompagnement local"
+    }
+  }
+}

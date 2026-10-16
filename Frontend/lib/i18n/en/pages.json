@@ -1,0 +1,240 @@
+{
+  "pages": {
+    "foodTitle": "Food, with context",
+    "foodIntro": "Start with a dish, then follow its ingredients, makers and place in everyday life.",
+    "experienceTitle": "Experiences, not checklists",
+    "experienceIntro": "Meet the people who know a place best. Explore with curiosity, humility and time to listen.",
+    "storyTitle": "Field notes from Benin",
+    "storyIntro": "Stories about food, memory, craft and the people who make a place feel alive.",
+    "savedTitle": "Keep what calls to you",
+    "savedIntro": "Your saved places and experiences will gather here as you explore.",
+    "tripTitle": "Build your own journey",
+    "tripIntro": "A good itinerary leaves room for detours, conversations and a second helping.",
+    "emptyTitle": "Nothing by that name — yet.",
+    "emptyText": "Try a region, a dish, a person or another way into the story."
+  },
+  "detail": {
+    "scroll": "Scroll to discover ↓",
+    "placeType": "Place",
+    "foodType": "Food",
+    "experienceType": "Experience",
+    "bestTime": "Best time",
+    "allow": "Allow",
+    "gettingThere": "Getting there",
+    "localNote": "Local note",
+    "storyOfPlace": "The story of the place",
+    "goFurther": "Go further",
+    "around": "Around {title}",
+    "quoteGanvie": "We don’t live beside the lake. We live with it.",
+    "quoteGanvieAttr": "— Koffi, fisherman and guide",
+    "food": {
+      "title": "Wagassi",
+      "location": "Borgou · Northern Benin",
+      "intro": "Soft, fresh and gently salted, wagassi is the cheese of Fulani pastoral life—and an edible path into the landscapes of northern Benin.",
+      "madeFrom": "Made from",
+      "madeFromValue": "Fresh cow’s milk",
+      "inSeason": "In season",
+      "inSeasonValue": "All year",
+      "taste": "Taste",
+      "tasteValue": "Mild, milky, delicate",
+      "tryIt": "Try it",
+      "tryItValue": "Grilled or in tomato sauce",
+      "eyebrow": "More than a cheese",
+      "heading": "A landscape,",
+      "headingEm": "held together.",
+      "p1": "Wagassi begins with fresh milk and the leaves of the calotropis plant, whose sap gently separates curds from whey. The method travels through families—measured less by recipe than by touch, sound and attention.",
+      "p2": "In markets across Benin you will see ivory rounds stacked neatly, sometimes stained rust-red with sorghum leaves. Grilled over charcoal or simmered in sauce, it becomes a bridge between pastoral north and coastal table.",
+      "makerEyebrow": "Who makes it",
+      "makerHeading": "Aïssatou knows when milk is ready by the way it moves.",
+      "makerBody": "Near Parakou, Aïssatou Bio turns the morning’s milk into wagassi as her mother taught her. Visit her small cooperative, taste the cheese warm, and understand why patience is its first ingredient.",
+      "makerCta": "Meet Aïssatou",
+      "relatedTitle": "Follow the taste",
+      "related": [
+        [
+          "Where to taste",
+          "Chez Maman Bénin, Ganhi"
+        ],
+        [
+          "Experience",
+          "From market to table"
+        ],
+        [
+          "Read",
+          "The women who carry wagassi south"
+        ]
+      ]
+    },
+    "experience": {
+      "title": "Cotonou after dark",
+      "location": "Zongo → Ganhi",
+      "intro": "Follow the smoke, the music and the evening crowd on a food walk through the city’s most generous street kitchens.",
+      "nextDeparture": "Next departure",
+      "nextValue": "Friday, 18:30",
+      "price": "Price",
+      "priceValue": "18,000 CFA / person",
+      "group": "Group",
+      "groupValue": "2–8 people",
+      "request": "Request a place",
+      "duration": "Duration",
+      "durationValue": "3 hours",
+      "language": "Language",
+      "languageValue": "French · English",
+      "meeting": "Meeting point",
+      "meetingValue": "Place Lénine, Akpakpa",
+      "access": "Accessibility",
+      "accessValue": "Mostly step-free",
+      "whyEyebrow": "Why go",
+      "whyHeading": "Come hungry. Leave knowing the city better.",
+      "whyP1": "Street food is Cotonou in miniature: fast-moving, deeply social and full of exacting opinions. With local cook Rosine, start with hot talé-talé, cross town for grilled wagassi, and finish over peppered fish near the lagoon.",
+      "whyP2": "This isn’t a tasting checklist. Rosine introduces the people behind each fire and explains the ingredients, migrations and daily rituals held in every plate.",
+      "howHeading": "How the evening unfolds",
+      "steps": [
+        {
+          "n": "01",
+          "title": "Meet in Akpakpa",
+          "text": "A cool bissap and a little context before setting out."
+        },
+        {
+          "n": "02",
+          "title": "Follow three fires",
+          "text": "Taste, talk and watch each dish being made."
+        },
+        {
+          "n": "03",
+          "title": "Finish by the lagoon",
+          "text": "Grilled fish, cold drinks and time to linger."
+        }
+      ],
+      "relatedTitle": "Keep exploring",
+      "related": [
+        [
+          "Taste",
+          "The story of Wagassi"
+        ],
+        [
+          "Meet",
+          "Rosine, cook and city guide"
+        ],
+        [
+          "Nearby",
+          "Ganhi after sunset"
+        ]
+      ],
+      "productNote": "Part of Bonne Assise’s starter experiences: ways to live local from the first days—not a tour package, a table and a rhythm.",
+      "productEyebrow": "Starter experiences"
+    },
+    "placeRelated": [
+      [
+        "Taste",
+        "Smoked fish at the morning market"
+      ],
+      [
+        "Meet",
+        "Koffi, keeper of the water"
+      ],
+      [
+        "Do",
+        "Cross the lake at daybreak"
+      ]
+    ]
+  },
+  "story": {
+    "eyebrow": "Portrait · Cotonou",
+    "title": "Rosine cooks without recipes.",
+    "dek": "At Dantokpa, one cook turns the morning market into a map of memory, instinct and extraordinary flavor.",
+    "bylineWords": "Words by Afiavi Alladaye",
+    "bylinePhoto": "Photography by Ben Iwara",
+    "readTime": "8 min read",
+    "heroAlt": "Rosine and a fellow cook at their market stall",
+    "p1": "By six in the morning, Rosine has already tasted the pepper twice. She does not measure it. She watches how the sauce holds to the back of her wooden spoon, adds a little salt, then turns to greet a customer she knows by voice.",
+    "p2": "Her stall sits where the market begins to fold into the street. Plantains are stacked at one edge. A charcoal fire occupies the other. Between them, in a space no wider than her outstretched arms, Rosine makes breakfast for half a neighborhood.",
+    "quote": "A recipe cannot tell you what the tomato did in the rain.",
+    "imgAlt": "A market cook preparing the morning meal",
+    "imgCaption": "Morning preparation at the edge of Dantokpa",
+    "h2": "The market as memory",
+    "p3": "Rosine learned beside her aunt, first washing bowls, later tending the fire. What she remembers is not a list of ingredients but a sequence of gestures: the weight of a ripe tomato, the sound oil makes when it is ready, the exact moment to lower the flame.",
+    "p4": "“You have to listen,” she says. “Food always says what it needs.”",
+    "endEyebrow": "Continue the journey",
+    "endTitle": "Walk Cotonou with Rosine.",
+    "endBody": "Join her evening food walk through Zongo and Ganhi.",
+    "endCta": "Discover the experience"
+  },
+  "saved": {
+    "eyebrow": "Your notebook",
+    "title": "Things worth returning to.",
+    "newCollection": "New collection",
+    "collection1": "Weekend in Benin",
+    "collection2": "Foods I want to try",
+    "discoveries": "{n} discoveries",
+    "createCollection": "Create a collection",
+    "everything": "Everything saved",
+    "gridList": "Grid  /  List",
+    "remove": "Remove {title}"
+  },
+  "trip": {
+    "eyebrow": "Your journey",
+    "title": "A few good days in the south.",
+    "days": "days",
+    "discoveries": "discoveries",
+    "share": "Share trip",
+    "day": "Day {n}",
+    "day1Title": "Cotonou · Food & city life",
+    "day2Title": "Lake Nokoué · On the water",
+    "begin": "A gentle place to begin",
+    "later": "Saved for later in the day",
+    "addDay": "Add day {n}",
+    "noteEyebrow": "A note for the road",
+    "noteTitle": "Leave some room for surprise.",
+    "noteBody": "The best discoveries rarely keep a schedule. Your trip is a thread, not a timetable.",
+    "tipLabel": "Local note",
+    "tipBody": "Traffic through Cotonou builds after 17:00. Stay for an early dinner, then head across town.",
+    "items": {
+      "d1a": "Dantokpa before the crowds",
+      "d1aMeta": "Place · 08:00",
+      "d1b": "Cotonou after dark",
+      "d1bMeta": "Experience · 18:30",
+      "d2a": "Cross to Ganvié",
+      "d2aMeta": "Place · 07:30",
+      "d2b": "Walk with the fishermen",
+      "d2bMeta": "Experience · 16:00"
+    }
+  },
+  "categories": {
+    "food": {
+      "eyebrow": "Food · Benin",
+      "title": "What will you",
+      "titleAccent": "taste?",
+      "lede": "Dishes, markets and makers—the country, first, at the table.",
+      "p1": "Food is how most people first feel at home in Benin: not through a single restaurant, but through dawn markets, evening grills, and the quiet confidence of a shared plate.",
+      "p2": "This section gathers the tastes that open the country: cheese from the north, red rice of the coast, fritters between errands, and buying with someone who knows the stalls.",
+      "cta": "Discover"
+    },
+    "experience": {
+      "eyebrow": "Experiences · Benin",
+      "title": "What will you",
+      "titleAccent": "live?",
+      "lede": "Time spent with people who already hold the place—on water, at market, on a path of memory.",
+      "p1": "An experience here is not a product checklist. It is a clear invitation: a first table, a crossing, a night that follows the smoke, a walk taken with care.",
+      "p2": "Five meals for your first days, a crossing of Ganvié, a careful walk in Ouidah, a night that follows the smoke in Cotonou.",
+      "cta": "Discover"
+    },
+    "story": {
+      "eyebrow": "Stories · From the field",
+      "title": "What will you",
+      "titleAccent": "read?",
+      "lede": "Field notes, portraits and guides—angles into a living country.",
+      "p1": "Stories are how BA holds complexity: a cook without recipes, a market before heat, a park that asks for planning, a faith approached without caricature.",
+      "p2": "Read slowly. These are not tips to collect—they are angles into a living country.",
+      "cta": "Read"
+    },
+    "place": {
+      "eyebrow": "Places · Benin",
+      "title": "Where will you",
+      "titleAccent": "go?",
+      "lede": "Cities on water, markets that set the clock, roads that change colour before they change speed.",
+      "p1": "Bonne Assise maps Benin through places that still hold their own rhythm—not as a checklist of stops, but as rooms you enter with attention.",
+      "p2": "Start south where the lagoon organises life, or further inland where history sits close to the surface. Leave room for the north when you have days to spare.",
+      "cta": "Discover"
+    }
+  }
+}

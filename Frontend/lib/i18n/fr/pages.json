@@ -1,0 +1,240 @@
+{
+  "pages": {
+    "foodTitle": "La cuisine, avec son contexte",
+    "foodIntro": "Commencez par un plat, puis suivez ses ingrédients, ses artisans et sa place dans la vie quotidienne.",
+    "experienceTitle": "Des expériences, pas une liste à cocher",
+    "experienceIntro": "Rencontrez les personnes qui connaissent le mieux un lieu. Explorez avec curiosité, humilité et le temps d’écouter.",
+    "storyTitle": "Carnets du Bénin",
+    "storyIntro": "Des récits de cuisine, de mémoire, de savoir-faire et des personnes qui donnent vie aux lieux.",
+    "savedTitle": "Gardez ce qui vous attire",
+    "savedIntro": "Les lieux et expériences enregistrés se retrouveront ici au fil de vos découvertes.",
+    "tripTitle": "Composez votre voyage",
+    "tripIntro": "Un bon itinéraire laisse de la place aux détours, aux conversations et à une deuxième assiette.",
+    "emptyTitle": "Rien trouvé pour le moment.",
+    "emptyText": "Essayez une région, un plat, une personne ou une autre porte d’entrée vers le récit."
+  },
+  "detail": {
+    "scroll": "Défiler pour découvrir ↓",
+    "placeType": "Lieu",
+    "foodType": "Food",
+    "experienceType": "Expérience",
+    "bestTime": "Meilleur moment",
+    "allow": "Prévoir",
+    "gettingThere": "Y aller",
+    "localNote": "Note locale",
+    "storyOfPlace": "L’histoire du lieu",
+    "goFurther": "Aller plus loin",
+    "around": "Autour de {title}",
+    "quoteGanvie": "On ne vit pas à côté du lac. On vit avec lui.",
+    "quoteGanvieAttr": "— Koffi, pêcheur et guide",
+    "food": {
+      "title": "Wagassi",
+      "location": "Borgou · Nord Bénin",
+      "intro": "Doux, frais et légèrement salé, le wagassi est le fromage de la vie pastorale peule — et un chemin comestible vers les paysages du nord béninois.",
+      "madeFrom": "Fait de",
+      "madeFromValue": "Lait de vache frais",
+      "inSeason": "En saison",
+      "inSeasonValue": "Toute l’année",
+      "taste": "Goût",
+      "tasteValue": "Doux, lacté, délicat",
+      "tryIt": "Le goûter",
+      "tryItValue": "Grillé ou en sauce tomate",
+      "eyebrow": "Plus qu’un fromage",
+      "heading": "Un paysage,",
+      "headingEm": "tenu ensemble.",
+      "p1": "Le wagassi commence avec le lait frais et les feuilles de calotropis, dont la sève sépare doucement le caillé du petit-lait. La méthode se transmet en famille — mesurée moins par la recette que par le toucher, le son et l’attention.",
+      "p2": "Sur les marchés du Bénin, on voit des rondelles ivoire bien empilées, parfois teintées de rouge par les feuilles de sorgho. Grillé au charbon ou mijoté en sauce, il relie le nord pastoral et la table côtière.",
+      "makerEyebrow": "Qui le fait",
+      "makerHeading": "Aïssatou sait quand le lait est prêt à la façon dont il bouge.",
+      "makerBody": "Près de Parakou, Aïssatou Bio transforme le lait du matin en wagassi comme sa mère le lui a appris. Visitez sa petite coopérative, goûtez le fromage encore tiède, et comprenez pourquoi la patience est son premier ingrédient.",
+      "makerCta": "Rencontrer Aïssatou",
+      "relatedTitle": "Suivre le goût",
+      "related": [
+        [
+          "Où goûter",
+          "Chez Maman Bénin, Ganhi"
+        ],
+        [
+          "Expérience",
+          "Du marché à la table"
+        ],
+        [
+          "Lire",
+          "Les femmes qui portent le wagassi vers le sud"
+        ]
+      ]
+    },
+    "experience": {
+      "title": "Cotonou après la nuit",
+      "location": "Zongo → Ganhi",
+      "intro": "Suivez la fumée, la musique et la foule du soir sur une balade food à travers les cuisines de rue les plus généreuses de la ville.",
+      "nextDeparture": "Prochain départ",
+      "nextValue": "Vendredi, 18h30",
+      "price": "Prix",
+      "priceValue": "18 000 CFA / personne",
+      "group": "Groupe",
+      "groupValue": "2–8 personnes",
+      "request": "Demander une place",
+      "duration": "Durée",
+      "durationValue": "3 heures",
+      "language": "Langue",
+      "languageValue": "Français · Anglais",
+      "meeting": "Point de rendez-vous",
+      "meetingValue": "Place Lénine, Akpakpa",
+      "access": "Accessibilité",
+      "accessValue": "Surtout de plain-pied",
+      "whyEyebrow": "Pourquoi y aller",
+      "whyHeading": "Venez affamés. Partez en connaissant mieux la ville.",
+      "whyP1": "La street food, c’est Cotonou en miniature : rapide, profondément sociale, pleine d’opinions précises. Avec la cuisinière Rosine, commencez par des talé-talé chauds, traversez la ville pour du wagassi grillé, et terminez sur du poisson poivré près de la lagune.",
+      "whyP2": "Ce n’est pas une checklist de dégustation. Rosine présente les gens derrière chaque feu et explique les ingrédients, migrations et rituels du quotidien dans chaque assiette.",
+      "howHeading": "Comment se déroule la soirée",
+      "steps": [
+        {
+          "n": "01",
+          "title": "Rendez-vous à Akpakpa",
+          "text": "Un bissap frais et un peu de contexte avant de partir."
+        },
+        {
+          "n": "02",
+          "title": "Suivre trois feux",
+          "text": "Goûter, parler et regarder chaque plat se faire."
+        },
+        {
+          "n": "03",
+          "title": "Finir près de la lagune",
+          "text": "Poisson grillé, boissons fraîches et le temps de rester."
+        }
+      ],
+      "relatedTitle": "Continuer d’explorer",
+      "related": [
+        [
+          "Goût",
+          "L’histoire du Wagassi"
+        ],
+        [
+          "Rencontrer",
+          "Rosine, cuisinière et guide"
+        ],
+        [
+          "À proximité",
+          "Ganhi après le coucher du soleil"
+        ]
+      ],
+      "productNote": "Parmi les expériences d’entrée de Bonne Assise : des façons de vivre local dès les premiers jours — pas un package touristique, une table et un rythme.",
+      "productEyebrow": "Expériences d’entrée"
+    },
+    "placeRelated": [
+      [
+        "Goût",
+        "Poisson fumé au marché du matin"
+      ],
+      [
+        "Rencontrer",
+        "Koffi, gardien de l’eau"
+      ],
+      [
+        "Faire",
+        "Traverser le lac à l’aube"
+      ]
+    ]
+  },
+  "story": {
+    "eyebrow": "Portrait · Cotonou",
+    "title": "Rosine cuisine sans recettes.",
+    "dek": "À Dantokpa, une cuisinière transforme le marché du matin en carte de mémoire, d’instinct et de saveurs extraordinaires.",
+    "bylineWords": "Texte d’Afiavi Alladaye",
+    "bylinePhoto": "Photographies de Ben Iwara",
+    "readTime": "8 min de lecture",
+    "heroAlt": "Rosine et une collègue à leur étal de marché",
+    "p1": "À six heures du matin, Rosine a déjà goûté le piment deux fois. Elle ne mesure pas. Elle regarde comment la sauce tient au dos de sa cuillère en bois, ajoute un peu de sel, puis se tourne vers un client qu’elle reconnaît à la voix.",
+    "p2": "Son étal est là où le marché commence à se plier dans la rue. Les plantains s’empilent d’un côté. Un feu de charbon occupe l’autre. Entre les deux, dans un espace à peine plus large que ses bras ouverts, Rosine prépare le petit-déjeuner d’un demi-quartier.",
+    "quote": "Une recette ne peut pas vous dire ce que la tomate a fait sous la pluie.",
+    "imgAlt": "Une cuisinière de marché préparant le repas du matin",
+    "imgCaption": "Préparation du matin au bord de Dantokpa",
+    "h2": "Le marché comme mémoire",
+    "p3": "Rosine a appris auprès de sa tante, d’abord en lavant les bols, puis en veillant sur le feu. Ce dont elle se souvient n’est pas une liste d’ingrédients, mais une séquence de gestes : le poids d’une tomate mûre, le son de l’huile quand elle est prête, le moment exact d’abaisser la flamme.",
+    "p4": "« Il faut écouter, dit-elle. La nourriture dit toujours ce dont elle a besoin. »",
+    "endEyebrow": "Continuer le voyage",
+    "endTitle": "Arpenter Cotonou avec Rosine.",
+    "endBody": "Rejoignez sa balade food du soir à travers Zongo et Ganhi.",
+    "endCta": "Découvrir l’expérience"
+  },
+  "saved": {
+    "eyebrow": "Votre carnet",
+    "title": "Ce qui mérite d’y revenir.",
+    "newCollection": "Nouvelle collection",
+    "collection1": "Week-end au Bénin",
+    "collection2": "Plats à essayer",
+    "discoveries": "{n} découvertes",
+    "createCollection": "Créer une collection",
+    "everything": "Tout l’enregistré",
+    "gridList": "Grille  /  Liste",
+    "remove": "Retirer {title}"
+  },
+  "trip": {
+    "eyebrow": "Votre parcours",
+    "title": "Quelques bons jours dans le sud.",
+    "days": "jours",
+    "discoveries": "découvertes",
+    "share": "Partager le voyage",
+    "day": "Jour {n}",
+    "day1Title": "Cotonou · Food & vie de ville",
+    "day2Title": "Lac Nokoué · Sur l’eau",
+    "begin": "Un endroit doux pour commencer",
+    "later": "Gardé pour plus tard dans la journée",
+    "addDay": "Ajouter le jour {n}",
+    "noteEyebrow": "Une note pour la route",
+    "noteTitle": "Laisser de la place à la surprise.",
+    "noteBody": "Les meilleures découvertes tiennent rarement un horaire. Votre voyage est un fil, pas un emploi du temps.",
+    "tipLabel": "Note locale",
+    "tipBody": "Le trafic à Cotonou s’intensifie après 17h. Restez pour un dîner tôt, puis traversez la ville.",
+    "items": {
+      "d1a": "Dantokpa avant la foule",
+      "d1aMeta": "Lieu · 08:00",
+      "d1b": "Cotonou après la nuit",
+      "d1bMeta": "Expérience · 18:30",
+      "d2a": "Traverser vers Ganvié",
+      "d2aMeta": "Lieu · 07:30",
+      "d2b": "Marcher avec les pêcheurs",
+      "d2bMeta": "Expérience · 16:00"
+    }
+  },
+  "categories": {
+    "food": {
+      "eyebrow": "Nourriture · Bénin",
+      "title": "Que vas-tu",
+      "titleAccent": "goûter ?",
+      "lede": "Plats, marchés et gestes—le pays, d’abord, à table.",
+      "p1": "La nourriture est souvent le premier sentiment d’être chez soi au Bénin : pas un restaurant unique, mais l’aube des marchés, les grils du soir, et la confiance d’une assiette partagée.",
+      "p2": "Cette rubrique rassemble les goûts qui ouvrent le pays : fromage du nord, riz rouge de la côte, beignets entre deux courses.",
+      "cta": "Découvrir"
+    },
+    "experience": {
+      "eyebrow": "Expériences · Bénin",
+      "title": "Que vas-tu",
+      "titleAccent": "vivre ?",
+      "lede": "Du temps avec celles et ceux qui tiennent déjà le lieu—sur l’eau, au marché, sur un chemin de mémoire.",
+      "p1": "Une expérience ici n’est pas une liste de produits. C’est une invitation claire : une première table, une traversée, une nuit qui suit la fumée, une marche prise avec soin.",
+      "p2": "Cinq repas pour les premiers jours, une traversée de Ganvié, une marche attentive à Ouidah, une nuit qui suit la fumée à Cotonou.",
+      "cta": "Découvrir"
+    },
+    "story": {
+      "eyebrow": "Récits · Du terrain",
+      "title": "Que vas-tu",
+      "titleAccent": "lire ?",
+      "lede": "Notes de terrain, portraits et guides—des angles sur un pays vivant.",
+      "p1": "Les récits sont la façon dont BA tient la complexité : une cuisinière sans recettes, un marché avant la chaleur, un parc qui demande de l’organisation, une foi abordée sans caricature.",
+      "p2": "Lire lentement. Ce ne sont pas des tips à collectionner—ce sont des angles sur un pays vivant.",
+      "cta": "Lire"
+    },
+    "place": {
+      "eyebrow": "Lieux · Bénin",
+      "title": "Où vas-tu",
+      "titleAccent": "aller ?",
+      "lede": "Des villes sur l’eau, des marchés qui donnent l’heure, des routes qui changent de couleur avant de changer de vitesse.",
+      "p1": "Bonne Assise trace le Bénin par des lieux qui gardent leur rythme—pas une liste d’étapes, des pièces où l’on entre avec attention.",
+      "p2": "Commencez au sud, là où la lagune organise la vie, ou plus à l’intérieur, là où l’histoire reste proche de la surface. Gardez du temps pour le nord.",
+      "cta": "Découvrir"
+    }
+  }
+}

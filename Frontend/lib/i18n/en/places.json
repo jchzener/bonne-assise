@@ -1,0 +1,169 @@
+{
+  "places": {
+    "cotonou": {
+      "title": "Cotonou",
+      "location": "Littoral · Southern Benin",
+      "intro": "A coastal city best understood through its markets, street kitchens, music and the people who give each neighborhood its rhythm.",
+      "heading": "A city that moves by appetite.",
+      "paragraph": "Start at the market, follow the scent of charcoal and leave room for conversations. Cotonou reveals itself through small encounters as much as landmarks.",
+      "bestTime": "Early morning or evening",
+      "duration": "1–3 days",
+      "from": "Main urban hub",
+      "note": "Explore with time to stop"
+    },
+    "porto-novo": {
+      "title": "Porto-Novo",
+      "location": "Ouémé · Southern Benin",
+      "intro": "A capital of layered histories, shaded streets, distinctive architecture and daily life that rewards an unhurried visit.",
+      "heading": "Meet the city before breakfast.",
+      "paragraph": "At first light, Ouando is already in conversation: baskets changing hands, zemidjans passing and breakfast ladled from enamel pots.",
+      "bestTime": "Morning",
+      "duration": "A full day",
+      "from": "About 45 min from Cotonou; confirm current transport",
+      "note": "Discover the city with a local"
+    },
+    "ganvie": {
+      "title": "Ganvié",
+      "location": "Lake Nokoué · Atlantique",
+      "intro": "A lakeside settlement where canoes are essential to everyday movement. Visit with respect for a living community, not as a spectacle.",
+      "heading": "Life follows the rhythm of water.",
+      "paragraph": "Come early, when the lake is stirring into the day. With a knowledgeable local guide, learn how water shapes work, trade, family life and food.",
+      "bestTime": "Early morning",
+      "duration": "Half a day",
+      "from": "Travel to the lakeside departure point, then continue by boat",
+      "note": "Ask permission before photographing people"
+    },
+    "ouidah": {
+      "title": "Ouidah",
+      "location": "Atlantique · Southern Benin",
+      "intro": "A place of memory, spiritual life, art and Atlantic coastline, where history remains present in streets, sites and ceremonies.",
+      "heading": "History still in motion.",
+      "paragraph": "Move slowly between memorial places, living cultural practices and the coast, making space for local voices and historical context.",
+      "bestTime": "Morning",
+      "duration": "A full day",
+      "from": "West of Cotonou; verify transport locally",
+      "note": "Approach sites and ceremonies with care"
+    },
+    "abomey": {
+      "title": "Abomey",
+      "location": "Zou · Southern Benin",
+      "intro": "The historic heart of the Dahomey Kingdom, where royal memory, craft and contemporary life meet in a landscape of red earth.",
+      "heading": "Memory in the red earth.",
+      "paragraph": "Explore royal heritage with care, listening to the histories, objects and traditions that connect the past to the present.",
+      "bestTime": "Morning",
+      "duration": "A full day",
+      "from": "Inland from the coast; plan transport ahead",
+      "note": "Choose a knowledgeable guide"
+    },
+    "grand-popo": {
+      "title": "Grand-Popo",
+      "location": "Mono · Southwestern Benin",
+      "intro": "A coastal landscape where the Mono estuary, fishing communities and Atlantic shoreline shape the pace of the day.",
+      "heading": "Where river meets sea.",
+      "paragraph": "Follow the estuary with a local guide and learn how water, tides, work and meals are woven together.",
+      "bestTime": "First light or late afternoon",
+      "duration": "1–2 days",
+      "from": "Southwestern coast; check local transport",
+      "note": "Respect fishing routines and tides"
+    },
+    "natitingou": {
+      "title": "Natitingou",
+      "location": "Atacora · Northern Benin",
+      "intro": "A gateway to northern landscapes, living traditions and communities of the Atacora region.",
+      "heading": "Take the red road north.",
+      "paragraph": "Go beyond the transit stop: make time for local guides, regional food and the landscapes that give the north its character.",
+      "bestTime": "Check seasonal conditions before travel",
+      "duration": "2–3 days",
+      "from": "Northwestern Benin; plan transport ahead",
+      "note": "Seek local guidance for community visits"
+    },
+    "so-ava": {
+      "title": "Sô-Ava",
+      "location": "Lake Nokoué · Atlantique",
+      "intro": "Lakeside gateway to the water towns—pirogues, morning markets and the slow rhythm of Lake Nokoué.",
+      "heading": "Where the lake begins to speak.",
+      "paragraph": "Sô-Ava is less a spectacle than a working shore: embarkations, nets, and conversations that set the tone before you reach the stilt city.",
+      "bestTime": "Early morning",
+      "duration": "Half a day",
+      "from": "North of Cotonou",
+      "note": "Combine with Ganvié by boat"
+    },
+    "pendjari": {
+      "title": "Pendjari",
+      "location": "Atacora · Far north-west",
+      "intro": "One of West Africa's last great wildlife reserves—elephants, lions and open savanna, approached with guides and time.",
+      "heading": "The north still holds wild ground.",
+      "paragraph": "Pendjari rewards patience: dry-season tracks, early drives, and the knowledge that this park is part of a wider cross-border ecosystem.",
+      "bestTime": "December–March",
+      "duration": "2–3 days",
+      "from": "Via Natitingou",
+      "note": "Book lodge and guide ahead"
+    },
+    "tanougou": {
+      "title": "Tanougou Falls",
+      "location": "Atacora · Near Tanguiéta",
+      "intro": "Cascades in a rock amphitheatre—a cool pause on the road to Pendjari and the northern hills.",
+      "heading": "Water in the hills.",
+      "paragraph": "Tanougou is a stop with intention: shade, sound of water, and a sense of the Atacora beyond the transit towns.",
+      "bestTime": "Cooler months",
+      "duration": "Half a day",
+      "from": "Near Tanguiéta",
+      "note": "Combine with Natitingou"
+    },
+    "possotome": {
+      "title": "Possotomè",
+      "location": "Mono · Lake Ahémé",
+      "intro": "A lakeside town on Ahémé known for thermal springs, calm water and a slower Mono rhythm—best approached without rush.",
+      "heading": "Water that holds the day.",
+      "paragraph": "Possotomè is not a checklist stop. Come for the lake edge, the springs, and the sense that Mono life organises itself around water, work and quiet hospitality.",
+      "bestTime": "Morning; dry season for roads",
+      "duration": "Half to full day",
+      "from": "West of Cotonou via Bopa",
+      "note": "Combine with Lake Ahémé and local guides"
+    },
+    "bopa": {
+      "title": "Bopa",
+      "location": "Mono · Southwestern Benin",
+      "intro": "A working Mono town and gateway toward Lake Ahémé—markets, river life and the practical heart of the southwest.",
+      "heading": "Gateway to the Mono waters.",
+      "paragraph": "Bopa rewards attention to ordinary movement: stalls, transport junctions, and the people who keep the lake and road connected. Use it as a hinge, not only a transit name.",
+      "bestTime": "Morning market hours",
+      "duration": "Half a day",
+      "from": "Road west from Cotonou",
+      "note": "Useful base for Ahémé and Possotomè"
+    },
+    "allada": {
+      "title": "Allada",
+      "location": "Atlantique · South-central Benin",
+      "intro": "A historic kingdom seat and living town—where royal memory, markets and daily traffic share the same ground.",
+      "heading": "History under ordinary light.",
+      "paragraph": "Allada is not a museum. Royal lineages, market noise and road life sit side by side. Come ready to listen as much as to look.",
+      "bestTime": "Morning",
+      "duration": "Half to full day",
+      "from": "North of Cotonou",
+      "note": "Visit with local historical context"
+    },
+    "parakou": {
+      "title": "Parakou",
+      "location": "Borgou · Central-north Benin",
+      "intro": "The main urban hub of central-north Benin—rail memory, markets, and a crossroads between south and the Sahel edge.",
+      "heading": "A city that turns the map.",
+      "paragraph": "Parakou is where distances change. Markets, transport yards and regional kitchens make it a place to understand the country’s middle belt—not only pass through it.",
+      "bestTime": "Dry season; cooler hours",
+      "duration": "1–2 days",
+      "from": "North of the Zou corridor",
+      "note": "Plan rest and local food stops"
+    },
+    "ketou": {
+      "title": "Kétou",
+      "location": "Plateau · Southeastern Benin",
+      "intro": "A historic Yoruba town of the Plateau—walls, memory and a cultural life that still shapes the southeast.",
+      "heading": "A town that keeps its own time.",
+      "paragraph": "Kétou holds layers of Yoruba history in a living town. Walk with attention: fortifications, market days and the quieter spaces where memory is not performed for visitors.",
+      "bestTime": "Morning",
+      "duration": "Half to full day",
+      "from": "East of Porto-Novo / Pobè axis",
+      "note": "Approach heritage with local guidance"
+    }
+  }
+}

@@ -5,9 +5,7 @@
  */
 const configuredBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
 
-export const API_BASE_URL = configuredBaseUrl
-  ? configuredBaseUrl.replace(/\/$/, "")
-  : "";
+export const API_BASE_URL = configuredBaseUrl ? configuredBaseUrl.replace(/\/$/, "") : "";
 
 export function apiUrl(path: string): string {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;

@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "explore": "Explorer",
+    "places": "Lieux",
+    "food": "Gastronomie",
+    "experiences": "Expériences",
+    "stories": "Récits",
+    "search": "Rechercher",
+    "saved": "Enregistrés",
+    "switchLanguage": "Switch to English"
+  },
+  "footer": {
+    "eyebrow": "Le Bénin, avec attention",
+    "description": "Un guide vivant des lieux, des saveurs et des personnes qui font vibrer le Bénin.",
+    "newsletter": "Carnets du Bénin",
+    "newsletterDescription": "Des récits et des lieux qui méritent d’être connus, de temps en temps.",
+    "subscribe": "S’inscrire",
+    "plan": "Préparer un voyage",
+    "savedPlaces": "Lieux enregistrés",
+    "work": "Collaborer",
+    "contact": "Contact"
+  },
+  "ui": {
+    "save": "Enregistrer",
+    "saved": "Enregistré",
+    "addTrip": "Ajouter au voyage",
+    "addedTrip": "Ajouté au voyage",
+    "share": "Partager"
+  },
+  "hero": {
+    "title": "Be Local.",
+    "posterAlt": "La vie et la culture quotidienne au Bénin",
+    "greetings": [
+      {
+        "text": "Kwabor",
+        "color": "#F5C84C"
+      },
+      {
+        "text": "Wézon",
+        "color": "#69D1CA"
+      },
+      {
+        "text": "Welcome",
+        "color": "#F7F2E8"
+      },
+      {
+        "text": "Bienvenue",
+        "color": "#F09A72"
+      },
+      {
+        "text": "Ẹ káàbọ̀",
+        "color": "#B9A0F6"
+      }
+    ],
+    "greetingLabel": "Bienvenue en plusieurs langues"
+  }
+}

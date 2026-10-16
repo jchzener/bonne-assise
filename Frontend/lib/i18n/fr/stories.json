@@ -1,0 +1,154 @@
+{
+  "stories": {
+    "rosine-cooks": {
+      "title": "Rosine cuisine sans recettes.",
+      "eyebrow": "Portrait · Cotonou",
+      "dek": "À Dantokpa, une cuisinière transforme le marché du matin en carte de mémoire, d’instinct et de saveur exacte.",
+      "readTime": "8 min de lecture",
+      "body": [
+        "À six heures du matin, Rosine a déjà goûté le piment deux fois. Elle ne le mesure pas.",
+        "Son étal se tient là où le marché se plie vers la rue. Entre bananes plantain et charbon, elle prépare le petit déjeuner d’un demi-quartier."
+      ]
+    },
+    "market-names": {
+      "title": "Noms de marché",
+      "eyebrow": "Gens · Cotonou",
+      "dek": "Rencontre avec les personnes derrière les étals—les noms qui font d’un marché plus qu’un lieu d’achat.",
+      "readTime": "6 min de lecture",
+      "body": [
+        "Chaque allée a une voix. Des vendeurs qui se souviennent de votre commande, et de la saison mieux que n’importe quel calendrier.",
+        "Une courte note de terrain sur l’infrastructure humaine des marchés de Cotonou."
+      ]
+    },
+    "red-road": {
+      "title": "La route rouge",
+      "eyebrow": "Récit · Atacora",
+      "dek": "Une façon plus lente d’aller au nord—par le paysage, la nourriture et les gens qui tiennent la route ensemble.",
+      "readTime": "7 min de lecture",
+      "body": [
+        "La route du nord change de couleur avant de changer de vitesse.",
+        "Ce qui reste, c’est l’invitation à voyager avec attention, pas seulement à arriver."
+      ]
+    },
+    "early-light": {
+      "title": "Première lumière à Porto-Novo",
+      "eyebrow": "Guide · Porto-Novo",
+      "dek": "Rencontrer la ville avant le petit déjeuner—quand Ouando est déjà en conversation.",
+      "readTime": "5 min de lecture",
+      "body": [
+        "À la première lumière, les paniers changent de mains et le petit déjeuner se sert depuis des casseroles en émail.",
+        "Porto-Novo récompense le matin sans hâte plus que l’après-midi en liste de cases à cocher."
+      ]
+    },
+    "slave-route-note": {
+      "title": "Marcher la Route des Esclaves",
+      "eyebrow": "Note de terrain · Ouidah",
+      "dek": "Un récit attentif du chemin de la Place Chacha à la Porte du Non-Retour—avec contexte et respect.",
+      "readTime": "8 min de lecture",
+      "body": [
+        "Ce chemin demande plus qu’une caméra. Il demande du temps, du silence et un guide qui refuse la caricature.",
+        "La visite la plus juste est celle qui laisse de la place à ce qui ne se photographie pas."
+      ]
+    },
+    "dantokpa-morning": {
+      "title": "Matin à Dantokpa",
+      "eyebrow": "Note de terrain · Cotonou",
+      "dek": "Le grand marché avant la chaleur—allées, voix et la logistique d’une ville entière.",
+      "readTime": "6 min de lecture",
+      "body": [
+        "Dantokpa au matin n’est pas un décor. C’est le moteur qui démarre.",
+        "Suivez quelqu’un qui connaît les raccourcis. Achetez ce dont vous avez besoin, pas ce qui fait la meilleure photo."
+      ]
+    },
+    "pendjari-dry-season": {
+      "title": "Pendjari en saison sèche",
+      "eyebrow": "Nature · Atacora",
+      "dek": "Pistes, lumière basse et la promesse sans garantie de la faune—dans l’une des dernières grandes réserves de la région.",
+      "readTime": "7 min de lecture",
+      "body": [
+        "En saison sèche, les pistes se raffermissent. L’air change.",
+        "Ce que l’on gagne, c’est de l’espace et une faune réelle—pas un spectacle assuré."
+      ]
+    },
+    "vodun-with-care": {
+      "title": "Le Vodoun, sans la caricature",
+      "eyebrow": "Essai · Ouidah",
+      "dek": "Comment aborder une pratique spirituelle vivante avec respect.",
+      "readTime": "9 min de lecture",
+      "body": [
+        "Le Vodoun est une religion officielle ici—pas le dessin animé des poupées et des malédictions.",
+        "Les visiteurs qui écoutent plus qu’ils ne filment repartent avec un autre pays."
+      ]
+    },
+    "possotome-springs": {
+      "title": "Les sources de Possotomè",
+      "eyebrow": "Note de terrain · Mono",
+      "dek": "Eau thermale, lumière du lac et une ville qui refuse de se presser pour les visiteurs.",
+      "readTime": "6 min de lecture",
+      "body": [
+        "Possotomè s’introduit d’abord par l’eau : le lac Ahémé, puis les sources qui attirent les gens pour des raisons plus anciennes que le tourisme.",
+        "Le bon rythme est local. Demandez avant de photographier. Restez assez longtemps pour voir qui travaille le rivage."
+      ]
+    },
+    "parakou-junction": {
+      "title": "Parakou, là où la carte tourne",
+      "eyebrow": "Guide · Borgou",
+      "dek": "Un carrefour du centre-nord—marchés, mémoire ferroviaire et le sentiment que le pays a changé de latitude.",
+      "readTime": "7 min de lecture",
+      "body": [
+        "Arriver à Parakou, c’est voir les distances se réorganiser. Le sud paraît loin ; le bord du Sahel, plus proche.",
+        "Mangez là où mangent les gens du transport. La ville s’explique mieux à une table partagée que depuis une vitre en mouvement."
+      ]
+    },
+    "allada-ordinary": {
+      "title": "Allada sous une lumière ordinaire",
+      "eyebrow": "Note de terrain · Atlantique",
+      "dek": "Mémoire royale et bruit du marché partagent les mêmes rues—l’histoire sans cordon de velours.",
+      "readTime": "6 min de lecture",
+      "body": [
+        "Allada n’est pas mis en scène. Lignée et trafic quotidien occupent le même sol.",
+        "Venez avec une voix locale si vous le pouvez. Le silence fait partie de la visite quand l’histoire pèse plus que la photo."
+      ]
+    },
+    "ketou-walls": {
+      "title": "Kétou garde son propre temps",
+      "eyebrow": "Patrimoine · Plateau",
+      "dek": "Une ville yoruba de remparts et de culture vivante dans le sud-est—à aborder sans la réduire à des ruines.",
+      "readTime": "7 min de lecture",
+      "body": [
+        "Les fortifications et les jours de marché de Kétou organisent encore une ville, pas un décor.",
+        "Marchez avec quelqu’un qui peut nommer ce que vous regardez. Laissez de la place au présent."
+      ]
+    },
+    "wagassi-road": {
+      "title": "Suivre le wagassi vers le sud",
+      "eyebrow": "Histoire food · Nord vers la côte",
+      "dek": "Comment un fromage peul voyage du nord pastoral jusqu’aux grils au charbon des villes.",
+      "readTime": "8 min de lecture",
+      "body": [
+        "Le wagassi commence avec le lait et un savoir tenu dans les familles. La feuille de calotropis fait ce que les recettes n’approchent qu’à peu près.",
+        "Quand il atteint un gril de Cotonou, il a déjà traversé des régions. Le goût, c’est de la géographie rendue comestible."
+      ]
+    },
+    "zem-night": {
+      "title": "La ville en zemidjan",
+      "eyebrow": "Portrait · Cotonou",
+      "dek": "Les motos-taxis comme infrastructure, négociation et façon de lire la nuit.",
+      "readTime": "5 min de lecture",
+      "body": [
+        "Les zemidjans ne sont pas de la couleur locale. C’est ainsi que la ville respire après la tombée de la nuit—prix, confiance, raccourci, risque.",
+        "Fixez le tarif avant de partir. Traitez le conducteur comme un professionnel, pas comme un décor."
+      ]
+    },
+    "first-rains": {
+      "title": "Quand arrivent les premières pluies",
+      "eyebrow": "Saison · Tout le pays",
+      "dek": "Le basculement des marchés, des routes et de l’humeur quand la saison sèche se brise.",
+      "readTime": "6 min de lecture",
+      "body": [
+        "Les premières pluies changent l’odeur de la terre avant de changer le calendrier.",
+        "Les plans de voyage plient. La nourriture bascule. On parle de la saison comme d’un personnage, pas d’une prévision."
+      ]
+    }
+  }
+}
