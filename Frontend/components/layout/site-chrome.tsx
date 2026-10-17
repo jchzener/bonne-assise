@@ -95,22 +95,32 @@ export function Footer({ locale = "en" }: { locale?: "en" | "fr" }) {
   const t = getMessages(locale);
   const tagline =
     locale === "fr" ? "Vivre local au Bénin." : "Get local in Benin.";
+  const about =
+    locale === "fr"
+      ? "Bonne Assise est un guide éditorial pour découvrir le Bénin de l’intérieur : marchés, tables, gens, routes et récits. Pas une liste d’adresses — une façon d’entrer dans le pays."
+      : "Bonne Assise is an editorial guide to experiencing Benin from the inside: markets, tables, people, routes and stories. Not a list of addresses — a way into the country.";
+  const exploreLabel = locale === "fr" ? "Explorer" : "Explore";
+  const companyLabel = locale === "fr" ? "Bonne Assise" : "Bonne Assise";
 
   return (
-    <footer className="footer">
+    <footer className="footer footer--balanced">
       <div className="footer-top">
         <div className="footer-intro">
-          <p className="footer-desc">{t.footer.description}</p>
+          <p className="footer-brand-name">Bonne Assise</p>
+          <p className="footer-desc">{about}</p>
+          <p className="footer-desc footer-desc--short">{t.footer.description}</p>
         </div>
         <nav className="footer-nav" aria-label="Footer">
           <div className="footer-nav-col">
+            <span className="footer-nav-label">{exploreLabel}</span>
             <Link to="place">{t.nav.places}</Link>
             <Link to="food">{t.nav.food}</Link>
             <Link to="experience">{t.nav.experiences}</Link>
             <Link to="story">{t.nav.stories}</Link>
+            <Link to="explore">{t.nav.explore}</Link>
           </div>
           <div className="footer-nav-col">
-            <Link to="explore">{t.nav.explore}</Link>
+            <span className="footer-nav-label">{companyLabel}</span>
             <Link to="trip">{t.footer.plan}</Link>
             <Link to="saved">{t.footer.savedPlaces}</Link>
             <ExternalLink href="mailto:hello@bonneassise.bj">{t.footer.contact}</ExternalLink>

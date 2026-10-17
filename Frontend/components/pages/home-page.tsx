@@ -14,7 +14,6 @@ import {
   Heading,
   Image,
   Eyebrow,
-  SaveActions,
   TextLink,
   Section,
   SectionHeader,
@@ -22,30 +21,20 @@ import {
 } from "../ui/primitives";
 import { HomeHero } from "../home/hero";
 
-function NewsBand({
-  locale,
-  excludeSlugs = [],
-}: {
-  locale: Locale;
-  excludeSlugs?: string[];
-}) {
+
+function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?: string[] }) {
   const t = getMessages(locale);
   const news = (t.home as any).news;
-  const raw: Array<{
-    label: string;
-    text: string;
-    cta: string;
-    to: Page;
-    slug?: string;
-  }> = news?.items || [
-    {
-      label: t.home.tickerLabel,
-      text: t.home.ticker,
-      cta: t.home.tickerLink,
-      to: "story" as Page,
-      slug: "early-light",
-    },
-  ];
+  const raw: Array<{ label: string; text: string; cta: string; to: Page; slug?: string }> =
+    news?.items || [
+      {
+        label: t.home.tickerLabel,
+        text: t.home.ticker,
+        cta: t.home.tickerLink,
+        to: "story" as Page,
+        slug: "early-light",
+      },
+    ];
   // CPO: never surface the same destination as the edition cards above
   const exclude = new Set(excludeSlugs.filter(Boolean));
   const items = raw.filter((item) => !item.slug || !exclude.has(item.slug));
@@ -57,10 +46,7 @@ function NewsBand({
 
   useEffect(() => {
     if (items.length <= 1) return;
-    const id = window.setInterval(
-      () => setActive((i) => (i + 1) % items.length),
-      7000,
-    );
+    const id = window.setInterval(() => setActive((i) => (i + 1) % items.length), 7000);
     return () => window.clearInterval(id);
   }, [items.length]);
 
@@ -68,11 +54,7 @@ function NewsBand({
   if (!item) return null;
 
   return (
-    <div
-      className="news-band"
-      aria-label={news?.aria || "From the field"}
-      aria-live="polite"
-    >
+    <div className="news-band" aria-label={news?.aria || "From the field"} aria-live="polite">
       <div className="news-band-inner">
         <span className="news-band-label">{item.label}</span>
         <p className="news-band-text">{item.text}</p>
@@ -81,11 +63,7 @@ function NewsBand({
         </Link>
       </div>
       {items.length > 1 && (
-        <div
-          className="news-band-dots"
-          role="tablist"
-          aria-label={news?.aria || "News"}
-        >
+        <div className="news-band-dots" role="tablist" aria-label={news?.aria || "News"}>
           {items.map((_, i) => (
             <button
               key={i}
@@ -101,6 +79,8 @@ function NewsBand({
     </div>
   );
 }
+
+
 
 export function Home({
   saved,
@@ -142,13 +122,7 @@ export function Home({
   const peopleCopy = (t as any).people?.entries ?? [];
   const ui = (t as any).ui ?? t.home;
 
-  const eventTabKeys = [
-    "all",
-    "food",
-    "culture",
-    "festivals",
-    "activities",
-  ] as const;
+  const eventTabKeys = ["all", "food", "culture", "festivals", "activities"] as const;
 
   useEffect(() => {
     const tab = eventTabKeys[eventTab] || "all";
@@ -160,19 +134,13 @@ export function Home({
 
   useEffect(() => {
     if (editionPaused || editionSets.length <= 1) return;
-    const timer = window.setInterval(
-      () => setEditionIndex((i) => (i + 1) % editionSets.length),
-      8000,
-    );
+    const timer = window.setInterval(() => setEditionIndex((i) => (i + 1) % editionSets.length), 8000);
     return () => window.clearInterval(timer);
   }, [editionPaused, editionSets.length]);
 
   useEffect(() => {
     if (foodPaused || foodCopy.length <= 1) return;
-    const timer = window.setInterval(
-      () => setFoodIndex((i) => (i + 1) % foodCopy.length),
-      9000,
-    );
+    const timer = window.setInterval(() => setFoodIndex((i) => (i + 1) % foodCopy.length), 9000);
     return () => window.clearInterval(timer);
   }, [foodPaused, foodCopy.length]);
 
@@ -181,9 +149,15 @@ export function Home({
     ...(foodCopy[foodIndex] || {}),
     image: foodImages[foodIndex]?.image || photos.wagassi,
   };
+  const peopleFallbackImages = [
+    photos.cotonou,
+    photos.ganvie,
+    photos.natitingou,
+    photos.ouidah,
+  ];
   const people = peopleCopy.map((entry: any, i: number) => ({
     ...entry,
-    image: peopleImageEntries[i]?.[2] || photos.women,
+    image: peopleImageEntries[i]?.[2] || peopleFallbackImages[i] || photos.cotonou,
   }));
 
   return (
@@ -208,11 +182,7 @@ export function Home({
             slug={card.slug}
           />
         ))}
-        <Link
-          to="explore"
-          className="edition edition-index"
-          aria-label={(t as any).editions?.indexLabel || t.home.indexLabel}
-        >
+        <Link to="explore" className="edition edition-index" aria-label={(t as any).editions?.indexLabel || t.home.indexLabel}>
           <span>{(t as any).editions?.indexLabel || t.home.indexLabel}</span>
           <Heading level={3}>
             {((t as any).editions?.indexTitle || t.home.indexTitle || "SEE|ALL")
@@ -228,9 +198,7 @@ export function Home({
       {/* From the field — rotating editorial signals */}
       <NewsBand
         locale={locale}
-        excludeSlugs={(editionSets[editionIndex] || [])
-          .map((c: any) => c.slug)
-          .filter(Boolean)}
+        excludeSlugs={(editionSets[editionIndex] || []).map((c: any) => c.slug).filter(Boolean)}
       />
 
       {/* Intent */}
@@ -263,48 +231,102 @@ export function Home({
         </div>
       </Section>
 
-      {/* Food gateway */}
-      <Section
-        className="food-gateway"
-        onMouseEnter={() => setFoodPaused(true)}
-        onMouseLeave={() => setFoodPaused(false)}
-      >
-        <div className="food-intro section-pad">
-          <div>
-            <Heading level={2}>{t.home.foodTitle}</Heading>
-          </div>
+      {/* Food — first encounter with Beninese gastronomy */}
+      <Section className="food-gateway food-taste">
+        <div className="food-taste-intro section-pad">
+          <Heading level={2}>{t.home.foodTitle}</Heading>
           <p>{t.home.foodBody}</p>
         </div>
-        <div className="food-story section-pad food-cycle" key={foodIndex}>
-          <div className="food-portrait">
-            <Image src={food.image} alt={food.label || ""} />
+
+        <div className="food-taste-grid section-pad">
+          {(locale === "fr"
+            ? [
+                { slug: "wagassi", title: "Wagassi", region: "Borgou", note: "Fromage peul, doux et salé", image: photos.wagassi },
+                { slug: "amiwo", title: "Amiwo", region: "Sud", note: "Riz rouge, tables du quotidien", image: photos.amiwo },
+                { slug: "grilled-fish", title: "Poisson grillé", region: "Côte", note: "Braises au bord de l’eau", image: photos.grill },
+                { slug: "akassa", title: "Akassa", region: "Sud", note: "Pâte de maïs, sauce qui compte", image: photos.market },
+              ]
+            : [
+                { slug: "wagassi", title: "Wagassi", region: "Borgou", note: "Soft Peulh cheese, lightly salted", image: photos.wagassi },
+                { slug: "amiwo", title: "Amiwo", region: "South", note: "Red rice, everyday tables", image: photos.amiwo },
+                { slug: "grilled-fish", title: "Grilled fish", region: "Coast", note: "Open fire by the water", image: photos.grill },
+                { slug: "akassa", title: "Akassa", region: "South", note: "Maize paste, the sauce matters", image: photos.market },
+              ]
+          ).map((dish) => (
+            <Link key={dish.slug} to="food" slug={dish.slug} className="food-taste-card">
+              <div className="food-taste-media">
+                <Image src={dish.image} alt={dish.title} />
+              </div>
+              <div className="food-taste-body">
+                <span className="food-taste-region">{dish.region}</span>
+                <Heading level={3}>{dish.title}</Heading>
+                <p>{dish.note}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="food-coffrets section-pad">
+          <div className="food-coffrets-head">
+            <Heading level={3}>
+              {locale === "fr" ? "Goûter avec nous" : "Taste it with us"}
+            </Heading>
+            <p>
+              {locale === "fr"
+                ? "Coffrets et expériences pour entrer dans la cuisine béninoise — marché, table, mains qui préparent."
+                : "Boxes and experiences to enter Beninese cooking — market, table, and the hands that prepare it."}
+            </p>
           </div>
-          <div className="food-word">
-            <small>{food.label}</small>
-            <span>{food.title}</span>
+          <div className="food-coffrets-grid">
+            <Link to="experience" slug="first-table" className="food-coffret">
+              <div className="food-coffret-media">
+                <Image src={photos.market} alt="" />
+              </div>
+              <div className="food-coffret-copy">
+                <span className="food-taste-region">
+                  {locale === "fr" ? "Expérience" : "Experience"}
+                </span>
+                <Heading level={3}>
+                  {locale === "fr" ? "La première table" : "The First Table"}
+                </Heading>
+                <p>
+                  {locale === "fr"
+                    ? "Un repas partagé pour commencer le pays par le goût."
+                    : "A shared meal to begin the country with taste."}
+                </p>
+                <span className="ba-btn ba-btn--text">
+                  {locale === "fr" ? "Découvrir" : "Discover"}{" "}
+                  <Icon name="arrow" size={14} />
+                </span>
+              </div>
+            </Link>
+            <Link to="experience" slug="five-meals" className="food-coffret">
+              <div className="food-coffret-media">
+                <Image src={photos.amiwo} alt="" />
+              </div>
+              <div className="food-coffret-copy">
+                <span className="food-taste-region">
+                  {locale === "fr" ? "Parcours" : "Tasting path"}
+                </span>
+                <Heading level={3}>
+                  {locale === "fr" ? "Cinq repas · Premiers jours" : "Five meals · First days"}
+                </Heading>
+                <p>
+                  {locale === "fr"
+                    ? "Une carte de goûts pour orienter les premiers repas sur place."
+                    : "A taste map to guide your first meals on the ground."}
+                </p>
+                <span className="ba-btn ba-btn--text">
+                  {locale === "fr" ? "Découvrir" : "Discover"}{" "}
+                  <Icon name="arrow" size={14} />
+                </span>
+              </div>
+            </Link>
           </div>
-          <div className="food-connections">
-            <div className="food-path-list">
-              {(food.paths || []).map((path: string, i: number) => (
-                <div className="food-path" key={path}>
-                  <strong>{path}</strong>
-                  {i === 0 && <small>{food.detail}</small>}
-                </div>
-              ))}
-            </div>
-            <TextLink to="food" light>
-              {food.link}
+          <div className="food-taste-footer">
+            <TextLink to="food">
+              {locale === "fr" ? "Toute la cuisine béninoise" : "All Beninese food"}
             </TextLink>
-            <div className="cycle-dots" aria-label={t.home.foodSelector}>
-              {foodCopy.map((_: unknown, i: number) => (
-                <button
-                  key={i}
-                  className={i === foodIndex ? "active" : ""}
-                  onClick={() => setFoodIndex(i)}
-                  aria-label={t.home.showFood.replace("{n}", String(i + 1))}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </Section>
@@ -326,7 +348,7 @@ export function Home({
               <span className="ba-btn ba-btn--solid ba-btn--inverse">
                 {t.home.meetPerson.replace(
                   "{name}",
-                  people[0].ctaName || people[0].title.split(" ")[0],
+                  people[0].ctaName || people[0].title.split(" ")[0]
                 )}{" "}
                 <Icon name="arrow" size={14} />
               </span>
@@ -335,12 +357,7 @@ export function Home({
         )}
         <div className="people-strip">
           {people.slice(1).map((person: any) => (
-            <Link
-              to="story"
-              slug="rosine-cooks"
-              className="people-strip-item"
-              key={person.title}
-            >
+            <Link to="story" slug="rosine-cooks" className="people-strip-item" key={person.title}>
               <div className="people-strip-media">
                 <Image src={person.image} alt={person.title} />
               </div>
@@ -355,7 +372,7 @@ export function Home({
       </Section>
 
       {/* What's on — MTL-inspired premium rail */}
-      {/* What's on — MTL-inspired premium rail */}
+{/* What's on — MTL-inspired premium rail */}
       <Section className="whats-on whats-on--mtl" pad>
         <div className="whats-mtl-head">
           <div>
@@ -368,11 +385,7 @@ export function Home({
           <TextLink to="explore">{t.home.seeAllEvents}</TextLink>
         </div>
 
-        <div
-          className="whats-tabs whats-tabs--pills"
-          role="tablist"
-          aria-label={t.events.eyebrow}
-        >
+        <div className="whats-tabs whats-tabs--pills" role="tablist" aria-label={t.events.eyebrow}>
           {(t.home.eventTabs || []).map((tab: string, i: number) => (
             <button
               key={tab}
@@ -421,11 +434,7 @@ export function Home({
                   className="whats-card"
                 >
                   <div className="whats-card-media">
-                    {event.image ? (
-                      <Image src={event.image} alt="" />
-                    ) : (
-                      <span className="whats-card-ph" />
-                    )}
+                    {event.image ? <Image src={event.image} alt="" /> : <span className="whats-card-ph" />}
                   </div>
                   <div className="whats-card-body">
                     <Heading level={3}>{event.title}</Heading>
@@ -433,13 +442,10 @@ export function Home({
                       <span className="whats-pill">{event.category}</span>
                       <span className="whats-pill whats-pill--mute">
                         {event.city} ·{" "}
-                        {new Date(event.startsAt).toLocaleDateString(
-                          locale === "fr" ? "fr-FR" : "en-GB",
-                          {
-                            day: "numeric",
-                            month: "short",
-                          },
-                        )}
+                        {new Date(event.startsAt).toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", {
+                          day: "numeric",
+                          month: "short",
+                        })}
                       </span>
                     </div>
                   </div>
@@ -452,58 +458,6 @@ export function Home({
                 <p>{t.events.emptyText}</p>
               </div>
             )}
-          </div>
-        </div>
-      </Section>
-
-      {/* Experience band */}
-      <Section className="experience-band">
-        <Image src={photos.coast} alt={t.home.experienceAlt} />
-        <div className="experience-overlay">
-          <Heading level={2}>{t.home.experienceTitle}</Heading>
-          <p>{t.home.experienceBody}</p>
-          <div className="experience-meta">
-            {(t.home.experienceMeta || []).map((item: string) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          <SaveActions
-            saved={saved}
-            toggleSaved={toggleSaved}
-            addTrip={addTrip}
-            added={added}
-            labels={{
-              save: ui.save || t.home.save,
-              saved: ui.saved || t.home.saved,
-              addTrip: ui.addTrip || t.home.addTrip,
-              addedTrip: ui.addedTrip || t.home.addedTrip,
-              share: ui.share || t.home.share,
-            }}
-          />
-        </div>
-      </Section>
-
-      {/* Plan — full-bleed image band + panel */}
-      <Section className="plan plan--band">
-        <div className="plan-band-media" aria-hidden>
-          <Image src={photos.grandPopo} alt="" />
-          <div className="plan-band-shade" />
-        </div>
-        <div className="plan-band-inner section-pad">
-          <div className="plan-band-copy">
-            <Heading level={2}>{t.home.planTitle}</Heading>
-            <p>{t.home.planBody}</p>
-            <div className="plan-actions">
-              <Link to="trip" className="ba-btn ba-btn--solid ba-btn--inverse">
-                {t.home.planCta} <Icon name="arrow" size={14} />
-              </Link>
-              <Link
-                to="saved"
-                className="ba-btn ba-btn--outline ba-btn--on-dark"
-              >
-                {t.home.saved || "Saved"}
-              </Link>
-            </div>
           </div>
         </div>
       </Section>
@@ -525,8 +479,7 @@ export function Home({
               <span className="story-meta">{t.home.storyMetaOne}</span>
               <Heading level={3}>{t.home.storyOne}</Heading>
               <span className="ba-btn ba-btn--text">
-                {locale === "fr" ? "Lire" : "Read"}{" "}
-                <Icon name="arrow" size={14} />
+                {locale === "fr" ? "Lire" : "Read"} <Icon name="arrow" size={14} />
               </span>
             </div>
           </Link>
