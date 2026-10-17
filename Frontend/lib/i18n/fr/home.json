@@ -49,6 +49,7 @@
     "seeAllEvents": "Voir tous les événements",
     "presentedWith": "Présenté avec {name}",
     "eventTabs": [
+      "Tout",
       "Manger & boire",
       "Arts & culture",
       "Festivals & événements",

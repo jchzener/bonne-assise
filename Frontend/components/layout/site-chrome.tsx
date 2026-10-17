@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import type { Page, Locale } from "../../lib/types";
-import { Icon, Button, Link, ExternalLink, Input, Eyebrow } from "../ui/primitives";
+import { Icon, Button, Link, ExternalLink } from "../ui/primitives";
 import { getMessages } from "../../lib/i18n/messages";
 
 export function Header({ page, locale = "en" }: { page: Page; locale?: "en" | "fr" }) {
@@ -93,41 +93,38 @@ export function Header({ page, locale = "en" }: { page: Page; locale?: "en" | "f
 
 export function Footer({ locale = "en" }: { locale?: "en" | "fr" }) {
   const t = getMessages(locale);
+  const tagline =
+    locale === "fr" ? "Vivre local au Bénin." : "Get local in Benin.";
+
   return (
     <footer className="footer">
-      <div className="footer-word">Bonne Assise</div>
-      <div className="footer-grid">
-        <div>
-          <Eyebrow light>{t.footer.eyebrow}</Eyebrow>
-          <p>{t.footer.description}</p>
+      <div className="footer-top">
+        <div className="footer-intro">
+          <p className="footer-desc">{t.footer.description}</p>
         </div>
-        <div>
-          <Link to="explore">{t.nav.explore}</Link>
-          <Link to="food">{t.nav.food}</Link>
-          <Link to="experience">{t.nav.experiences}</Link>
-          <Link to="story">{t.nav.stories}</Link>
-        </div>
-        <div>
-          <Link to="trip">{t.footer.plan}</Link>
-          <Link to="saved">{t.footer.savedPlaces}</Link>
-          <ExternalLink href="mailto:hello@bonneassise.bj">{t.footer.work}</ExternalLink>
-          <ExternalLink href="mailto:hello@bonneassise.bj">{t.footer.contact}</ExternalLink>
-        </div>
-        <div className="newsletter">
-          <Eyebrow light>{t.footer.newsletter}</Eyebrow>
-          <p>{t.footer.newsletterDescription}</p>
-          <label>
-            <span className="sr-only">Email address</span>
-            <Input type="email" placeholder={locale === "fr" ? "Votre adresse e-mail" : "Your email address"} />
-            <Button variant="light" ariaLabel={t.footer.subscribe}>
-              <Icon name="arrow" />
-            </Button>
-          </label>
-        </div>
+        <nav className="footer-nav" aria-label="Footer">
+          <div className="footer-nav-col">
+            <Link to="place">{t.nav.places}</Link>
+            <Link to="food">{t.nav.food}</Link>
+            <Link to="experience">{t.nav.experiences}</Link>
+            <Link to="story">{t.nav.stories}</Link>
+          </div>
+          <div className="footer-nav-col">
+            <Link to="explore">{t.nav.explore}</Link>
+            <Link to="trip">{t.footer.plan}</Link>
+            <Link to="saved">{t.footer.savedPlaces}</Link>
+            <ExternalLink href="mailto:hello@bonneassise.bj">{t.footer.contact}</ExternalLink>
+          </div>
+        </nav>
       </div>
-      <div className="footer-bottom">
-        <span>© 2026 Bonne Assise</span>
-        <span>Cotonou · Porto-Novo · Everywhere in between</span>
+
+      <p className="footer-tagline">{tagline}</p>
+
+      <div className="footer-brand">
+        <p className="footer-word-bleed" aria-hidden="true">
+          Bonne&nbsp;Assise
+        </p>
+        <span className="sr-only">Bonne Assise</span>
       </div>
     </footer>
   );

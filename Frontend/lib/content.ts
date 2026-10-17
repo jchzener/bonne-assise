@@ -277,6 +277,7 @@ export const placeCatalog: Record<
     paragraph:
       "Kétou holds layers of Yoruba history in a living town. Walk with attention: fortifications, market days and the quieter spaces where memory is not performed for visitors.",
   },
+
 };
 
 export const editionSets = [
@@ -704,6 +705,7 @@ export const foodCatalog: Record<
     p1: "Sauce arachide travels well across regions because it answers hunger with density: protein, fat, and the patience of slow cooking.",
     p2: "Every household has a version. Ask whose, and you will learn more about the table than any menu can say.",
   },
+
 };
 
 export const experienceCatalog: Record<
@@ -933,6 +935,7 @@ export const experienceCatalog: Record<
     p1: "Evening on Nokoué is less about a viewpoint than about watching work wind down.",
     p2: "Stay long enough for the light to change. Leave before you become the noise.",
   },
+
 };
 
 export const storyCatalog: Record<
@@ -1113,6 +1116,7 @@ export const storyCatalog: Record<
       "Travel plans bend. Food shifts. People speak of the season as a character, not a forecast.",
     ],
   },
+
 };
 
 export const resultItems = [

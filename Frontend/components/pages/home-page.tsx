@@ -1,6 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { photos, foodCycles as foodImageCycles, peopleEntries as peopleImageEntries } from "../../lib/content";
+import {
+  photos,
+  foodCycles as foodImageCycles,
+  peopleEntries as peopleImageEntries,
+} from "../../lib/content";
 import { getMessages } from "../../lib/i18n/messages";
 import type { Locale, Page } from "../../lib/types";
 import {
@@ -77,6 +81,8 @@ function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?
   );
 }
 
+
+
 export function Home({
   saved,
   toggleSaved,
@@ -95,16 +101,20 @@ export function Home({
   const [foodIndex, setFoodIndex] = useState(0);
   const [editionPaused, setEditionPaused] = useState(false);
   const [foodPaused, setFoodPaused] = useState(false);
+  const [eventTab, setEventTab] = useState(0);
   const [upcomingEvents, setUpcomingEvents] = useState<
     Array<{
       id: string;
       title: string;
+      description?: string;
       city: string;
       startsAt: string;
+      endsAt?: string;
       category: string;
       sponsored: boolean;
       sponsorName?: string;
       sourceUrl: string;
+      image?: string;
     }>
   >([]);
 
@@ -113,12 +123,15 @@ export function Home({
   const peopleCopy = (t as any).people?.entries ?? [];
   const ui = (t as any).ui ?? t.home;
 
+  const eventTabKeys = ["all", "food", "culture", "festivals", "activities"] as const;
+
   useEffect(() => {
-    fetch(`/api/events?locale=${locale}`)
+    const tab = eventTabKeys[eventTab] || "all";
+    fetch(`/api/events?locale=${locale}&tab=${tab}`)
       .then((response) => (response.ok ? response.json() : Promise.reject()))
       .then((payload) => setUpcomingEvents(payload.events ?? []))
       .catch(() => setUpcomingEvents([]));
-  }, [locale]);
+  }, [locale, eventTab]);
 
   useEffect(() => {
     if (editionPaused || editionSets.length <= 1) return;
@@ -301,58 +314,71 @@ export function Home({
         </div>
       </Section>
 
-      {/* What's on */}
-      <Section className="whats-on" pad>
-        <SectionHeader
-          eyebrow={t.events.eyebrow}
-          title={t.events.title}
-          titleAccent={t.events.titleAccent}
-          action={
-            <TextLink to="explore">{t.home.seeAllEvents}</TextLink>
-          }
-        />
-        <div className="whats-tabs">
+      {/* What's on — MTL-inspired premium rail */}
+      <Section className="whats-on whats-on--mtl" pad>
+        <div className="whats-mtl-head">
+          <div>
+            <p className="whats-mtl-eyebrow">{t.events.eyebrow}</p>
+            <Heading level={2} className="whats-mtl-title">
+              {t.events.title}
+              {t.events.titleAccent ? <em> {t.events.titleAccent}</em> : null}
+            </Heading>
+          </div>
+          <TextLink to="explore">{t.home.seeAllEvents}</TextLink>
+        </div>
+
+        <div className="whats-tabs whats-tabs--pills" role="tablist" aria-label={t.events.eyebrow}>
           {(t.home.eventTabs || []).map((tab: string, i: number) => (
-            <span key={tab} className={i === 0 ? "active" : ""}>
+            <button
+              key={tab}
+              type="button"
+              role="tab"
+              aria-selected={eventTab === i}
+              className={eventTab === i ? "active" : ""}
+              onClick={() => setEventTab(i)}
+            >
               {tab}
-            </span>
+            </button>
           ))}
         </div>
-        <div className="event-grid">
-          {upcomingEvents.length ? (
-            upcomingEvents.map((event) => (
-              <a
-                key={event.id}
-                href={event.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className={`event-card ${event.sponsored ? "event-sponsored" : ""}`}
-              >
-                <Eyebrow>
-                  {event.category}
-                  {event.sponsored ? ` · ${t.events.sponsored}` : ""}
-                </Eyebrow>
-                <Heading level={3}>{event.title}</Heading>
-                <span>
-                  {event.city} ·{" "}
-                  {new Date(event.startsAt).toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </span>
-                {event.sponsored && event.sponsorName && (
-                  <small>{t.home.presentedWith.replace("{name}", event.sponsorName)}</small>
-                )}
-              </a>
-            ))
-          ) : (
-            <div className="events-empty">
-              <Eyebrow>{t.events.verified}</Eyebrow>
-              <Heading level={3}>{t.events.emptyTitle}</Heading>
-              <p>{t.events.emptyText}</p>
-            </div>
-          )}
+
+        <div className="whats-rail-wrap">
+          <div className="whats-rail" id="whats-rail">
+            {upcomingEvents.length ? (
+              upcomingEvents.slice(0, 8).map((event) => (
+                <a
+                  key={event.id}
+                  href={event.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="whats-card"
+                >
+                  <div className="whats-card-media">
+                    {event.image ? <Image src={event.image} alt="" /> : <span className="whats-card-ph" />}
+                  </div>
+                  <div className="whats-card-body">
+                    <Heading level={3}>{event.title}</Heading>
+                    <div className="whats-card-tags">
+                      <span className="whats-pill">{event.category}</span>
+                      <span className="whats-pill whats-pill--mute">
+                        {event.city} ·{" "}
+                        {new Date(event.startsAt).toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", {
+                          day: "numeric",
+                          month: "short",
+                        })}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))
+            ) : (
+              <div className="events-empty">
+                <Eyebrow>{t.events.verified}</Eyebrow>
+                <Heading level={3}>{t.events.emptyTitle}</Heading>
+                <p>{t.events.emptyText}</p>
+              </div>
+            )}
+          </div>
         </div>
       </Section>
 

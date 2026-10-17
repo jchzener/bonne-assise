@@ -1,0 +1,1 @@
+Place the approved, locally hosted hero video here as `benin-hero.mp4` only after rights clearance. The app currently falls back to a local poster image. See `docs/hero-film-production.md` for the brief and rights checklist.

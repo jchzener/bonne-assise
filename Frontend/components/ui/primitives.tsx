@@ -3,83 +3,19 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import type { Page } from "../../lib/types";
 
-export function Icon({
-  name,
-  size = 20,
-}: {
-  name:
-    | "search"
-    | "heart"
-    | "menu"
-    | "close"
-    | "arrow"
-    | "plus"
-    | "user"
-    | "share"
-    | "check";
-  size?: number;
-}) {
+export function Icon({ name, size = 20 }: { name: "search" | "heart" | "menu" | "close" | "arrow" | "plus" | "user" | "share" | "check"; size?: number }) {
   const paths = {
-    search: (
-      <>
-        <circle cx="11" cy="11" r="7" />
-        <path d="m20 20-4-4" />
-      </>
-    ),
-    heart: (
-      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />
-    ),
-    menu: (
-      <>
-        <path d="M4 7h16M4 17h16" />
-      </>
-    ),
-    close: (
-      <>
-        <path d="m5 5 14 14M19 5 5 19" />
-      </>
-    ),
-    arrow: (
-      <>
-        <path d="M5 12h14M14 7l5 5-5 5" />
-      </>
-    ),
-    plus: (
-      <>
-        <path d="M12 5v14M5 12h14" />
-      </>
-    ),
-    user: (
-      <>
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 21c.6-4.1 3.3-6 8-6s7.4 1.9 8 6" />
-      </>
-    ),
-    share: (
-      <>
-        <circle cx="18" cy="5" r="2.5" />
-        <circle cx="6" cy="12" r="2.5" />
-        <circle cx="18" cy="19" r="2.5" />
-        <path d="m8.2 10.8 7.5-4.4M8.2 13.3l7.5 4.4" />
-      </>
-    ),
+    search: <><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></>,
+    heart: <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" />,
+    menu: <><path d="M4 7h16M4 17h16" /></>,
+    close: <><path d="m5 5 14 14M19 5 5 19" /></>,
+    arrow: <><path d="M5 12h14M14 7l5 5-5 5" /></>,
+    plus: <><path d="M12 5v14M5 12h14" /></>,
+    user: <><circle cx="12" cy="8" r="4" /><path d="M4 21c.6-4.1 3.3-6 8-6s7.4 1.9 8 6" /></>,
+    share: <><circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><path d="m8.2 10.8 7.5-4.4M8.2 13.3l7.5 4.4" /></>,
     check: <path d="m5 12 4 4L19 6" />,
   };
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {paths[name]}
-    </svg>
-  );
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 }
 
 /** BA button system: dark | light | line | icon | primary (blue) | ghost */
@@ -107,12 +43,7 @@ export function Button({
     ghost: "btn btn-line ba-btn-ghost",
   };
   return (
-    <button
-      type={type}
-      className={`${map[variant] || map.dark} ${className}`}
-      onClick={onClick}
-      aria-label={ariaLabel}
-    >
+    <button type={type} className={`${map[variant] || map.dark} ${className}`} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </button>
   );
@@ -185,15 +116,7 @@ export function Link({
   );
 }
 
-export function ExternalLink({
-  children,
-  href,
-  className = "",
-}: {
-  children: React.ReactNode;
-  href: string;
-  className?: string;
-}) {
+export function ExternalLink({ children, href, className = "" }: { children: React.ReactNode; href: string; className?: string }) {
   return (
     <a href={href} className={className} target="_blank" rel="noreferrer">
       {children}
@@ -214,42 +137,14 @@ export function Input({
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }) {
-  return (
-    <input
-      type={type}
-      className={className}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
-  );
+  return <input type={type} className={className} placeholder={placeholder} value={value} onChange={onChange} />;
 }
 
-export function FilterButton({
-  children,
-  active = false,
-  className = "",
-}: {
-  children: React.ReactNode;
-  active?: boolean;
-  className?: string;
-}) {
-  return (
-    <button className={`${active ? "active" : ""} ${className}`}>
-      {children}
-    </button>
-  );
+export function FilterButton({ children, active = false, className = "" }: { children: React.ReactNode; active?: boolean; className?: string }) {
+  return <button className={`${active ? "active" : ""} ${className}`}>{children}</button>;
 }
 
-export function Heading({
-  level = 2,
-  children,
-  className = "",
-}: {
-  level?: 1 | 2 | 3 | 4;
-  children: React.ReactNode;
-  className?: string;
-}) {
+export function Heading({ level = 2, children, className = "" }: { level?: 1 | 2 | 3 | 4; children: React.ReactNode; className?: string }) {
   const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
   return <Tag className={className}>{children}</Tag>;
 }
@@ -277,16 +172,8 @@ export function Image({
   return <img className={className} src={src} alt={alt} loading="lazy" />;
 }
 
-export function Eyebrow({
-  children,
-  light = false,
-}: {
-  children: React.ReactNode;
-  light?: boolean;
-}) {
-  return (
-    <p className={`eyebrow ${light ? "eyebrow-light" : ""}`}>{children}</p>
-  );
+export function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return <p className={`eyebrow ${light ? "eyebrow-light" : ""}`}>{children}</p>;
 }
 
 /** Text link with arrow — BA editorial pattern */
@@ -304,11 +191,7 @@ export function TextLink({
   className?: string;
 }) {
   return (
-    <Link
-      to={to}
-      slug={slug}
-      className={`text-link ${light ? "light-link" : ""} ${className}`}
-    >
+    <Link to={to} slug={slug} className={`text-link ${light ? "light-link" : ""} ${className}`}>
       {children} <Icon name="arrow" />
     </Link>
   );
@@ -328,11 +211,7 @@ export function Section({
   ariaLabel?: string;
 } & React.HTMLAttributes<HTMLElement>) {
   return (
-    <section
-      className={`${className} ${pad ? "section-pad" : ""}`.trim()}
-      aria-label={ariaLabel}
-      {...rest}
-    >
+    <section className={`${className} ${pad ? "section-pad" : ""}`.trim()} aria-label={ariaLabel} {...rest}>
       {children}
     </section>
   );
@@ -388,11 +267,7 @@ export function EditionCard({
   slug?: string | null;
 }) {
   return (
-    <Link
-      to={to}
-      slug={slug || undefined}
-      className={`edition ${tone} edition-cycle`}
-    >
+    <Link to={to} slug={slug || undefined} className={`edition ${tone} edition-cycle`}>
       <span>{label}</span>
       <Heading level={3}>
         {title.split("|").map((line, i) => (
@@ -415,29 +290,16 @@ export function SaveActions({
   toggleSaved: () => void;
   addTrip: () => void;
   added: boolean;
-  labels?: {
-    save: string;
-    saved: string;
-    addTrip: string;
-    addedTrip: string;
-    share: string;
-  };
+  labels?: { save: string; saved: string; addTrip: string; addedTrip: string; share: string };
 }) {
-  const l = labels || {
-    save: "Save",
-    saved: "Saved",
-    addTrip: "Add to trip",
-    addedTrip: "Added to trip",
-    share: "Share",
-  };
+  const l = labels || { save: "Save", saved: "Saved", addTrip: "Add to trip", addedTrip: "Added to trip", share: "Share" };
   return (
     <div className="actions">
       <Button variant="line" onClick={toggleSaved}>
         <Icon name={saved ? "check" : "heart"} /> {saved ? l.saved : l.save}
       </Button>
       <Button onClick={addTrip}>
-        <Icon name={added ? "check" : "plus"} />{" "}
-        {added ? l.addedTrip : l.addTrip}
+        <Icon name={added ? "check" : "plus"} /> {added ? l.addedTrip : l.addTrip}
       </Button>
       <Button variant="icon" ariaLabel={l.share}>
         <Icon name="share" />
