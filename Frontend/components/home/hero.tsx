@@ -93,7 +93,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </h1>
       </div>
 
-      <Link to="explore" className="collage-hero-cta">
+      <Link to="explore" className="ba-btn ba-btn--solid ba-btn--inverse collage-hero-cta">
         <span>{cta}</span>
         <span className="collage-hero-cta-arrow" aria-hidden="true">
           <Icon name="arrow" size={15} />

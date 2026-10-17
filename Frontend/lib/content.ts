@@ -12,22 +12,15 @@ export const photos = {
     "https://commons.wikimedia.org/wiki/Special:FilePath/Couscous_au_fromage_wagassi.jpg?width=1400",
   amiwo:
     "https://commons.wikimedia.org/wiki/Special:FilePath/Un_plats_d%27amiwo_au_poisson_au_benin.jpg?width=1400",
-  market:
-    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1800&q=85",
-  street:
-    "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1800&q=85",
-  cook: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=85",
-  women:
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=85",
-  grill:
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85",
-  coast:
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85",
-  boats:
-    "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=85",
-  fisherman:
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=85",
-  city: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=85",
+  market: "/images/benin/so-ava-1024x575.jpg.jpeg",
+  street: "/images/benin/ouidah-1024x683.jpg.jpeg",
+  cook: "/images/benin/cotonou-3-1024x575.jpg.jpeg",
+  women: "/images/benin/so-ava-1024x575.jpg.jpeg",
+  grill: "/images/benin/cotonou-3-1024x575.jpg.jpeg",
+  coast: "/images/benin/grand-popo-1024x576.jpg.jpeg",
+  boats: "/images/benin/ganvie-1536x864.jpg.jpeg",
+  fisherman: "/images/benin/ganvie-1536x864.jpg.jpeg",
+  city: "/images/benin/porto-novo-1-1024x683.jpg.jpeg",
   waterfall:
     "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1600&q=85",
   wildlife:
@@ -449,14 +442,14 @@ export const peopleEntries = [
   [
     "Cook · Cotonou",
     "Rosine sees a market as a kitchen without walls.",
-    photos.women,
+    photos.cotonou,
   ],
-  ["Fisherman · Lake Nokoué", "Koffi, keeper of the water.", photos.fisherman],
-  ["Maker · Natitingou", "Aïssatou works the old way, by hand.", photos.cook],
+  ["Fisherman · Lake Nokoué", "Koffi, keeper of the water.", photos.ganvie],
+  ["Maker · Natitingou", "Aïssatou works the old way, by hand.", photos.natitingou],
   [
     "Guide · Ouidah",
     "Désiré knows where the road changes character.",
-    photos.street,
+    photos.ouidah,
   ],
 ];
 

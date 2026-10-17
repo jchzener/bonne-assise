@@ -19,31 +19,40 @@ export function Icon({ name, size = 20 }: { name: "search" | "heart" | "menu" | 
 }
 
 /** BA button system: dark | light | line | icon | primary (blue) | ghost */
+/** BA buttons: solid | outline | text | icon (+ legacy aliases) */
 export function Button({
   children,
   onClick,
-  variant = "dark",
+  variant = "solid",
   ariaLabel,
   className = "",
   type = "button",
 }: {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: "dark" | "light" | "line" | "icon" | "primary" | "ghost";
+  variant?: "solid" | "outline" | "text" | "icon" | "dark" | "light" | "line" | "ghost" | "primary";
   ariaLabel?: string;
   className?: string;
   type?: "button" | "submit";
 }) {
   const map: Record<string, string> = {
-    dark: "btn btn-dark",
-    light: "btn btn-light",
-    line: "btn btn-line",
-    icon: "btn btn-icon",
-    primary: "btn btn-dark ba-btn-primary",
-    ghost: "btn btn-line ba-btn-ghost",
+    solid: "ba-btn ba-btn--solid",
+    outline: "ba-btn ba-btn--outline",
+    text: "ba-btn ba-btn--text",
+    icon: "ba-btn ba-btn--icon",
+    dark: "ba-btn ba-btn--solid",
+    light: "ba-btn ba-btn--solid ba-btn--inverse",
+    line: "ba-btn ba-btn--outline",
+    ghost: "ba-btn ba-btn--text",
+    primary: "ba-btn ba-btn--solid",
   };
   return (
-    <button type={type} className={`${map[variant] || map.dark} ${className}`} onClick={onClick} aria-label={ariaLabel}>
+    <button
+      type={type}
+      className={`${map[variant] || map.solid} ${className}`.trim()}
+      onClick={onClick}
+      aria-label={ariaLabel}
+    >
       {children}
     </button>
   );
@@ -176,7 +185,7 @@ export function Eyebrow({ children, light = false }: { children: React.ReactNode
   return <p className={`eyebrow ${light ? "eyebrow-light" : ""}`}>{children}</p>;
 }
 
-/** Text link with arrow — BA editorial pattern */
+/** Text link with arrow — BA tertiary CTA */
 export function TextLink({
   children,
   to,
@@ -191,8 +200,40 @@ export function TextLink({
   className?: string;
 }) {
   return (
-    <Link to={to} slug={slug} className={`text-link ${light ? "light-link" : ""} ${className}`}>
-      {children} <Icon name="arrow" />
+    <Link
+      to={to}
+      slug={slug}
+      className={`ba-btn ba-btn--text text-link ${light ? "ba-btn--on-dark light-link" : ""} ${className}`.trim()}
+    >
+      <span>{children}</span> <Icon name="arrow" size={14} />
+    </Link>
+  );
+}
+
+/** Link styled as BA button (solid | outline | text) */
+export function ButtonLink({
+  children,
+  to,
+  slug,
+  variant = "solid",
+  className = "",
+  ariaLabel,
+}: {
+  children: React.ReactNode;
+  to: Page;
+  slug?: string;
+  variant?: "solid" | "outline" | "text";
+  className?: string;
+  ariaLabel?: string;
+}) {
+  return (
+    <Link
+      to={to}
+      slug={slug}
+      className={`ba-btn ba-btn--${variant} ${className}`.trim()}
+      ariaLabel={ariaLabel}
+    >
+      {children}
     </Link>
   );
 }

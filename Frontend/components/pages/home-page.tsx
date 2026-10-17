@@ -22,20 +22,30 @@ import {
 } from "../ui/primitives";
 import { HomeHero } from "../home/hero";
 
-
-function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?: string[] }) {
+function NewsBand({
+  locale,
+  excludeSlugs = [],
+}: {
+  locale: Locale;
+  excludeSlugs?: string[];
+}) {
   const t = getMessages(locale);
   const news = (t.home as any).news;
-  const raw: Array<{ label: string; text: string; cta: string; to: Page; slug?: string }> =
-    news?.items || [
-      {
-        label: t.home.tickerLabel,
-        text: t.home.ticker,
-        cta: t.home.tickerLink,
-        to: "story" as Page,
-        slug: "early-light",
-      },
-    ];
+  const raw: Array<{
+    label: string;
+    text: string;
+    cta: string;
+    to: Page;
+    slug?: string;
+  }> = news?.items || [
+    {
+      label: t.home.tickerLabel,
+      text: t.home.ticker,
+      cta: t.home.tickerLink,
+      to: "story" as Page,
+      slug: "early-light",
+    },
+  ];
   // CPO: never surface the same destination as the edition cards above
   const exclude = new Set(excludeSlugs.filter(Boolean));
   const items = raw.filter((item) => !item.slug || !exclude.has(item.slug));
@@ -47,7 +57,10 @@ function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?
 
   useEffect(() => {
     if (items.length <= 1) return;
-    const id = window.setInterval(() => setActive((i) => (i + 1) % items.length), 7000);
+    const id = window.setInterval(
+      () => setActive((i) => (i + 1) % items.length),
+      7000,
+    );
     return () => window.clearInterval(id);
   }, [items.length]);
 
@@ -55,7 +68,11 @@ function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?
   if (!item) return null;
 
   return (
-    <div className="news-band" aria-label={news?.aria || "From the field"} aria-live="polite">
+    <div
+      className="news-band"
+      aria-label={news?.aria || "From the field"}
+      aria-live="polite"
+    >
       <div className="news-band-inner">
         <span className="news-band-label">{item.label}</span>
         <p className="news-band-text">{item.text}</p>
@@ -64,7 +81,11 @@ function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?
         </Link>
       </div>
       {items.length > 1 && (
-        <div className="news-band-dots" role="tablist" aria-label={news?.aria || "News"}>
+        <div
+          className="news-band-dots"
+          role="tablist"
+          aria-label={news?.aria || "News"}
+        >
           {items.map((_, i) => (
             <button
               key={i}
@@ -80,8 +101,6 @@ function NewsBand({ locale, excludeSlugs = [] }: { locale: Locale; excludeSlugs?
     </div>
   );
 }
-
-
 
 export function Home({
   saved,
@@ -123,7 +142,13 @@ export function Home({
   const peopleCopy = (t as any).people?.entries ?? [];
   const ui = (t as any).ui ?? t.home;
 
-  const eventTabKeys = ["all", "food", "culture", "festivals", "activities"] as const;
+  const eventTabKeys = [
+    "all",
+    "food",
+    "culture",
+    "festivals",
+    "activities",
+  ] as const;
 
   useEffect(() => {
     const tab = eventTabKeys[eventTab] || "all";
@@ -135,13 +160,19 @@ export function Home({
 
   useEffect(() => {
     if (editionPaused || editionSets.length <= 1) return;
-    const timer = window.setInterval(() => setEditionIndex((i) => (i + 1) % editionSets.length), 8000);
+    const timer = window.setInterval(
+      () => setEditionIndex((i) => (i + 1) % editionSets.length),
+      8000,
+    );
     return () => window.clearInterval(timer);
   }, [editionPaused, editionSets.length]);
 
   useEffect(() => {
     if (foodPaused || foodCopy.length <= 1) return;
-    const timer = window.setInterval(() => setFoodIndex((i) => (i + 1) % foodCopy.length), 9000);
+    const timer = window.setInterval(
+      () => setFoodIndex((i) => (i + 1) % foodCopy.length),
+      9000,
+    );
     return () => window.clearInterval(timer);
   }, [foodPaused, foodCopy.length]);
 
@@ -177,7 +208,11 @@ export function Home({
             slug={card.slug}
           />
         ))}
-        <Link to="explore" className="edition edition-index" aria-label={(t as any).editions?.indexLabel || t.home.indexLabel}>
+        <Link
+          to="explore"
+          className="edition edition-index"
+          aria-label={(t as any).editions?.indexLabel || t.home.indexLabel}
+        >
           <span>{(t as any).editions?.indexLabel || t.home.indexLabel}</span>
           <Heading level={3}>
             {((t as any).editions?.indexTitle || t.home.indexTitle || "SEE|ALL")
@@ -193,12 +228,13 @@ export function Home({
       {/* From the field — rotating editorial signals */}
       <NewsBand
         locale={locale}
-        excludeSlugs={(editionSets[editionIndex] || []).map((c: any) => c.slug).filter(Boolean)}
+        excludeSlugs={(editionSets[editionIndex] || [])
+          .map((c: any) => c.slug)
+          .filter(Boolean)}
       />
 
       {/* Intent */}
       <Section className="intent" pad>
-        <Eyebrow>{t.home.intentEyebrow}</Eyebrow>
         <div className="intent-row">
           <span>{t.home.intentLead}</span>
           <div className="intent-links">
@@ -214,7 +250,6 @@ export function Home({
       <Section className="feature-place" pad>
         <div className="feature-grid">
           <div className="feature-copy">
-            <Eyebrow>{t.home.featureEyebrow}</Eyebrow>
             <Heading level={2}>{t.home.featureTitle}</Heading>
             <p>{t.home.featureBody}</p>
             <TextLink to="place" slug="porto-novo">
@@ -236,7 +271,6 @@ export function Home({
       >
         <div className="food-intro section-pad">
           <div>
-            <Eyebrow light>{t.home.foodEyebrow}</Eyebrow>
             <Heading level={2}>{t.home.foodTitle}</Heading>
           </div>
           <p>{t.home.foodBody}</p>
@@ -250,7 +284,6 @@ export function Home({
             <span>{food.title}</span>
           </div>
           <div className="food-connections">
-            <Eyebrow light>{food.intro}</Eyebrow>
             <div className="food-path-list">
               {(food.paths || []).map((path: string, i: number) => (
                 <div className="food-path" key={path}>
@@ -259,7 +292,7 @@ export function Home({
                 </div>
               ))}
             </div>
-            <TextLink to="food" slug="wagassi" light>
+            <TextLink to="food" light>
               {food.link}
             </TextLink>
             <div className="cycle-dots" aria-label={t.home.foodSelector}>
@@ -276,44 +309,52 @@ export function Home({
         </div>
       </Section>
 
-      {/* People */}
-      <Section className="people" pad>
-        <div className="people-heading">
-          <div>
-            <Eyebrow>{t.home.peopleEyebrow}</Eyebrow>
-            <Heading level={2}>{t.home.peopleTitle}</Heading>
-          </div>
+      {/* People — editorial feature + filmstrip */}
+      <Section className="people people--editorial" pad>
+        <div className="people-intro">
+          <Heading level={2}>{t.home.peopleTitle}</Heading>
           <p>{t.home.peopleBody}</p>
         </div>
-        <div className="people-layout">
-          {people[0] && (
-            <Link to="story" slug="rosine-cooks" className="person-main">
+        {people[0] && (
+          <Link to="story" slug="rosine-cooks" className="people-feature">
+            <div className="people-feature-media">
               <Image src={people[0].image} alt={people[0].title} />
-              <div>
-                <Eyebrow>{people[0].meta}</Eyebrow>
-                <Heading level={3}>{people[0].title}</Heading>
-                <span className="text-link">
-                  {t.home.meetPerson.replace("{name}", people[0].ctaName || people[0].title.split(" ")[0])}{" "}
-                  <Icon name="arrow" />
-                </span>
-              </div>
-            </Link>
-          )}
-          <div className="person-side-list">
-            {people.slice(1).map((person: any) => (
-              <Link to="story" slug="rosine-cooks" className="person-side" key={person.title}>
+            </div>
+            <div className="people-feature-copy">
+              <p className="person-meta">{people[0].meta}</p>
+              <Heading level={3}>{people[0].title}</Heading>
+              <span className="ba-btn ba-btn--solid ba-btn--inverse">
+                {t.home.meetPerson.replace(
+                  "{name}",
+                  people[0].ctaName || people[0].title.split(" ")[0],
+                )}{" "}
+                <Icon name="arrow" size={14} />
+              </span>
+            </div>
+          </Link>
+        )}
+        <div className="people-strip">
+          {people.slice(1).map((person: any) => (
+            <Link
+              to="story"
+              slug="rosine-cooks"
+              className="people-strip-item"
+              key={person.title}
+            >
+              <div className="people-strip-media">
                 <Image src={person.image} alt={person.title} />
-                <Eyebrow>{person.meta}</Eyebrow>
-                <Heading level={3}>{person.title}</Heading>
-              </Link>
-            ))}
-            <TextLink to="story" slug="rosine-cooks" className="people-all">
-              {t.home.seeAllPeople}
-            </TextLink>
-          </div>
+              </div>
+              <p className="person-meta">{person.meta}</p>
+              <Heading level={3}>{person.title}</Heading>
+            </Link>
+          ))}
+          <TextLink to="story" slug="rosine-cooks" className="people-all">
+            {t.home.seeAllPeople}
+          </TextLink>
         </div>
       </Section>
 
+      {/* What's on — MTL-inspired premium rail */}
       {/* What's on — MTL-inspired premium rail */}
       <Section className="whats-on whats-on--mtl" pad>
         <div className="whats-mtl-head">
@@ -327,7 +368,11 @@ export function Home({
           <TextLink to="explore">{t.home.seeAllEvents}</TextLink>
         </div>
 
-        <div className="whats-tabs whats-tabs--pills" role="tablist" aria-label={t.events.eyebrow}>
+        <div
+          className="whats-tabs whats-tabs--pills"
+          role="tablist"
+          aria-label={t.events.eyebrow}
+        >
           {(t.home.eventTabs || []).map((tab: string, i: number) => (
             <button
               key={tab}
@@ -343,6 +388,28 @@ export function Home({
         </div>
 
         <div className="whats-rail-wrap">
+          <button
+            type="button"
+            className="whats-rail-nav whats-rail-nav--prev"
+            aria-label={locale === "fr" ? "Précédent" : "Previous"}
+            onClick={() => {
+              const el = document.getElementById("whats-rail");
+              if (el) el.scrollBy({ left: -340, behavior: "smooth" });
+            }}
+          >
+            <Icon name="arrow" size={16} />
+          </button>
+          <button
+            type="button"
+            className="whats-rail-nav whats-rail-nav--next"
+            aria-label={locale === "fr" ? "Suivant" : "Next"}
+            onClick={() => {
+              const el = document.getElementById("whats-rail");
+              if (el) el.scrollBy({ left: 340, behavior: "smooth" });
+            }}
+          >
+            <Icon name="arrow" size={16} />
+          </button>
           <div className="whats-rail" id="whats-rail">
             {upcomingEvents.length ? (
               upcomingEvents.slice(0, 8).map((event) => (
@@ -354,7 +421,11 @@ export function Home({
                   className="whats-card"
                 >
                   <div className="whats-card-media">
-                    {event.image ? <Image src={event.image} alt="" /> : <span className="whats-card-ph" />}
+                    {event.image ? (
+                      <Image src={event.image} alt="" />
+                    ) : (
+                      <span className="whats-card-ph" />
+                    )}
                   </div>
                   <div className="whats-card-body">
                     <Heading level={3}>{event.title}</Heading>
@@ -362,10 +433,13 @@ export function Home({
                       <span className="whats-pill">{event.category}</span>
                       <span className="whats-pill whats-pill--mute">
                         {event.city} ·{" "}
-                        {new Date(event.startsAt).toLocaleDateString(locale === "fr" ? "fr-FR" : "en-GB", {
-                          day: "numeric",
-                          month: "short",
-                        })}
+                        {new Date(event.startsAt).toLocaleDateString(
+                          locale === "fr" ? "fr-FR" : "en-GB",
+                          {
+                            day: "numeric",
+                            month: "short",
+                          },
+                        )}
                       </span>
                     </div>
                   </div>
@@ -386,7 +460,6 @@ export function Home({
       <Section className="experience-band">
         <Image src={photos.coast} alt={t.home.experienceAlt} />
         <div className="experience-overlay">
-          <Eyebrow light>{t.home.experienceEyebrow}</Eyebrow>
           <Heading level={2}>{t.home.experienceTitle}</Heading>
           <p>{t.home.experienceBody}</p>
           <div className="experience-meta">
@@ -410,49 +483,95 @@ export function Home({
         </div>
       </Section>
 
-      {/* Plan */}
-      <Section className="plan" pad>
-        <div className="plan-collage">
-          <Image src={photos.city} alt={t.home.planAltCity} />
-          <Image src={photos.cook} alt={t.home.planAltCook} />
-          <div className="saved-stamp">
-            <Icon name="heart" />
-            <span style={{ whiteSpace: "pre-line" }}>{t.home.savedStamp}</span>
-          </div>
+      {/* Plan — full-bleed image band + panel */}
+      <Section className="plan plan--band">
+        <div className="plan-band-media" aria-hidden>
+          <Image src={photos.grandPopo} alt="" />
+          <div className="plan-band-shade" />
         </div>
-        <div className="plan-copy">
-          <Eyebrow>{t.home.planEyebrow}</Eyebrow>
-          <Heading level={2}>{t.home.planTitle}</Heading>
-          <p>{t.home.planBody}</p>
-          <Link to="trip" className="btn btn-dark">
-            {t.home.planCta} <Icon name="arrow" />
-          </Link>
+        <div className="plan-band-inner section-pad">
+          <div className="plan-band-copy">
+            <Heading level={2}>{t.home.planTitle}</Heading>
+            <p>{t.home.planBody}</p>
+            <div className="plan-actions">
+              <Link to="trip" className="ba-btn ba-btn--solid ba-btn--inverse">
+                {t.home.planCta} <Icon name="arrow" size={14} />
+              </Link>
+              <Link
+                to="saved"
+                className="ba-btn ba-btn--outline ba-btn--on-dark"
+              >
+                {t.home.saved || "Saved"}
+              </Link>
+            </div>
+          </div>
         </div>
       </Section>
 
-      {/* Latest stories */}
-      <Section className="latest" pad>
-        <SectionHeader
-          eyebrow={t.home.storiesEyebrow}
-          title={t.home.storiesTitle}
-          action={<TextLink to="story" slug="early-light">{t.home.storiesCta}</TextLink>}
-        />
-        <Link to="story" slug="early-light" className="story-row">
-          <div>
-            <Eyebrow>{t.home.storyMetaOne}</Eyebrow>
-            <Heading level={3}>{t.home.storyOne}</Heading>
+      {/* Stories — magazine feature + stack */}
+      <Section className="latest latest--mag" pad>
+        <div className="latest-head">
+          <Heading level={2}>{t.home.storiesTitle}</Heading>
+          <TextLink to="story" slug="early-light">
+            {t.home.storiesCta}
+          </TextLink>
+        </div>
+        <div className="stories-mag">
+          <Link to="story" slug="early-light" className="stories-mag-feature">
+            <div className="stories-mag-feature-media">
+              <Image src={photos.cotonou} alt={t.home.storyOne} />
+            </div>
+            <div className="stories-mag-feature-copy">
+              <span className="story-meta">{t.home.storyMetaOne}</span>
+              <Heading level={3}>{t.home.storyOne}</Heading>
+              <span className="ba-btn ba-btn--text">
+                {locale === "fr" ? "Lire" : "Read"}{" "}
+                <Icon name="arrow" size={14} />
+              </span>
+            </div>
+          </Link>
+          <div className="stories-mag-stack">
+            <Link to="story" slug="market-names" className="stories-mag-item">
+              <div className="stories-mag-item-media">
+                <Image src={photos.ganvie} alt={t.home.storyTwo} />
+              </div>
+              <div>
+                <span className="story-meta">{t.home.storyMetaTwo}</span>
+                <Heading level={3}>{t.home.storyTwo}</Heading>
+              </div>
+            </Link>
+            <Link to="story" slug="rosine-cooks" className="stories-mag-item">
+              <div className="stories-mag-item-media">
+                <Image src={photos.ouidah} alt="Rosine" />
+              </div>
+              <div>
+                <span className="story-meta">
+                  {locale === "fr" ? "Portrait · 7 min" : "Portrait · 7 min"}
+                </span>
+                <Heading level={3}>
+                  {locale === "fr"
+                    ? "Rosine lit le marché comme une cuisine"
+                    : "Rosine reads the market as a kitchen"}
+                </Heading>
+              </div>
+            </Link>
+            <Link to="story" slug="early-light" className="stories-mag-item">
+              <div className="stories-mag-item-media">
+                <Image src={photos.portoNovo} alt="Porto-Novo" />
+              </div>
+              <div>
+                <span className="story-meta">
+                  {locale === "fr" ? "Lieu · 5 min" : "Place · 5 min"}
+                </span>
+                <Heading level={3}>
+                  {locale === "fr"
+                    ? "Porto-Novo avant le petit déjeuner"
+                    : "Porto-Novo before breakfast"}
+                </Heading>
+              </div>
+            </Link>
           </div>
-          <Image src={photos.market} alt={t.home.marketAlt} />
-          <Icon name="arrow" />
-        </Link>
-        <Link to="story" slug="market-names" className="story-row">
-          <div>
-            <Eyebrow>{t.home.storyMetaTwo}</Eyebrow>
-            <Heading level={3}>{t.home.storyTwo}</Heading>
-          </div>
-          <Image src={photos.women} alt={t.home.womenAlt} />
-          <Icon name="arrow" />
-        </Link>
+        </div>
       </Section>
     </main>
   );

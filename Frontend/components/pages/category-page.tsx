@@ -9,7 +9,7 @@ import {
 } from "../../lib/content";
 import { getMessages } from "../../lib/i18n/messages";
 import type { Locale, Page } from "../../lib/types";
-import { Link, Heading, Image, Eyebrow } from "../ui/primitives";
+import { Link, Heading, Image } from "../ui/primitives";
 
 export type CategoryKind = "food" | "experience" | "story" | "place";
 
@@ -131,7 +131,7 @@ export function CategoryIndex({ kind }: { kind: CategoryKind }) {
               <Image src={featured.image} alt={featured.title} />
             </Link>
             <div className="cat-mtl-hero-caption">
-              <Eyebrow>{featured.sub}</Eyebrow>
+              <p className="cat-mtl-card-meta">{featured.sub}</p>
               <Link to={to} slug={featured.slug}>
                 <Heading level={3}>{featured.title}</Heading>
               </Link>
@@ -159,8 +159,13 @@ export function CategoryIndex({ kind }: { kind: CategoryKind }) {
           <Heading level={2}>{locale === "fr" ? "À découvrir" : "Discover"}</Heading>
         </div>
         <div className="cat-mtl-grid">
-          {items.map((item) => (
-            <Link key={item.slug} to={to} slug={item.slug} className="cat-mtl-card">
+          {items.map((item, i) => (
+            <Link
+              key={item.slug}
+              to={to}
+              slug={item.slug}
+              className={`cat-mtl-card${i === 0 ? " cat-mtl-card--feature" : ""}${i === 3 ? " cat-mtl-card--tall" : ""}`}
+            >
               <div className="cat-mtl-card-media">
                 <Image src={item.image} alt={item.title} />
               </div>

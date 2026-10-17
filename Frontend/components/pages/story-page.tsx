@@ -56,7 +56,7 @@ export function Story({ slug = "rosine-cooks" }: { slug?: string }) {
         <Eyebrow>{s.endEyebrow || "Continue the journey"}</Eyebrow>
         <Heading level={2}>{s.endTitle || "Keep exploring"}</Heading>
         <p>{s.endBody || ""}</p>
-        <Link to="experience" slug="after-dark" className="btn btn-light">
+        <Link to="experience" slug="after-dark" className="ba-btn ba-btn--solid ba-btn--inverse">
           {s.endCta || "Discover an experience"} <Icon name="arrow" />
         </Link>
       </section>
